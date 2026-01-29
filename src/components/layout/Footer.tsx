@@ -1,0 +1,79 @@
+import Link from 'next/link';
+import { Phone, Mail, MapPin } from 'lucide-react';
+
+export default function Footer() {
+  return (
+    <footer className="bg-iaso-text text-white">
+      <div className="container-iaso py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Company Info */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4 text-white">IASO FOREST</h3>
+            <p className="text-white/70 mb-4">
+              치유와 힐링의 프리미엄 전원마을
+            </p>
+            <p className="text-sm text-white/50">
+              © 2026 Iaso Forest. All rights reserved.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-white">바로가기</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/about" className="text-white/70 hover:text-iaso-gold transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery" className="text-white/70 hover:text-iaso-gold transition-colors">
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link href="/guide" className="text-white/70 hover:text-iaso-gold transition-colors">
+                  입주 가이드
+                </Link>
+              </li>
+              <li>
+                <Link href="/location" className="text-white/70 hover:text-iaso-gold transition-colors">
+                  오시는 길
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-white">연락처</h4>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-3 text-white/70">
+                <Phone size={18} className="text-iaso-gold" />
+                <span>1588-0000</span>
+              </li>
+              <li className="flex items-center gap-3 text-white/70">
+                <Mail size={18} className="text-iaso-gold" />
+                <span>info@iasoforest.com</span>
+              </li>
+              <li className="flex items-start gap-3 text-white/70">
+                <MapPin size={18} className="text-iaso-gold mt-1" />
+                <span>경기도 양평군 [상세주소]</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Business Hours */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-white">상담 안내</h4>
+            <ul className="space-y-2 text-white/70">
+              <li>평일: 09:00 - 18:00</li>
+              <li>주말/공휴일: 10:00 - 17:00</li>
+              <li className="text-iaso-gold mt-4">현장 방문은 예약제로 운영됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

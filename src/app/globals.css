@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #2C5F2D;
+  --color-secondary: #D4C4A8;
+  --color-accent: #C9A96E;
+  --color-text: #2C3E50;
+  --color-background: #F9F9F7;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-iaso-bg text-iaso-text;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-iaso-text;
+  }
+
+  a {
+    @apply text-iaso-green transition-colors hover:text-iaso-green-600;
+  }
+
+  ::selection {
+    @apply bg-iaso-green text-white;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-iaso-green outline-offset-2;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-iaso font-medium text-base transition-all duration-300 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-iaso-green text-white hover:bg-iaso-green-600;
+  }
+
+  .btn-secondary {
+    @apply bg-iaso-beige text-iaso-text hover:bg-iaso-beige-500;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border-2 border-iaso-green text-iaso-green hover:bg-iaso-green hover:text-white;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-iaso-sm overflow-hidden transition-all duration-300 hover:shadow-iaso hover:-translate-y-1;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 rounded-iaso border border-iaso-beige-400 text-base transition-all duration-200 focus:outline-none focus:border-iaso-green focus:ring-2 focus:ring-iaso-green-100;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .container-iaso {
+    @apply max-w-[1280px] mx-auto px-4 md:px-8;
+  }
+}
+
+@layer utilities {
+  .text-gradient-iaso {
+    @apply bg-gradient-to-r from-iaso-green to-iaso-green-400 bg-clip-text text-transparent;
+  }
+
+  .touch-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
