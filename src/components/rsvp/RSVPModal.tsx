@@ -1,16 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import { X, Send, CheckCircle } from 'lucide-react';
+import { X, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 interface RSVPModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+// n8n Webhook URL
+const N8N_WEBHOOK_URL = 'https://n8n.kjyoo.cloud/webhook/iaso-lead';
+
 export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -22,23 +26,43 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setIsError(false);
 
-    // TODO: n8n Webhook 연동
-    // const webhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
-    // await fetch(webhookUrl, { method: 'POST', body: JSON.stringify(formData) });
+    try {
+      // n8n Webhook으로 데이터 전송
+      const response = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email || null,
+          visit_date: formData.visitDate,
+          message: formData.message || null,
+          source: 'website',
+        }),
+      });
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+      if (!response.ok) {
+        throw new Error('서버 응답 오류');
+      }
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
+      setIsSubmitting(false);
+      setIsSuccess(true);
 
-    // Reset and close after success
-    setTimeout(() => {
-      setIsSuccess(false);
-      setFormData({ name: '', phone: '', email: '', visitDate: '', message: '' });
-      onClose();
-    }, 2000);
+      // Reset and close after success
+      setTimeout(() => {
+        setIsSuccess(false);
+        setFormData({ name: '', phone: '', email: '', visitDate: '', message: '' });
+        onClose();
+      }, 2000);
+    } catch (error) {
+      console.error('예약 접수 실패:', error);
+      setIsSubmitting(false);
+      setIsError(true);
+    }
   };
 
   if (!isOpen) return null;
@@ -70,6 +94,20 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
               <p className="text-iaso-text-light">
                 빠른 시일 내에 연락드리겠습니다.
               </p>
+            </div>
+          ) : isError ? (
+            <div className="text-center py-8">
+              <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">접수에 실패했습니다</h3>
+              <p className="text-iaso-text-light mb-4">
+                잠시 후 다시 시도해주세요.
+              </p>
+              <button
+                onClick={() => setIsError(false)}
+                className="btn btn-secondary"
+              >
+                다시 시도
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
