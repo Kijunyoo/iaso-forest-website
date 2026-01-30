@@ -19,25 +19,32 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
+      {/* Overlay - 배경 어둡게만 (프레임 없음) */}
+      <div className="absolute inset-0 bg-black/40" />
 
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up">
+      {/* Content - 텍스트 그림자로 가독성 향상 */}
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <h1
+          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up text-white"
+          style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)' }}
+        >
           다시는 없을<br />
           좋은 전원주택지입니다
         </h1>
-        <p className="text-lg md:text-xl lg:text-2xl mb-10 opacity-90 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <p
+          className="text-lg md:text-xl lg:text-2xl mb-10 animate-fade-in-up text-white"
+          style={{ animationDelay: '0.2s', textShadow: '1px 1px 6px rgba(0,0,0,0.8)' }}
+        >
           치유와 힐링의 프리미엄 전원마을, 이아소 포레스트
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <button className="btn btn-primary text-lg px-8 py-4">
+          <button className="btn btn-primary text-lg px-8 py-4 shadow-lg">
             상담 예약
           </button>
           <button
             onClick={scrollToContent}
-            className="btn bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 hover:bg-white hover:text-iaso-green text-lg px-8 py-4"
+            className="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-iaso-green text-lg px-8 py-4 shadow-lg"
+            style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}
           >
             단지 둘러보기
           </button>
