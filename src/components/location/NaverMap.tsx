@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Marker {
   id: string;
@@ -18,10 +18,11 @@ interface NaverMapProps {
   variant?: 'wide' | 'detail';
 }
 
-// 네이버 지도 타입 선언
+// 네이버 지도 타입 선언 (any 타입 사용)
 declare global {
   interface Window {
-    naver: typeof naver;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    naver: any;
   }
 }
 
@@ -40,7 +41,9 @@ export default function NaverMap({
   variant = 'detail',
 }: NaverMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<naver.maps.Map | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const mapInstanceRef = useRef<any>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // 네이버 지도 스크립트가 없으면 동적으로 로드
@@ -57,7 +60,7 @@ export default function NaverMap({
     function initMap() {
       if (!mapRef.current || !window.naver) return;
 
-      const mapOptions: naver.maps.MapOptions = {
+      const mapOptions = {
         center: new window.naver.maps.LatLng(center.lat, center.lng),
         zoom: zoom,
         zoomControl: true,
@@ -68,6 +71,7 @@ export default function NaverMap({
 
       const map = new window.naver.maps.Map(mapRef.current, mapOptions);
       mapInstanceRef.current = map;
+      setIsLoaded(true);
 
       // 마커 추가
       markers.forEach((marker) => {
@@ -134,7 +138,7 @@ export default function NaverMap({
         className="bg-gray-100"
       />
       {/* 로딩 상태 표시 */}
-      {!window?.naver && (
+      {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
           <div className="text-gray-500">지도를 불러오는 중...</div>
         </div>
