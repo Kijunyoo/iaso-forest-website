@@ -19,18 +19,8 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Overlay - 배경 어둡게만 (프레임 없음) */}
-      <div className="absolute inset-0 bg-black/40" />
-
       {/* Content - 텍스트 그림자로 가독성 향상 */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up text-white"
-          style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)' }}
-        >
-          다시는 없을<br />
-          좋은 전원주택지입니다
-        </h1>
         <p
           className="text-lg md:text-xl lg:text-2xl mb-10 animate-fade-in-up text-white"
           style={{ animationDelay: '0.2s', textShadow: '1px 1px 6px rgba(0,0,0,0.8)' }}
