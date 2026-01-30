@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import PageHero from '@/components/common/PageHero';
 import GalleryGrid from '@/components/gallery/GalleryGrid';
-import RSVPModal from '@/components/rsvp/RSVPModal';
 
 // 갤러리 이미지 데이터
 const galleryImages = [
@@ -152,7 +151,6 @@ const categories = [
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -201,16 +199,11 @@ export default function GalleryPage() {
             직접 방문하셔서 청정 자연의 공기와 숲의 품을 느껴보세요.
             현장 방문 예약을 도와드립니다.
           </p>
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="btn bg-iaso-green text-white hover:bg-iaso-green-600 px-8 py-3 rounded-iaso shadow-iaso"
-          >
+          <button className="btn bg-iaso-green text-white hover:bg-iaso-green-600 px-8 py-3 rounded-iaso shadow-iaso">
             현장 방문 예약
           </button>
         </div>
       </section>
-
-      <RSVPModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }
