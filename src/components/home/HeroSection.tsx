@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import RSVPModal from '@/components/rsvp/RSVPModal';
 
-// Cloudinary 원본 이미지 (auckbce2nunrd7syzx2w.jpg)
-const HERO_IMAGE = 'https://res.cloudinary.com/dp79vfxyf/image/upload/q_auto,f_auto/v1768041699/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/auckbce2nunrd7syzx2w.jpg';
+// Cloudinary 비디오 배경 및 포스터 이미지
+const HERO_VIDEO = 'https://res.cloudinary.com/dp79vfxyf/video/upload/q_auto/v1769817027/iaso_forest/hero/hero_forest_bg.mp4';
+const HERO_POSTER = 'https://res.cloudinary.com/dp79vfxyf/image/upload/q_auto,f_auto/v1768041699/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/auckbce2nunrd7syzx2w.jpg';
 
 export default function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,13 +17,17 @@ export default function HeroSection() {
   return (
     <>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('${HERO_IMAGE}')`,
-          }}
-        />
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={HERO_POSTER}
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={HERO_VIDEO} type="video/mp4" />
+        </video>
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
