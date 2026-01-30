@@ -1,7 +1,8 @@
 'use client';
 
-// Cloudinary 이미지 URL
-const HERO_IMAGE = 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041702/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/auckbce2nunrd7syzx2w.jpg';
+// Cloudinary 이미지 URL (blur_score: 1982.98 - 매우 선명)
+// 최적화: e_improve(자동개선), q_auto:best(최고품질), f_auto(WebP자동변환)
+const HERO_IMAGE = 'https://res.cloudinary.com/dp79vfxyf/image/upload/e_improve,q_auto:best,f_auto/v1768041699/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/imtqwnrixgwz2pofl351.jpg';
 
 export default function HeroSection() {
   const scrollToContent = () => {
