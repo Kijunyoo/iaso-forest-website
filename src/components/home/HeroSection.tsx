@@ -1,7 +1,8 @@
 'use client';
 
-// Cloudinary 이미지 URL
-const HERO_IMAGE = 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041702/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/auckbce2nunrd7syzx2w.jpg';
+// Cloudinary 이미지 URL - story_healing 사용 (blur_score: 3187, 매우 선명)
+// 기존 hero_drone (blur_score: 99)은 흐림 → 드론 촬영 후 교체 예정
+const HERO_IMAGE = 'https://res.cloudinary.com/dp79vfxyf/image/upload/iaso_forest/story/story_healing.jpg';
 
 export default function HeroSection() {
   const scrollToContent = () => {
@@ -24,11 +25,11 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up">
-          다시는 없을<br />
-          좋은 전원주택지입니다
+          숲이 건네는<br />
+          가장 완벽한 쉼
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl mb-10 opacity-90 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-          치유와 힐링의 프리미엄 전원마을, 이아소 포레스트
+          대한민국 1호 국립 치유의 숲과 함께하는 프리미엄 전원생활
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           <button className="btn btn-primary text-lg px-8 py-4">

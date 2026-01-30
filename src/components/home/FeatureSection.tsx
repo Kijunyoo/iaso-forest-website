@@ -1,24 +1,27 @@
-// Cloudinary 이미지 URL
+// Renovated Content - 치유 중심 3대 철학 (2026-01-30)
 const features = [
   {
-    point: 'POINT 1',
-    title: '최적의 입지',
+    point: '숨쉬기',
+    subtitle: 'Breathe',
+    title: '188만 평의 피톤치드',
     description:
-      '서울에서 1시간, 자연과 도시의 완벽한 균형. 제2영동고속도로 IC 10분 거리, 양평역 15분 거리로 접근성이 뛰어납니다.',
+      '대한민국 1호 국립 치유의 숲이 선사하는 피톤치드 샤워. 집을 나서는 순간 시작되는 숲의 숨결이 당신의 일상이 됩니다.',
     image: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041700/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/m8frn3nmmb71cydnmmmc.jpg',
   },
   {
-    point: 'POINT 2',
-    title: '치유의 숲',
+    point: '걷기',
+    subtitle: 'Walk',
+    title: '130m, 도보 2분',
     description:
-      '단지 내 3만평 규모의 치유의 숲이 조성되어 있습니다. 산책로, 명상 공간, 커뮤니티 가든에서 일상의 힐링을 경험하세요.',
+      '12개의 테마별 치유 숲길, 총 13km. 매일 아침 문을 열면 시작되는 숲속 산책. 주말마다 멀리 떠나지 않아도 됩니다.',
     image: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041699/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/imtqwnrixgwz2pofl351.jpg',
   },
   {
-    point: 'POINT 3',
-    title: '프리미엄 설계',
+    point: '머무르기',
+    subtitle: 'Stay',
+    title: '맞춤형 힐링 하우스',
     description:
-      '국내 최고 건축 설계사와 함께한 맞춤형 주택 설계. 남향 배치, 탁 트인 조망, 에너지 효율을 고려한 스마트홈 시스템을 제공합니다.',
+      '정해진 평면도에 삶을 맞추지 마세요. 15평 미니멀 하우스부터 36평 프리미엄까지, 당신의 라이프스타일에 맞춘 집을 짓습니다.',
     image: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041701/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/kklltv5b2gzetfkckyb4.jpg',
   },
 ];
@@ -29,9 +32,10 @@ export default function FeatureSection() {
       <div className="container-iaso">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-iaso-gold font-medium text-lg">Why IASO FOREST</span>
+          <span className="text-iaso-gold font-medium text-lg">회복의 철학</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-4">
-            이아소를 선택해야 하는 이유
+            도시는 당신을 소모시켰습니다<br />
+            <span className="text-iaso-green">이아소는 당신을 회복시킵니다</span>
           </h2>
         </div>
 

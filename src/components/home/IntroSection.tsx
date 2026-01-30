@@ -1,20 +1,21 @@
 import { Leaf, Heart, Shield } from 'lucide-react';
 
+// Renovated Content - USP 3가지 (2026-01-30)
 const features = [
   {
     icon: Leaf,
-    title: '자연 친화 환경',
-    description: '울창한 숲과 맑은 공기, 자연이 선물하는 치유의 공간에서 새로운 삶을 시작하세요.',
+    title: '국립 치유의 숲',
+    description: '188만 평 국립 양평 치유의 숲과 물리적으로 연결된 유일한 주거 단지. 12개 숲길이 내 집 정원처럼.',
   },
   {
     icon: Heart,
-    title: '프리미엄 커뮤니티',
-    description: '같은 가치를 공유하는 이웃들과 함께하는 풍요로운 전원생활을 경험하세요.',
+    title: '검증된 이웃',
+    description: '이미 8가구가 함께하는 살아있는 마을. 텃세 없는 평화로운 커뮤니티에서 전원생활의 외로움을 덜어드립니다.',
   },
   {
     icon: Shield,
-    title: '안정적 투자 가치',
-    description: '검증된 입지와 체계적인 단지 관리로 미래 가치를 보장합니다.',
+    title: '즉시 건축 가능',
+    description: '토목 공사 100% 완료, 6m 단지 내 도로 완비. 여러분은 오직 회복에만 집중하시면 됩니다.',
   },
 ];
 
