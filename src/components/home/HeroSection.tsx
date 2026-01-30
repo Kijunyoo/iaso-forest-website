@@ -1,8 +1,8 @@
 'use client';
 
-// Cloudinary 이미지 URL - story_healing 사용 (blur_score: 3187, 매우 선명)
-// 기존 hero_drone (blur_score: 99)은 흐림 → 드론 촬영 후 교체 예정
-const HERO_IMAGE = 'https://res.cloudinary.com/dp79vfxyf/image/upload/iaso_forest/story/story_healing.jpg';
+// Cloudinary 이미지 URL (blur_score: 1982.98 - 매우 선명)
+// 최적화: e_improve(자동개선), q_auto:best(최고품질), f_auto(WebP자동변환)
+const HERO_IMAGE = 'https://res.cloudinary.com/dp79vfxyf/image/upload/e_improve,q_auto:best,f_auto/v1768041699/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/imtqwnrixgwz2pofl351.jpg';
 
 export default function HeroSection() {
   const scrollToContent = () => {
@@ -22,22 +22,26 @@ export default function HeroSection() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
 
-      {/* Content */}
+      {/* Content - 텍스트 그림자로 가독성 향상 */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up">
           숲이 건네는<br />
           가장 완벽한 쉼
         </h1>
-        <p className="text-lg md:text-xl lg:text-2xl mb-10 opacity-90 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <p
+          className="text-lg md:text-xl lg:text-2xl mb-10 opacity-90 animate-fade-in-up"
+          style={{ animationDelay: '0.2s', textShadow: '1px 1px 6px rgba(0,0,0,0.8)' }}
+        >
           대한민국 1호 국립 치유의 숲과 함께하는 프리미엄 전원생활
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <button className="btn btn-primary text-lg px-8 py-4">
+          <button className="btn btn-primary text-lg px-8 py-4 shadow-lg">
             상담 예약
           </button>
           <button
             onClick={scrollToContent}
-            className="btn bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 hover:bg-white hover:text-iaso-green text-lg px-8 py-4"
+            className="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-iaso-green text-lg px-8 py-4 shadow-lg"
+            style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}
           >
             단지 둘러보기
           </button>

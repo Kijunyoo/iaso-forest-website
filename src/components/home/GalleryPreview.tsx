@@ -1,39 +1,40 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-// Cloudinary 이미지 URL
+// Cloudinary 이미지 URL - 고품질 이미지로 업데이트 (2026-01-30)
+// 최적화: q_auto:best(최고품질), f_auto(WebP자동변환)
 const images = [
   {
-    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041702/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/auckbce2nunrd7syzx2w.jpg',
-    alt: '단지 전경',
+    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/q_auto:best,f_auto/iaso_forest/healing_forest/forest_scene_02.jpg',
+    alt: '치유의 숲 풍경', // blur: 2865
   },
   {
-    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041700/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/s8sbl44pvztzcu1zxm5w.jpg',
-    alt: '자연 환경',
+    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/q_auto:best,f_auto/iaso_forest/healing_forest/trail_signpost_01.jpg',
+    alt: '숲길 이정표', // blur: 2527
   },
   {
-    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041699/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/imtqwnrixgwz2pofl351.jpg',
-    alt: '치유의 숲',
+    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/q_auto:best,f_auto/iaso_forest/youtube_captures/forest_house_exterior_03.png',
+    alt: '전원주택 외관', // blur: 1576
   },
   {
-    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041696/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/h2doaffy1aa24uifuilh.jpg',
-    alt: '주변 환경',
+    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/q_auto:best,f_auto/iaso_forest/blog_extracted/jogamdo_aerial_view.jpg',
+    alt: '마을 조감도',
   },
   {
-    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041698/iaso_forest/raw_materials/%EC%9D%B4%EC%95%84%EC%86%8C_%EC%A0%84%EC%9B%90%EB%A7%88%EC%9D%84/izr9a0alnlpxu4yahbfh.jpg',
-    alt: '전원마을',
+    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/q_auto:best,f_auto/iaso_forest/healing_forest/forest_scene_01.jpg',
+    alt: '숲속 풍경', // blur: 2374
   },
   {
-    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041694/iaso_forest/raw_materials/%EC%9D%B4%EC%95%84%EC%86%8C_%EC%A0%84%EC%9B%90%EB%A7%88%EC%9D%84/fensgkfv0wp4232cqxfq.jpg',
-    alt: '커뮤니티',
+    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/q_auto:best,f_auto/iaso_forest/blog_extracted/sample_house_exterior.png',
+    alt: '샘플하우스',
   },
   {
-    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041696/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/spxelojitik7nssmijl8.jpg',
-    alt: '시설',
+    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/q_auto:best,f_auto/iaso_forest/healing_forest/trail_signpost_02.jpg',
+    alt: '산책로', // blur: 2020
   },
   {
-    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041695/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/je6ypklqlu6gljncivk0.jpg',
-    alt: '풍경',
+    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/q_auto:best,f_auto/iaso_forest/blog_extracted/jeonwon_village_aerial.jpg',
+    alt: '전원마을 전경',
   },
 ];
 
