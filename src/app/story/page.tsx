@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageHero from '@/components/common/PageHero';
-import CTABanner from '@/components/home/CTABanner';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -146,8 +145,20 @@ export default function StoryPage() {
         </div>
       </section>
 
-      {/* CTA 배너 */}
-      <CTABanner />
+      {/* 하단 CTA */}
+      <section className="py-16 bg-iaso-bg">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-iaso-text mb-4">
+            더 궁금한 점이 있으신가요?
+          </h2>
+          <p className="text-iaso-text-light mb-8 max-w-2xl mx-auto">
+            전원주택에 대한 모든 궁금증, 전문 상담원이 친절하게 답변해 드립니다.
+          </p>
+          <button className="btn bg-iaso-green text-white hover:bg-iaso-green-600 px-8 py-3 rounded-iaso shadow-iaso">
+            상담 신청하기
+          </button>
+        </div>
+      </section>
     </>
   );
 }
