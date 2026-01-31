@@ -34,7 +34,10 @@ export default function HeroSection() {
 
         {/* Content - 텍스트 그림자로 가독성 향상 */}
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up">
+          <h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up text-white"
+            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}
+          >
             숲이 건네는<br />
             가장 완벽한 쉼
           </h1>
