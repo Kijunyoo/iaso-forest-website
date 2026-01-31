@@ -23,7 +23,7 @@ const uspData: USPItem[] = [
   },
   {
     point: 2,
-    title: '8가구 이웃의 평화로운 마을',
+    title: '10가구 이웃의 평화로운 마을',
     description:
       '혼자가 아닌 함께. 텃세 없는 따뜻한 커뮤니티가 안전한 전원생활을 지원합니다. 이미 형성된 커뮤니티에 편하게 합류하세요.',
     icon: <Users className="w-8 h-8" />,

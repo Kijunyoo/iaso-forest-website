@@ -77,7 +77,7 @@ export default function AboutPage() {
               </div>
               <div className="p-4 md:p-6">
                 <div className="text-3xl md:text-4xl font-bold text-iaso-green mb-2">
-                  8가구
+                  10가구
                 </div>
                 <div className="text-sm md:text-base text-iaso-text-light">
                   현재 입주 중

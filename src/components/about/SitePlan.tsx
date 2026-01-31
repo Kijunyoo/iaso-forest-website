@@ -20,7 +20,7 @@ export default function SitePlan() {
             </h2>
             <p className="text-iaso-text-light max-w-2xl mx-auto">
               전체 약 8,200평 대지에 100~200평 규모의 필지로 구획.
-              총 55세대 규모의 프리미엄 전원마을.
+              총 60세대 규모의 프리미엄 전원마을.
             </p>
           </div>
 
@@ -74,7 +74,7 @@ export default function SitePlan() {
                 <div className="text-sm text-iaso-text-light mt-1">총 대지면적</div>
               </div>
               <div className="p-6 bg-iaso-green-50 rounded-iaso">
-                <div className="text-2xl font-bold text-iaso-green">55세대</div>
+                <div className="text-2xl font-bold text-iaso-green">60세대</div>
                 <div className="text-sm text-iaso-text-light mt-1">총 세대수</div>
               </div>
               <div className="p-6 bg-iaso-green-50 rounded-iaso">
@@ -82,7 +82,7 @@ export default function SitePlan() {
                 <div className="text-sm text-iaso-text-light mt-1">필지 규모</div>
               </div>
               <div className="p-6 bg-iaso-green-50 rounded-iaso">
-                <div className="text-2xl font-bold text-iaso-green">8가구</div>
+                <div className="text-2xl font-bold text-iaso-green">10가구</div>
                 <div className="text-sm text-iaso-text-light mt-1">현재 입주</div>
               </div>
             </div>
