@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { MapPin } from 'lucide-react';
 
 interface Marker {
   id: string;
@@ -44,16 +45,25 @@ export default function NaverMap({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapInstanceRef = useRef<any>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasApiKey, setHasApiKey] = useState(true);
 
   useEffect(() => {
+    // API 키 체크
+    const apiKey = process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID;
+    if (!apiKey) {
+      setHasApiKey(false);
+      return;
+    }
+
     // 네이버 지도 스크립트가 없으면 동적으로 로드
-    if (!window.naver) {
+    if (typeof window !== 'undefined' && !window.naver) {
       const script = document.createElement('script');
-      script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`;
+      script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${apiKey}`;
       script.async = true;
       script.onload = initMap;
+      script.onerror = () => setHasApiKey(false);
       document.head.appendChild(script);
-    } else {
+    } else if (typeof window !== 'undefined') {
       initMap();
     }
 
@@ -129,6 +139,30 @@ export default function NaverMap({
       }
     };
   }, [center, zoom, markers]);
+
+  // API 키가 없을 때 플레이스홀더 표시
+  if (!hasApiKey) {
+    return (
+      <div
+        className="relative w-full overflow-hidden rounded-iaso shadow-iaso bg-gradient-to-br from-iaso-green-50 to-iaso-beige-50"
+        style={{ height }}
+      >
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+          <MapPin className="w-12 h-12 text-iaso-green mb-4" />
+          <h3 className="text-lg font-bold text-iaso-text mb-2">이아소 포레스트</h3>
+          <p className="text-iaso-text-light mb-4">경기도 양평군 양동면 금왕리 836-1</p>
+          <a
+            href={`https://map.naver.com/p/search/${encodeURIComponent('경기도 양평군 양동면 금왕리 836-1')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn bg-iaso-green text-white hover:bg-iaso-green-600 px-6 py-2 rounded-full text-sm"
+          >
+            네이버 지도에서 보기
+          </a>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full overflow-hidden rounded-iaso shadow-iaso">
