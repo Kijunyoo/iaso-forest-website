@@ -25,7 +25,7 @@ const articles = [
     date: '2026-01-30',
     image:
       'https://res.cloudinary.com/dp79vfxyf/image/upload/v1769750064/iaso_forest/youtube_captures/forest_house_exterior_02.png',
-    publicUrl: 'https://rapid-failing-716.notion.site/2f9c6b3caa5d800e4a443f16d9b35927',
+    publicUrl: 'https://rapid-failing-716.notion.site/2f9c6b3caa5d8024b443f316d8b35927',
   },
   {
     id: '2',
@@ -47,7 +47,7 @@ const articles = [
     date: '2026-01-30',
     image:
       'https://res.cloudinary.com/dp79vfxyf/image/upload/v1769742023/iaso_forest/blog_extracted/sample_house_exterior.png',
-    publicUrl: 'https://rapid-failing-716.notion.site/1-2f9c6b3caa5d8078bc4c77dcb03b4ae',
+    publicUrl: 'https://rapid-failing-716.notion.site/1-2f9c6b3caa5d80f78bc4c77dcb03b4ae',
   },
   {
     id: '4',
@@ -58,7 +58,7 @@ const articles = [
     date: '2026-01-30',
     image:
       'https://res.cloudinary.com/dp79vfxyf/image/upload/v1769750044/iaso_forest/youtube_captures/ep275_scene_01.png',
-    publicUrl: 'https://rapid-failing-716.notion.site/40-2f9c6b3caa5d804fb10f44b703c5315c',
+    publicUrl: 'https://rapid-failing-716.notion.site/40-2f9c6b3caa5d80afb10fd4b703c531fc',
   },
   {
     id: '5',
