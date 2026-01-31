@@ -26,7 +26,7 @@ const developmentData: DevelopmentItem[] = [
     effect: '강남권 직접 연결 40분대',
   },
   {
-    title: '국립 치유의 숲 확장',
+    title: '국립 치유의 숲 정비 및 확장',
     icon: <TreePine className="w-8 h-8" />,
     description: '현재 180만평(595ha) 규모',
     status: '치유 시설 확충, 프로그램 다양화',

@@ -23,17 +23,17 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link href="/about" className="text-white/70 hover:text-iaso-gold transition-colors">
-                  About
+                  소개말
                 </Link>
               </li>
               <li>
                 <Link href="/gallery" className="text-white/70 hover:text-iaso-gold transition-colors">
-                  Gallery
+                  둘러보기
                 </Link>
               </li>
               <li>
                 <Link href="/guide" className="text-white/70 hover:text-iaso-gold transition-colors">
-                  입주 가이드
+                  입주가이드
                 </Link>
               </li>
               <li>
@@ -58,7 +58,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-white" />
-                <span className="text-white">iaso.forest@gmail.com</span>
+                <span className="text-white">info@iasoforest.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-white mt-1" />

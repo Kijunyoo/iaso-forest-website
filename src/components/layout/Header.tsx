@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
-  { label: 'About', href: '/about' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Story', href: '/story' },
-  { label: 'News', href: '/news' },
-  { label: 'Guide', href: '/guide' },
-  { label: 'Location', href: '/location' },
+  { label: '소개말', href: '/about' },
+  { label: '둘러보기', href: '/gallery' },
+  { label: '스토리', href: '/story' },
+  { label: '뉴스', href: '/news' },
+  { label: '가이드', href: '/guide' },
+  { label: '위치', href: '/location' },
 ];
 
 export default function Header() {

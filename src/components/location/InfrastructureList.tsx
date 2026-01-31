@@ -19,7 +19,7 @@ const infrastructureData: InfraCategory[] = [
     category: '교통',
     icon: <Car className="w-6 h-6" />,
     items: [
-      { name: '동양평IC', distance: '차량 9분', detail: '영동고속도로 진입' },
+      { name: '동양평IC', distance: '차량 10분', detail: '영동고속도로 진입' },
       { name: '양동역', distance: '차량 7분', detail: '무궁화호 청량리 50분' },
       { name: '양평역', distance: '차량 15분', detail: 'ITX-청춘, 무궁화호' },
       { name: '강남역', distance: '차량 60분', detail: '영동고속도로 경유' },
@@ -29,10 +29,10 @@ const infrastructureData: InfraCategory[] = [
     category: '생활편의',
     icon: <ShoppingBag className="w-6 h-6" />,
     items: [
-      { name: '하나로마트 양동점', distance: '차량 5분', detail: '대형마트' },
-      { name: '양동면사무소', distance: '차량 5분', detail: '행정 서비스' },
-      { name: '농협/신협', distance: '차량 5분', detail: '금융 서비스' },
-      { name: '용문전통시장', distance: '차량 10분', detail: '5일장 (3, 8일)' },
+      { name: '하나로마트 양동점', distance: '차량 10분', detail: '대형마트' },
+      { name: '양동면사무소', distance: '차량 10분', detail: '행정 서비스' },
+      { name: '농협/신협', distance: '차량 10분', detail: '금융 서비스' },
+      { name: '용문전통시장', distance: '차량 30분', detail: '5일장 (3, 8일)' },
     ],
   },
   {
@@ -40,8 +40,8 @@ const infrastructureData: InfraCategory[] = [
     icon: <Stethoscope className="w-6 h-6" />,
     items: [
       { name: '양동 보건지소', distance: '도보 300m', detail: '1차 의료' },
-      { name: '한의원', distance: '차량 3분', detail: '양동면 소재' },
-      { name: '양평군 보건소', distance: '차량 15분', detail: '종합 보건' },
+      { name: '한의원', distance: '차량 5분', detail: '양동면 소재' },
+      { name: '양평군 보건소', distance: '차량 10분', detail: '종합 보건' },
       { name: '원주세브란스병원', distance: '차량 30분', detail: '대형 종합병원' },
     ],
   },
@@ -60,9 +60,9 @@ const infrastructureData: InfraCategory[] = [
     icon: <TreePine className="w-6 h-6" />,
     items: [
       { name: '국립 양평 치유의 숲', distance: '도보 1분', detail: '180만평, 12개 테마 숲길' },
-      { name: '용문산', distance: '차량 15분', detail: '해발 1,157m' },
-      { name: '중미산 천문대', distance: '차량 20분', detail: '별자리 관측' },
-      { name: '양평 물안개공원', distance: '차량 20분', detail: '수변 산책로' },
+      { name: '용문산', distance: '차량 30분', detail: '해발 1,157m' },
+      { name: '중미산 천문대', distance: '차량 30분', detail: '별자리 관측' },
+      { name: '양평 물안개공원', distance: '차량 30분', detail: '수변 산책로' },
     ],
   },
 ];
