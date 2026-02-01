@@ -67,7 +67,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <MessageCircle size={18} className="text-white" />
                 <a
-                  href="http://pf.kakao.com/_KxjXkxj/chat"
+                  href="http://pf.kakao.com/_txhghX/chat"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-iaso-gold transition-colors"
