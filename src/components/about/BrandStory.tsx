@@ -49,7 +49,7 @@ export default function BrandStory() {
             <div className="order-1 lg:order-2 relative">
               <div className="relative aspect-[4/5] rounded-iaso overflow-hidden shadow-iaso-lg">
                 <Image
-                  src="https://res.cloudinary.com/dp79vfxyf/image/upload/v1/aksys_maa_assets/iaso_village/iaso_forest_entrance"
+                  src="https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/healing_forest_full"
                   alt="이아소 마을 숲 입구"
                   fill
                   className="object-cover"

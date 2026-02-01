@@ -25,7 +25,7 @@ export default function AboutPage() {
         {/* 배경 이미지 */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://res.cloudinary.com/dp79vfxyf/image/upload/v1/aksys_maa_assets/iaso_village/iaso_landscape_aerial"
+            src="https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/forest_hero"
             alt="이아소 마을 항공뷰"
             fill
             className="object-cover"

@@ -19,7 +19,7 @@ const uspData: USPItem[] = [
       '문만 열면 바로 연결되는 등산로와 산책로. 피톤치드가 가득한 매일을 선물합니다. 180만 평 국립 치유의 숲이 도보 1분 거리에 있습니다.',
     icon: <TreePine className="w-8 h-8" />,
     image:
-      'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/aksys_maa_assets/iaso_village/iaso_forest_entrance',
+      'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/map',
   },
   {
     point: 2,
@@ -28,7 +28,7 @@ const uspData: USPItem[] = [
       '혼자가 아닌 함께. 텃세 없는 따뜻한 커뮤니티가 안전한 전원생활을 지원합니다. 이미 형성된 커뮤니티에 편하게 합류하세요.',
     icon: <Users className="w-8 h-8" />,
     image:
-      'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/aksys_maa_assets/iaso_village/iaso_birdseye_v2',
+      'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/village_view_3',
   },
   {
     point: 3,
@@ -37,7 +37,7 @@ const uspData: USPItem[] = [
       '토목 공사 100% 완료, 6m 단지 도로 정비 완료. 농지전용 완료로 별도 절차 없이 바로 건축 가능. 실패 없는 안심 건축.',
     icon: <Building className="w-8 h-8" />,
     image:
-      'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/aksys_maa_assets/iaso_village/iaso_entry_road',
+      'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/village_road_3',
   },
   {
     point: 4,
@@ -46,7 +46,7 @@ const uspData: USPItem[] = [
       '하나로마트, 한의원, 약국 인접. 강남까지 1시간, 도시와 자연의 균형. 청량리까지 무궁화호 50분.',
     icon: <MapPin className="w-8 h-8" />,
     image:
-      'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/aksys_maa_assets/iaso_village/iaso_trail_center',
+      'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/village_view_5',
   },
 ];
 
