@@ -14,34 +14,34 @@ export const metadata: Metadata = {
   },
 };
 
-// 지도 마커 데이터
+// 지도 마커 데이터 (2026-02-01 좌표 수정)
 const mapMarkers = [
   {
     id: 'iaso',
     name: '이아소 포레스트',
-    lat: 37.4836,
-    lng: 127.5012,
+    lat: 37.4605,
+    lng: 127.7175,
     type: 'main' as const,
   },
   {
     id: 'healing_forest',
     name: '국립 양평 치유의 숲',
-    lat: 37.485,
-    lng: 127.503,
+    lat: 37.4612,
+    lng: 127.7181,
     type: 'nature' as const,
   },
   {
     id: 'dongyang_ic',
     name: '동양평IC',
-    lat: 37.46,
-    lng: 127.48,
+    lat: 37.4520,
+    lng: 127.6350,
     type: 'transport' as const,
   },
   {
     id: 'yangdong_station',
     name: '양동역',
-    lat: 37.47,
-    lng: 127.49,
+    lat: 37.4580,
+    lng: 127.6920,
     type: 'transport' as const,
   },
 ];
@@ -116,7 +116,7 @@ export default function LocationPage() {
           </div>
           <div className="max-w-5xl mx-auto">
             <NaverMap
-              center={{ lat: 37.4836, lng: 127.5012 }}
+              center={{ lat: 37.4605, lng: 127.7175 }}
               zoom={11}
               markers={mapMarkers}
               height="450px"
@@ -139,7 +139,7 @@ export default function LocationPage() {
           </div>
           <div className="max-w-4xl mx-auto">
             <NaverMap
-              center={{ lat: 37.4836, lng: 127.5012 }}
+              center={{ lat: 37.4605, lng: 127.7175 }}
               zoom={16}
               markers={mapMarkers.slice(0, 2)}
               height="400px"
