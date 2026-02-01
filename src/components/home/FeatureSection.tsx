@@ -67,7 +67,7 @@ export default function FeatureSection() {
                   <img
                     src={feature.image}
                     alt={feature.title}
-                    className="w-full aspect-[4/3] object-cover"
+                    className="w-full aspect-[16/9] object-cover"
                   />
                 </div>
               </div>
