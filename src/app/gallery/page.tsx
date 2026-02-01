@@ -109,7 +109,7 @@ const galleryImages = [
   },
   {
     id: 'forest-5',
-    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/forest_7',
+    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/forest_8',
     alt: '단풍 풍경',
     category: 'forest',
   },
@@ -129,7 +129,7 @@ const galleryImages = [
   },
   {
     id: 'community-3',
-    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/forest_4',
+    src: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/forest_9',
     alt: '정원 조경',
     category: 'community',
   },
