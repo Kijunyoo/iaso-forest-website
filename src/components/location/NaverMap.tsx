@@ -17,6 +17,7 @@ interface NaverMapProps {
   markers?: Marker[];
   height?: string;
   variant?: 'wide' | 'detail';
+  useStaticImage?: boolean; // true면 항상 Cloudinary 정적 이미지 사용
 }
 
 // 네이버 지도 타입 선언 (any 타입 사용)
@@ -40,6 +41,7 @@ export default function NaverMap({
   markers = [],
   height = '400px',
   variant = 'detail',
+  useStaticImage = false,
 }: NaverMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -143,8 +145,8 @@ export default function NaverMap({
   // Cloudinary 정적 지도 이미지 URL
   const fallbackMapImage = 'https://res.cloudinary.com/dp79vfxyf/image/upload/iaso_forest/canva/map';
 
-  // API 키가 없거나 로드 실패 시 Cloudinary 이미지 fallback
-  if (!hasApiKey) {
+  // 정적 이미지 사용 또는 API 키가 없을 때 Cloudinary 이미지 fallback
+  if (useStaticImage || !hasApiKey) {
     return (
       <div
         className="relative w-full overflow-hidden rounded-iaso shadow-iaso"
