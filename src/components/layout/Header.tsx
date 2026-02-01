@@ -37,15 +37,13 @@ export default function Header() {
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <img
-              src={
-                isScrolled
-                  ? 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/brand/IASO_Logo_Primary_FullColor'
-                  : 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/brand/IASO_Logo_White_Version'
-              }
-              alt="IASO FOREST"
-              className="h-12 w-auto transition-opacity"
-            />
+            <span
+              className={`text-2xl font-bold transition-colors ${
+                isScrolled ? 'text-iaso-green' : 'text-white'
+              }`}
+            >
+              IASO FOREST
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
