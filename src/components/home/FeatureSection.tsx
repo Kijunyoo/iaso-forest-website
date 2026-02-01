@@ -5,7 +5,7 @@ const features = [
     subtitle: 'Breathe',
     title: '188만 평의 피톤치드',
     description:
-      '대한민국 1호 국립 치유의 숲이 선사하는 피톤치드 샤워. 집을 나서는 순간 시작되는 숲의 숨결이 당신의 일상이 됩니다.',
+      '대한민국 1호 국립 치유의 숲이 선사하는 피톤치드 샤워. 집을 나서는 순간 시작되는 숲의 숨결이 당신의 일상이 됩니다. 피톤치드 샤워를 선사하는 치유 프로그램 및 각종 힐링 체험이 기다립니다.',
     image: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041700/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/m8frn3nmmb71cydnmmmc.jpg',
   },
   {
@@ -13,7 +13,7 @@ const features = [
     subtitle: 'Walk',
     title: '130m, 도보 2분',
     description:
-      '12개의 테마별 치유 숲길, 총 13km. 매일 아침 문을 열면 시작되는 숲속 산책. 주말마다 멀리 떠나지 않아도 됩니다.',
+      '12개의 테마별 치유 숲길, 총 13km. 매일 아침 문을 열면 시작되는 숲속 산책. 주말마다 멀리 떠나지 않아도 됩니다. 봄 산채화, 여름의 녹음, 가을의 단풍, 겨울엔 설경. 계절마다 다른 매력이 있습니다.',
     image: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041699/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/imtqwnrixgwz2pofl351.jpg',
   },
   {
@@ -21,7 +21,7 @@ const features = [
     subtitle: 'Stay',
     title: '맞춤형 힐링 하우스',
     description:
-      '정해진 평면도에 삶을 맞추지 마세요. 15평 미니멀 하우스부터 36평 프리미엄까지, 당신의 라이프스타일에 맞춘 집을 짓습니다.',
+      '정해진 평면도에 삶을 맞추지 마세요. 15평 미니멀 하우스부터 40평 프리미엄까지, 당신의 라이프스타일에 맞춘 집을 짓습니다. 토목, 전기, 상수, 하수 100% 완료, 나머지 건축만 하시면 됩니다.',
     image: 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1768041701/iaso_forest/raw_materials/%EC%96%91%ED%8F%89_%EC%9D%B4%EC%95%84%EC%86%8C/kklltv5b2gzetfkckyb4.jpg',
   },
 ];
