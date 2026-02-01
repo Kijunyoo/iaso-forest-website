@@ -140,26 +140,42 @@ export default function NaverMap({
     };
   }, [center, zoom, markers]);
 
-  // API 키가 없을 때 플레이스홀더 표시
+  // Cloudinary 정적 지도 이미지 URL
+  const fallbackMapImage = 'https://res.cloudinary.com/dp79vfxyf/image/upload/iaso_forest/canva/map';
+
+  // API 키가 없거나 로드 실패 시 Cloudinary 이미지 fallback
   if (!hasApiKey) {
     return (
       <div
-        className="relative w-full overflow-hidden rounded-iaso shadow-iaso bg-gradient-to-br from-iaso-green-50 to-iaso-beige-50"
+        className="relative w-full overflow-hidden rounded-iaso shadow-iaso"
         style={{ height }}
       >
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+        {/* Cloudinary 정적 지도 이미지 */}
+        <img
+          src={fallbackMapImage}
+          alt="이아소 포레스트 위치 지도"
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            // 이미지 로드 실패 시 placeholder 표시
+            e.currentTarget.style.display = 'none';
+            e.currentTarget.nextElementSibling?.classList.remove('hidden');
+          }}
+        />
+        {/* 이미지 로드 실패 시 placeholder */}
+        <div className="hidden absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-gradient-to-br from-iaso-green-50 to-iaso-beige-50">
           <MapPin className="w-12 h-12 text-iaso-green mb-4" />
           <h3 className="text-lg font-bold text-iaso-text mb-2">이아소 포레스트</h3>
           <p className="text-iaso-text-light mb-4">경기도 양평군 양동면 금왕리 836-1</p>
-          <a
-            href={`https://map.naver.com/p/search/${encodeURIComponent('경기도 양평군 양동면 금왕리 836-1')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn bg-iaso-green text-white hover:bg-iaso-green-600 px-6 py-2 rounded-full text-sm"
-          >
-            네이버 지도에서 보기
-          </a>
         </div>
+        {/* 네이버 지도 링크 오버레이 */}
+        <a
+          href={`https://map.naver.com/p/search/${encodeURIComponent('양동면 이아소길')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute bottom-4 right-4 bg-white/90 hover:bg-white text-iaso-green px-4 py-2 rounded-full text-sm font-medium shadow-lg transition-colors"
+        >
+          네이버 지도에서 보기 →
+        </a>
       </div>
     );
   }
