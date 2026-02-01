@@ -11,8 +11,7 @@ export default function CTABanner() {
       <section className="py-20 bg-gradient-to-r from-iaso-green to-iaso-green-400">
         <div className="container-iaso text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            지금 상담 예약하시면<br className="md:hidden" />
-            현장 방문 안내를 드립니다
+            지금 상담 예약하시면, 현장 방문 안내를 드립니다
           </h2>
           <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
             이아소 포레스트의 아름다운 자연환경과 프리미엄 시설을 직접 눈으로 확인하세요.

@@ -30,7 +30,7 @@ export default function SitePlan() {
               onClick={() => setIsZoomed(true)}
             >
               <Image
-                src="https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/village_view"
+                src="https://res.cloudinary.com/dp79vfxyf/image/upload/v1769728111/iaso_forest/local_assets/oip_04.webp"
                 alt="이아소 마을 단지 배치도"
                 fill
                 className="object-contain bg-white"
@@ -116,7 +116,7 @@ export default function SitePlan() {
           </button>
           <div className="relative w-full max-w-6xl aspect-[16/10]">
             <Image
-              src="https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/village_view"
+              src="https://res.cloudinary.com/dp79vfxyf/image/upload/v1769728111/iaso_forest/local_assets/oip_04.webp"
               alt="이아소 마을 단지 배치도 - 확대"
               fill
               className="object-contain"

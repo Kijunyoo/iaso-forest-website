@@ -52,7 +52,7 @@ export default function HealingForestDetail() {
             <div className="relative">
               <div className="relative aspect-[4/3] rounded-iaso overflow-hidden shadow-iaso-lg">
                 <Image
-                  src="https://res.cloudinary.com/dp79vfxyf/image/upload/v1/aksys_maa_assets/iaso_village/iaso_trekking_path"
+                  src="https://res.cloudinary.com/dp79vfxyf/image/upload/v1769911909/iaso_forest/canva/forest_1.jpg"
                   alt="국립 양평 치유의 숲 산책로"
                   fill
                   className="object-cover"

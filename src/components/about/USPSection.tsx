@@ -34,7 +34,7 @@ const uspData: USPItem[] = [
     point: 3,
     title: '완료된 인프라, 즉시 건축 가능',
     description:
-      '토목 공사 100% 완료, 6m 단지 도로 정비 완료. 농지전용 완료로 별도 절차 없이 바로 건축 가능. 실패 없는 안심 건축.',
+      '토목, 전기, 상수, 하수 공사 100% 완료, 6m 단지 도로 정비 완료. 농지전용 완료로 별도 절차 없이 바로 건축 가능. 실패 없는 안심 건축.',
     icon: <Building className="w-8 h-8" />,
     image:
       'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/canva/village_road_3',
