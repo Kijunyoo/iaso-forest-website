@@ -30,14 +30,14 @@ const youtubeVideos = [
     description: '이아소 마을 공식 홍보 영상',
   },
   {
-    id: 'lm9APhcbJBY',
-    title: '용문/양동면 드론 풍경 (5K)',
-    description: '드론으로 촬영한 양동면 풍경',
+    id: 'y50QuOInHCc',
+    title: '이아소 마을 현장 투어',
+    description: '마을 현장 방문 영상',
   },
   {
-    id: 'U3ipyzWlheg',
-    title: '치유의 숲을 품은 현장 스케치',
-    description: '현장 방문 스케치 영상',
+    id: 'RzAflgpa8dU',
+    title: '이아소 포레스트 소개',
+    description: '이아소 포레스트 홍보 영상',
   },
 ];
 
@@ -124,6 +124,22 @@ export default function NewsPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* 재생목록 임베드 */}
+          <div className="mt-12 max-w-4xl mx-auto">
+            <h3 className="text-xl font-bold text-iaso-text mb-4 text-center">
+              전체 영상 재생목록
+            </h3>
+            <div className="aspect-video rounded-iaso overflow-hidden shadow-iaso">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLr48pjJEjWq2-iYOxn5qsezJA2SxAZwo7"
+                title="이아소 포레스트 재생목록"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </section>
