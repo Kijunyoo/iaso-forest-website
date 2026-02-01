@@ -144,6 +144,7 @@ export default function LocationPage() {
               markers={mapMarkers.slice(0, 2)}
               height="400px"
               variant="detail"
+              useStaticImage={true}
             />
           </div>
         </div>
