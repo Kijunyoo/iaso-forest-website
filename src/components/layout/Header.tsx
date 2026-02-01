@@ -44,7 +44,7 @@ export default function Header() {
                   : 'https://res.cloudinary.com/dp79vfxyf/image/upload/v1/iaso_forest/brand/IASO_Logo_White_Version'
               }
               alt="IASO FOREST"
-              className="h-10 w-auto transition-opacity"
+              className="h-12 w-auto transition-opacity"
             />
           </Link>
 
