@@ -124,21 +124,26 @@ export default function NewsPage() {
                 </div>
               </div>
             ))}
-          </div>
 
-          {/* 재생목록 임베드 */}
-          <div className="mt-12 max-w-4xl mx-auto">
-            <h3 className="text-xl font-bold text-iaso-text mb-4 text-center">
-              전체 영상 재생목록
-            </h3>
-            <div className="aspect-video rounded-iaso overflow-hidden shadow-iaso">
-              <iframe
-                src="https://www.youtube.com/embed/videoseries?list=PLr48pjJEjWq2-iYOxn5qsezJA2SxAZwo7"
-                title="이아소 포레스트 재생목록"
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            {/* 재생목록 카드 (6번째) */}
+            <div className="bg-iaso-bg rounded-iaso overflow-hidden shadow-iaso-sm hover:shadow-iaso transition-shadow">
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/videoseries?list=PLr48pjJEjWq2-iYOxn5qsezJA2SxAZwo7"
+                  title="이아소 포레스트 재생목록"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-bold text-iaso-text mb-1 line-clamp-1">
+                  전체 영상 재생목록
+                </h3>
+                <p className="text-sm text-iaso-text-light">
+                  이아소 포레스트 전체 영상 모음
+                </p>
+              </div>
             </div>
           </div>
         </div>
