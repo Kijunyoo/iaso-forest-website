@@ -12,17 +12,26 @@ const notoSansKR = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.iasoforest.com'),
   title: 'Iaso Forest | 치유와 힐링의 프리미엄 전원마을',
   description: '양평 치유의 숲에서 시작하는 새로운 삶. 5060 액티브 시니어를 위한 프리미엄 전원주택 단지, 이아소 포레스트.',
   keywords: ['양평 전원주택', '치유의 숲', '5060 세컨하우스', '이아소 전원마을', '전원주택 분양'],
   authors: [{ name: 'Iaso Forest' }],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Iaso Forest | 치유와 힐링의 프리미엄 전원마을',
     description: '양평 치유의 숲에서 시작하는 새로운 삶',
-    url: 'https://iasoforest.com',
+    url: 'https://www.iasoforest.com',
     siteName: 'Iaso Forest',
     locale: 'ko_KR',
     type: 'website',
+  },
+  verification: {
+    other: {
+      'naver-site-verification': '17b47460c236f9390b8d79c63dc73514fc303af1',
+    },
   },
 };
 
