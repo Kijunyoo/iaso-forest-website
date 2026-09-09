@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FAB from '@/components/layout/FAB';
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 
 const notoSansKR = Noto_Sans_KR({
   subsets: ['latin'],
@@ -47,6 +48,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <FAB />
+        <GoogleAnalytics />
       </body>
     </html>
   );
