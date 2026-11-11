@@ -10,6 +10,7 @@ const navItems = [
   { label: '스토리', href: '/story' },
   { label: '뉴스', href: '/news' },
   { label: '가이드', href: '/guide' },
+  { label: '이아소 가든', href: '/garden/' },
   { label: '위치', href: '/location' },
 ];
 

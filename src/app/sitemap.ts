@@ -11,6 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/news', priority: 0.7, changeFrequency: 'weekly' },
     { path: '/guide', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/location', priority: 0.6, changeFrequency: 'monthly' },
+    { path: '/garden', priority: 0.8, changeFrequency: 'monthly' },
+    { path: '/garden/apply', priority: 0.8, changeFrequency: 'monthly' },
+    { path: '/privacy', priority: 0.3, changeFrequency: 'monthly' },
+    { path: '/terms', priority: 0.3, changeFrequency: 'monthly' },
   ];
 
   return routes.map(({ path, priority, changeFrequency }) => ({

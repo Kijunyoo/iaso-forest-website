@@ -1,5 +1,12 @@
 import Link from 'next/link';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import FooterOperator from '@/components/layout/FooterOperator';
+import {
+  FOOTER_OPERATOR_LINES,
+  FOOTER_TRUSTEE_LINE,
+  FOOTER_LEGAL_LINKS,
+  FOOTER_CHANNELS,
+} from '@/content/footer';
 
 export default function Footer() {
   return (
@@ -11,9 +18,6 @@ export default function Footer() {
             <h3 className="text-2xl font-bold mb-4 text-white">IASO FOREST</h3>
             <p className="text-white/70 mb-4">
               치유와 힐링의 프리미엄 전원마을
-            </p>
-            <p className="text-sm text-white/50">
-              © 2026 Iaso Forest. All rights reserved.
             </p>
           </div>
 
@@ -34,6 +38,11 @@ export default function Footer() {
               <li>
                 <Link href="/guide" className="text-white/70 hover:text-iaso-gold transition-colors">
                   입주가이드
+                </Link>
+              </li>
+              <li>
+                <Link href="/garden/" className="text-white/70 hover:text-iaso-gold transition-colors">
+                  이아소 가든
                 </Link>
               </li>
               <li>
@@ -75,6 +84,19 @@ export default function Footer() {
                   카카오톡 상담
                 </a>
               </li>
+              {FOOTER_CHANNELS.map((channel) => (
+                <li key={channel.href} className="flex items-center gap-3">
+                  <MessageCircle size={18} className="text-white" />
+                  <a
+                    href={channel.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-12 items-center text-white hover:text-iaso-gold transition-colors"
+                  >
+                    {channel.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -87,6 +109,17 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+
+        {/* 운영자 표기 (상호, 대표, 사업자등록번호, 주소, 수탁자, 처리방침, 이용약관) */}
+        <FooterOperator
+          operatorLines={FOOTER_OPERATOR_LINES}
+          trusteeLine={FOOTER_TRUSTEE_LINE}
+          links={FOOTER_LEGAL_LINKS}
+        />
+
+        <p className="mt-6 text-sm text-white/50">
+          © 2026 Iaso Forest. All rights reserved.
+        </p>
       </div>
     </footer>
   );
