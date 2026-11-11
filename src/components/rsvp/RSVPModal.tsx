@@ -2,19 +2,22 @@
 
 import { useState } from 'react';
 import { X, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import ConsentBlock from '@/components/garden/sections/ConsentBlock';
+import { LEAD_CONSENTS } from '@/content/consent';
+import { LEAD_LIMITS, isValidPhone, submitLead, useConsentForm } from '@/lib/consent';
 
 interface RSVPModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-// n8n Webhook URL
-const N8N_WEBHOOK_URL = 'https://n8n.kjyoo.cloud/webhook/iaso-lead';
-
 export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isConsentRecheck, setIsConsentRecheck] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const consent = useConsentForm(LEAD_CONSENTS);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -25,42 +28,43 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting || !consent.requiredOk) return;
+    if (!isValidPhone(formData.phone)) {
+      setPhoneError(true);
+      return;
+    }
+    setPhoneError(false);
     setIsSubmitting(true);
     setIsError(false);
+    setIsConsentRecheck(false);
 
-    try {
-      // n8n Webhook으로 데이터 전송
-      const response = await fetch(N8N_WEBHOOK_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email || null,
-          visit_date: formData.visitDate,
-          message: formData.message || null,
-          source: 'website',
-        }),
-      });
+    // 필수 동의가 없으면 submitLead 는 요청을 보내지 않고 'blocked' 를 돌려준다
+    const outcome = await submitLead(
+      'website',
+      {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        visit_date: formData.visitDate,
+        message: formData.message,
+      },
+      LEAD_CONSENTS,
+      consent.checked,
+    );
+    setIsSubmitting(false);
 
-      if (!response.ok) {
-        throw new Error('서버 응답 오류');
-      }
-
-      setIsSubmitting(false);
+    if (outcome === 'success') {
       setIsSuccess(true);
-
       // Reset and close after success
       setTimeout(() => {
         setIsSuccess(false);
         setFormData({ name: '', phone: '', email: '', visitDate: '', message: '' });
+        consent.reset();
         onClose();
       }, 2000);
-    } catch (error) {
-      console.error('예약 접수 실패:', error);
-      setIsSubmitting(false);
+    } else if (outcome === 'consent-recheck' || outcome === 'blocked') {
+      setIsConsentRecheck(true);
+    } else {
       setIsError(true);
     }
   };
@@ -95,6 +99,20 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                 빠른 시일 내에 연락드리겠습니다.
               </p>
             </div>
+          ) : isConsentRecheck ? (
+            <div className="text-center py-8">
+              <AlertCircle className="w-16 h-16 text-iaso-green mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">동의 내용을 다시 확인해 주세요</h3>
+              <p className="text-iaso-text-light mb-4">
+                꼭 필요한 동의 2가지에 체크되어 있는지 봐 주세요.
+              </p>
+              <button
+                onClick={() => setIsConsentRecheck(false)}
+                className="btn btn-secondary"
+              >
+                다시 시도
+              </button>
+            </div>
           ) : isError ? (
             <div className="text-center py-8">
               <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
@@ -119,6 +137,7 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                 <input
                   type="text"
                   required
+                  maxLength={LEAD_LIMITS.name}
                   className="input"
                   placeholder="홍길동"
                   value={formData.name}
@@ -134,11 +153,17 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                 <input
                   type="tel"
                   required
+                  maxLength={LEAD_LIMITS.phone}
                   className="input"
                   placeholder="010-0000-0000"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
+                {phoneError && (
+                  <p role="alert" className="mt-2 text-red-500">
+                    연락처를 다시 확인해 주세요.
+                  </p>
+                )}
               </div>
 
               {/* Email */}
@@ -146,6 +171,7 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                 <label className="block mb-2 font-medium">이메일</label>
                 <input
                   type="email"
+                  maxLength={LEAD_LIMITS.email}
                   className="input"
                   placeholder="email@example.com"
                   value={formData.email}
@@ -171,6 +197,7 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
               <div>
                 <label className="block mb-2 font-medium">문의 내용</label>
                 <textarea
+                  maxLength={LEAD_LIMITS.message}
                   className="input min-h-[100px] resize-none"
                   placeholder="궁금하신 점이 있으시면 남겨주세요."
                   value={formData.message}
@@ -178,10 +205,13 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                 />
               </div>
 
+              {/* 동의 (고지문은 src/content/consent.ts 에서 읽는다) */}
+              <ConsentBlock items={consent.items} />
+
               {/* Submit */}
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !consent.requiredOk}
                 className="btn btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
@@ -212,9 +242,6 @@ export default function RSVPModal({ isOpen, onClose }: RSVPModalProps) {
                 )}
               </button>
 
-              <p className="text-sm text-iaso-text-light text-center">
-                * 개인정보는 상담 목적으로만 사용됩니다.
-              </p>
             </form>
           )}
         </div>
