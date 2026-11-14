@@ -96,6 +96,7 @@ export default function NewsPage() {
               >
                 {/* 썸네일 */}
                 <div className="relative aspect-video bg-gray-200">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- 정적 export, images.unoptimized=true 라 next/image 최적화 이점 없음 (기존 코드 유지) */}
                   <img
                     src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
                     alt={video.title}

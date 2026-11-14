@@ -24,8 +24,8 @@ export interface FaqCopy {
 export const GARDEN_URLS = {
   apply: '/garden/apply/',
   privacy: '/privacy/',
-  channelGarden: 'http://pf.kakao.com/_tssxeX',
-  channelHelp: 'http://pf.kakao.com/_hxfxfxeX',
+  channelGarden: 'https://pf.kakao.com/_tssxeX',
+  channelHelp: 'https://pf.kakao.com/_hxfxfxeX',
 } as const;
 
 export const HERO_COPY = {

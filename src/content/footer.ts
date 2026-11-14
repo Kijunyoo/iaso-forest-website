@@ -20,6 +20,6 @@ export const FOOTER_LEGAL_LINKS = [
 
 /** 푸터 연락처 영역에 추가하는 카카오톡 채널 2개 (04 초안 1절 표) */
 export const FOOTER_CHANNELS = [
-  { label: '이아소 가든 (정원 서비스)', href: 'http://pf.kakao.com/_tssxeX' },
-  { label: '이아소 가든도움 (이용 문의)', href: 'http://pf.kakao.com/_hxfxfxeX' },
+  { label: '이아소 가든 (정원 서비스)', href: 'https://pf.kakao.com/_tssxeX' },
+  { label: '이아소 가든도움 (이용 문의)', href: 'https://pf.kakao.com/_hxfxfxeX' },
 ];

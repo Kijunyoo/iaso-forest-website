@@ -64,6 +64,7 @@ export default function FeatureSection() {
               {/* Image */}
               <div className="flex-1 w-full">
                 <div className="rounded-2xl overflow-hidden shadow-iaso-lg">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- 정적 export, images.unoptimized=true 라 next/image 최적화 이점 없음 (기존 코드 유지) */}
                   <img
                     src={feature.image}
                     alt={feature.title}

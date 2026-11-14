@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Calendar, ArrowLeft, Share2 } from 'lucide-react';
 import CTABanner from '@/components/home/CTABanner';
+import { formatStoryDate } from '@/lib/utils';
 
 // 게시글 데이터 (실제로는 DB에서 가져옴)
 const articlesData: Record<
@@ -327,7 +328,7 @@ export default async function StoryDetailPage({ params }: PageProps) {
                 </span>
                 <span className="flex items-center gap-1 text-sm text-iaso-text-light">
                   <Calendar className="w-4 h-4" />
-                  {article.date}
+                  {formatStoryDate(article.date)}
                 </span>
               </div>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-iaso-text leading-tight">

@@ -30,7 +30,7 @@ export default function IntroSection() {
             치유의 숲에서 새로운 삶을 시작하세요
           </h2>
           <p className="text-iaso-text-light text-lg">
-            이아소 포레스트는 그리스 신화 속 치유의 여신 '이아소(Iaso)'의 이름을 딴
+            이아소 포레스트는 그리스 신화 속 치유의 여신 &apos;이아소(Iaso)&apos;의 이름을 딴
             프리미엄 전원마을입니다. 자연과 함께하는 건강한 삶의 가치를 실현합니다.
           </p>
         </div>

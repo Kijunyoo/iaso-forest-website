@@ -64,7 +64,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden touch-target flex items-center justify-center"
+            className="lg:hidden touch-target !min-w-[48px] !min-h-[48px] flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="메뉴 열기"
           >

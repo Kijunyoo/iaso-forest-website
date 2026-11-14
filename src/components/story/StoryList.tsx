@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { fetchStories, Story } from '@/lib/api/stories';
+import { formatStoryDate } from '@/lib/utils';
 
 const categoryColors: Record<string, string> = {
   가이드: 'bg-blue-100 text-blue-700',
@@ -73,7 +74,7 @@ function StoryCard({ story }: { story: Story }) {
           </span>
           <span className="flex items-center gap-1 text-xs text-iaso-text-light">
             <Calendar className="w-3 h-3" />
-            {story.date}
+            {formatStoryDate(story.date)}
           </span>
         </div>
 

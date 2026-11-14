@@ -23,7 +23,6 @@ interface NaverMapProps {
 // 네이버 지도 타입 선언 (any 타입 사용)
 declare global {
   interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     naver: any;
   }
 }
@@ -44,7 +43,6 @@ export default function NaverMap({
   useStaticImage = false,
 }: NaverMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapInstanceRef = useRef<any>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasApiKey, setHasApiKey] = useState(true);
@@ -153,6 +151,7 @@ export default function NaverMap({
         style={{ height }}
       >
         {/* Cloudinary 정적 지도 이미지 */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- 정적 export, images.unoptimized=true 라 next/image 최적화 이점 없음 (기존 코드 유지) */}
         <img
           src={fallbackMapImage}
           alt="이아소 포레스트 위치 지도"

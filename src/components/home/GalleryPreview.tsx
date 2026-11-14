@@ -65,6 +65,7 @@ export default function GalleryPreview() {
               key={index}
               className="group relative rounded-xl overflow-hidden cursor-pointer"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element -- 정적 export, images.unoptimized=true 라 next/image 최적화 이점 없음 (기존 코드 유지) */}
               <img
                 src={image.src}
                 alt={image.alt}

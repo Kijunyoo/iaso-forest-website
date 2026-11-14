@@ -3,6 +3,8 @@
  * n8n Proxy를 통해 Notion DB에서 Story 데이터를 가져옵니다.
  */
 
+import type { StoryDateValue } from '@/lib/utils';
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_N8N_STORY_API || 'https://n8n.kjyoo.cloud/webhook';
 
 export interface Story {
@@ -11,7 +13,7 @@ export interface Story {
   category: string;
   excerpt: string;
   thumbnail: string;
-  date: string;
+  date: StoryDateValue;
   publicUrl?: string;
 }
 
