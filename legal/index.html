@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="이혼·가사 소송 AI 증거분석 및 수임 자동화 제안서" />
+  <meta property="og:description" content="변호사님 및 사무장님을 위한 AI 사전 필터링·통화녹음 50개 야간 자동 분석 솔루션 브리핑" />
+  <title>이혼·가사 소송 AI 증거분석 및 수임 자동화 제안서</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #090d16;
+      color: #f8fafc;
+    }
+    .gold-grad {
+      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    }
+    @keyframes wave {
+      0%, 100% { height: 6px; }
+      50% { height: 22px; }
+    }
+    .wave-bar {
+      width: 4px;
+      background-color: #090d16;
+      border-radius: 9999px;
+      display: inline-block;
+      margin: 0 2px;
+    }
+    .playing .wave-bar:nth-child(1) { animation: wave 0.6s infinite ease-in-out 0.1s; }
+    .playing .wave-bar:nth-child(2) { animation: wave 0.6s infinite ease-in-out 0.25s; }
+    .playing .wave-bar:nth-child(3) { animation: wave 0.6s infinite ease-in-out 0.4s; }
+    .playing .wave-bar:nth-child(4) { animation: wave 0.6s infinite ease-in-out 0.15s; }
+    .blur-lock { filter: blur(6px); user-select: none; transition: filter 0.4s ease; }
+    .blur-unlock { filter: blur(0px); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- 실제 남성 성우 MP3 오디오 플레이어 -->
+  <audio id="narration-player" preload="auto"></audio>
+
+  <header class="bg-slate-900/95 border-b border-slate-800 px-6 py-4 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl gold-grad flex items-center justify-center text-slate-950 font-black text-xl shadow-md">法</div>
+        <div>
+          <span class="text-xs font-bold tracking-widest text-amber-400 uppercase block">LegalTech Partnership Brief</span>
+          <h1 class="text-xl md:text-2xl font-extrabold text-white">이혼·가사 AI 증거분석 및 수임 자동화 제안</h1>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+        <button onclick="goSlide(0, false)" id="tab-0" class="px-3.5 py-2 rounded-lg text-base font-bold transition">1. 도입배경</button>
+        <button onclick="goSlide(1, false)" id="tab-1" class="px-3.5 py-2 rounded-lg text-base font-bold transition">2. 3단계 퍼널</button>
+        <button onclick="goSlide(2, false)" id="tab-2" class="px-3.5 py-2 rounded-lg text-base font-bold transition">3. 50개 녹음분석</button>
+        <button onclick="goSlide(3, false)" id="tab-3" class="px-3.5 py-2 rounded-lg text-base font-bold transition">4. 보안 인프라</button>
+        <button onclick="goSlide(4, false)" id="tab-4" class="px-3.5 py-2 rounded-lg text-base font-bold transition">5. 적법 수익구조</button>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="toggleAudio()" id="tts-btn" class="gold-grad text-slate-950 font-extrabold px-6 py-3 rounded-xl text-lg shadow-lg flex items-center gap-3 hover:brightness-110 active:scale-95 transition">
+          <span id="tts-icon" class="text-xl">▶</span>
+          <span id="tts-label">남성 아나운서 브리핑 듣기</span>
+          <div id="wave-box" class="hidden items-center h-5 ml-1">
+            <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-8 flex flex-col justify-center">
+    <!-- SLIDE 1 -->
+    <section id="slide-0" class="space-y-8">
+      <div class="border-l-4 border-amber-400 pl-5">
+        <span class="text-amber-400 font-bold text-lg">01. 법률사무소 현장의 고충과 해법</span>
+        <h2 class="text-3xl md:text-5xl font-black text-white mt-1 leading-tight">
+          고비용 키워드 광고와 증거 분류 업무를<br/><span class="text-amber-400">AI 사전 필터링 퍼널</span>로 혁신합니다
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-slate-900/90 border-2 border-rose-500/40 rounded-2xl p-7 space-y-4">
+          <span class="bg-rose-500/20 text-rose-300 px-3.5 py-1 rounded-full text-base font-bold">기존 이혼 사건 마케팅·실무의 한계</span>
+          <h3 class="text-2xl font-extrabold text-white">높은 광고비 대비 낮은 수임 전환율</h3>
+          <ul class="space-y-3 text-xl text-slate-200 leading-relaxed">
+            <li>• <strong class="text-rose-300">과도한 광고비 지출:</strong> 클릭당 3~10만 원 검색 광고비에도 단순 감정 하소연 상담이 절반 이상을 차지합니다.</li>
+            <li>• <strong class="text-rose-300">사무장님의 증거 검토 부담:</strong> 통화녹음 수십 개(20시간)를 직원이 일일이 이어폰으로 들으며 분류하느라 막대한 시간이 소모됩니다.</li>
+            <li>• <strong class="text-rose-300">높은 속기사 비용 장벽:</strong> 20시간 전체를 맡기면 300만 원 이상이 발생해 의뢰인이 사건 진행을 주저합니다.</li>
+          </ul>
+        </div>
+        <div class="bg-slate-900/90 border-2 border-amber-500/50 rounded-2xl p-7 space-y-4">
+          <span class="bg-amber-500/20 text-amber-300 px-3.5 py-1 rounded-full text-base font-bold">제안하는 AI 자동화 시스템 도입 효과</span>
+          <h3 class="text-2xl font-extrabold text-amber-300">진성 의뢰인 선별 및 야간 자동 증거 추출</h3>
+          <ul class="space-y-3 text-xl text-slate-100 leading-relaxed">
+            <li>• <strong class="text-amber-300">소액 결제를 통한 진성 의뢰인 필터링:</strong> 본인 비용(9,900원)을 결제하고 증거 파일까지 올린 핵심 의뢰인만 변호사님께 연결합니다.</li>
+            <li>• <strong class="text-amber-300">야간 무인 증거 타임스탬프 추출:</strong> 녹음 50개를 폴더에 넣어두면 다음 날 아침 핵심 증거 3건의 타임스탬프와 초안이 완성됩니다.</li>
+            <li>• <strong class="text-amber-300">속기 비용 90% 절감:</strong> 꼭 필요한 15분 분량만 정식 속기 공증을 의뢰하도록 안내하여 의뢰인 만족도를 극대화합니다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 -->
+    <section id="slide-1" class="hidden space-y-8">
+      <div class="border-l-4 border-amber-400 pl-5">
+        <span class="text-amber-400 font-bold text-lg">02. 핵심 비즈니스 모델</span>
+        <h2 class="text-3xl md:text-5xl font-black text-white mt-1 leading-tight">
+          상담부터 수임까지 자동으로 이어지는 <span class="text-amber-400">3단계 퍼널</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-slate-900 border-2 border-slate-700 rounded-2xl p-6 space-y-4">
+          <span class="bg-yellow-400 text-slate-950 font-black px-3.5 py-1 rounded-lg text-base">STEP 1 · 무료 입구</span>
+          <h3 class="text-2xl font-extrabold text-white">1. 카카오톡 AI 무료 사전상담</h3>
+          <p class="text-xl text-slate-200 leading-relaxed">심야 시간대 익명이 보장되는 카톡 채널에서 AI가 <strong>혼인 기간, 재산 규모, 유책 사유, 보유 증거</strong>를 대화형으로 문진하고 1차 예상 재산분할 범위를 안내합니다.</p>
+        </div>
+        <div class="bg-slate-900 border-2 border-amber-500/60 rounded-2xl p-6 space-y-4">
+          <span class="gold-grad text-slate-950 font-black px-3.5 py-1 rounded-lg text-base">STEP 2 · 소액 유료 (9,900원)</span>
+          <h3 class="text-2xl font-extrabold text-amber-300">2. 비밀 보안함 & 증거 정밀분석</h3>
+          <p class="text-xl text-slate-200 leading-relaxed">PIN 번호로 보호되는 보안함에 <strong>통화녹음 다수, 상간 카톡 캡처, 협의이혼 합의서</strong>를 올리면 무료 티저 노출 후 소액 결제로 전체 리포트를 제공합니다.</p>
+        </div>
+        <div class="bg-slate-900 border-2 border-emerald-500/60 rounded-2xl p-6 space-y-4">
+          <span class="bg-emerald-400 text-slate-950 font-black px-3.5 py-1 rounded-lg text-base">STEP 3 · 사건 수임</span>
+          <h3 class="text-2xl font-extrabold text-emerald-300">3. 브리핑 리포트 & 즉시 수임</h3>
+          <p class="text-xl text-slate-200 leading-relaxed">재산 규모가 크거나 외도·은닉 증거가 확실한 사건은 <strong>변호사님께 사전 요약 브리핑 시트가 먼저 전송</strong>되며, 의뢰인에게 직통 전화 상담을 연결합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3 -->
+    <section id="slide-2" class="hidden space-y-6">
+      <div class="flex flex-wrap items-end justify-between gap-4 border-l-4 border-amber-400 pl-5">
+        <div>
+          <span class="text-amber-400 font-bold text-lg">03. 킬러 솔루션 시연</span>
+          <h2 class="text-3xl md:text-4xl font-black text-white mt-1">대량 통화녹음 50개(20시간) → <span class="text-amber-400">핵심 증거 족집게 선별표</span></h2>
+        </div>
+        <button onclick="toggleDemoUnlock()" id="unlock-btn" class="gold-grad text-slate-950 font-extrabold px-5 py-3 rounded-xl text-base shadow-lg">
+          🔓 소액 결제 후 블러(Blur) 해제 화면 보기
+        </button>
+      </div>
+      <div class="bg-slate-900 border-2 border-slate-700 rounded-2xl p-6 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 bg-slate-950 p-4 rounded-xl border border-slate-800">
+          <div class="text-lg font-bold text-white">📁 분석 사건: <span class="text-amber-300">2026_김OO_이혼및상간소송.zip</span> (녹음 50건 / 18시간 42분)</div>
+          <div class="text-lg font-extrabold text-emerald-400">✅ 속기사 공증 추천 파일: 딱 3건 (14분 20초) → 속기 비용 약 255만 원 절감!</div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-lg">
+            <thead>
+              <tr class="border-b border-slate-700 text-amber-300 bg-slate-950/60">
+                <th class="p-3.5">우선순위</th>
+                <th class="p-3.5">파일명 / 구간</th>
+                <th class="p-3.5">핵심 발언 원문 (화자 분리 초안)</th>
+                <th class="p-3.5">법적 쟁점 및 위험 판정</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+              <tr class="bg-slate-900/60">
+                <td class="p-3.5 font-black text-amber-400">★★★ 1순위</td>
+                <td class="p-3.5 font-semibold">통화_250912.m4a (04:12~05:08)</td>
+                <td class="p-3.5 text-white font-medium">남편: "그래, 나 그 여자랑 지난주에 강릉 갔다 왔다. 네가 증거 있어?"</td>
+                <td class="p-3.5"><span class="bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-lg font-bold text-sm">민법 제840조 1호 (외도 시인) · 공증 필수</span></td>
+              </tr>
+              <tr id="lock-row-1" class="blur-lock bg-slate-900/40">
+                <td class="p-3.5 font-black text-amber-400">★★★ 2순위</td>
+                <td class="p-3.5 font-semibold">녹음_251003.m4a (11:20~12:45)</td>
+                <td class="p-3.5 text-white font-medium">남편: "내 퇴직금이랑 어머니 계좌로 빼둔 1억은 죽어도 못 줘."</td>
+                <td class="p-3.5"><span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-lg font-bold text-sm">은닉 재산 1억 자백 · 금융조회 근거</span></td>
+              </tr>
+              <tr id="lock-row-2" class="blur-lock bg-rose-950/30">
+                <td class="p-3.5 font-black text-rose-400">⚠️ 제출금지</td>
+                <td class="p-3.5 font-semibold">블랙박스_19.mp3 (01:15~03:40)</td>
+                <td class="p-3.5 text-rose-200 font-medium">[경고] 의뢰인 본인이 대화에 참여하지 않은 제3자 간 통화 녹음</td>
+                <td class="p-3.5"><span class="bg-rose-500/30 text-rose-300 px-3 py-1 rounded-lg font-bold text-sm">통신비밀보호법 위반 (형사 역고소 위험!)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 -->
+    <section id="slide-3" class="hidden space-y-8">
+      <div class="border-l-4 border-amber-400 pl-5">
+        <span class="text-amber-400 font-bold text-lg">04. 사무실 업무 효율화 및 철통 보안</span>
+        <h2 class="text-3xl md:text-5xl font-black text-white mt-1 leading-tight">
+          사무장님용 <span class="text-amber-400">야간 드롭박스</span> & <span class="text-emerald-400">512GB RAM 휘발 보안</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-slate-900 border-2 border-amber-500/50 rounded-2xl p-7 space-y-4">
+          <span class="bg-amber-500/20 text-amber-300 px-3.5 py-1 rounded-full text-base font-bold">법률사무소 내부 업무용 (B2B)</span>
+          <h3 class="text-2xl font-extrabold text-white">퇴근 전 폴더에 넣으면 아침에 분석 완료</h3>
+          <p class="text-xl text-slate-200 leading-relaxed">복잡한 프로그램을 배울 필요가 없습니다. 사무장님 PC의 공유 폴더 <strong>[01_사건녹음_넣는곳]</strong>에 녹음 파일 수십 개를 넣고 퇴근하시면, 다음 날 아침 <strong>[02_분석완료]</strong> 폴더에 타임스탬프 요약표와 법원 제출 양식 워드(DOCX) 초안이 자동으로 생성됩니다.</p>
+        </div>
+        <div class="bg-slate-900 border-2 border-emerald-500/50 rounded-2xl p-7 space-y-4">
+          <span class="bg-emerald-500/20 text-emerald-300 px-3.5 py-1 rounded-full text-base font-bold">해외 유출 원천 차단 & Zero-Log</span>
+          <h3 class="text-2xl font-extrabold text-emerald-300">자체 물리 서버 512GB RAM 즉시 소거</h3>
+          <p class="text-xl text-slate-200 leading-relaxed">의뢰인의 민감한 사생활 녹음과 카톡 캡처를 해외 상용 AI로 절대 전송하지 않습니다. <strong>한국 내 자체 GPU 서버의 512GB 메모리(RAM 디스크) 위에서만 판독 후 즉시 파기</strong>되며, 카드 결제 명세서에도 '이혼/법률' 단어가 전혀 표기되지 않습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 -->
+    <section id="slide-4" class="hidden space-y-8">
+      <div class="border-l-4 border-amber-400 pl-5">
+        <span class="text-amber-400 font-bold text-lg">05. 변호사법 100% 준수 파트너십</span>
+        <h2 class="text-3xl md:text-5xl font-black text-white mt-1 leading-tight">
+          법적 리스크 없는 <span class="text-amber-400">역할 분담 및 수익 정산 모델</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-slate-900 border-2 border-amber-500/50 rounded-2xl p-7 space-y-4">
+          <span class="bg-amber-500/20 text-amber-300 px-3.5 py-1 rounded-full text-base font-bold">수익 배분 및 계약 원칙</span>
+          <h3 class="text-2xl font-extrabold text-white">수임료 배분(수수료) 금지 원칙 철저 준수</h3>
+          <ul class="space-y-3 text-xl text-slate-200 leading-relaxed">
+            <li>• <strong class="text-amber-300">사건 수임료 100% 법률사무소 귀속:</strong> 유입된 의뢰인의 법률 상담 및 소송 착수금·성공보수는 전액 변호사님 사무실로 귀속됩니다.</li>
+            <li>• <strong class="text-amber-300">합법적 전산 기술 용역 계약:</strong> IT 공급사는 음성 전사(STT) 및 문서 정리 기술 처리료와 월 정액 서버 임대·유지보수료(세금계산서 발행)만 정산받습니다.</li>
+          </ul>
+        </div>
+        <div class="bg-slate-900 border-2 border-emerald-500/50 rounded-2xl p-7 space-y-4">
+          <span class="bg-emerald-500/20 text-emerald-300 px-3.5 py-1 rounded-full text-base font-bold">이번 주 즉시 실행 제안</span>
+          <h3 class="text-2xl font-extrabold text-emerald-300">파일럿 테스트를 위한 3가지 체크포인트</h3>
+          <ol class="space-y-3 text-xl text-slate-100 leading-relaxed list-decimal list-inside">
+            <li><strong>초기 상담 필수 질문 5가지 공유:</strong> 카카오톡 챗봇 문진표에 즉시 반영합니다.</li>
+            <li><strong>샘플 녹음 파일 테스트:</strong> 실제 사건 녹음 묶음을 넣어 요약표 품질을 직접 검수합니다.</li>
+            <li><strong>제휴 감수 표기 확정:</strong> 리포트 하단에 법률사무소 명칭과 직통 상담 번호를 연결합니다.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-950 border-t-2 border-amber-500/40 px-6 py-5 sticky bottom-0 z-40">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-4 flex-1">
+        <span class="bg-amber-400 text-slate-950 font-black px-3 py-1.5 rounded-lg text-sm shrink-0">브리핑 자막</span>
+        <p id="subtitle-box" class="text-xl md:text-2xl font-bold text-amber-100 leading-snug"></p>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button onclick="goSlide((currentSlide + 4) % 5, false)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2.5 rounded-xl text-base">◀ 이전</button>
+        <button onclick="goSlide((currentSlide + 1) % 5, false)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2.5 rounded-xl text-base">다음 ▶</button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const subtitles = [
+      "안녕하십니까, 변호사님 그리고 사무장님. 고비용 검색 광고와 수십 개 녹음 파일을 일일이 듣는 업무 부담을 AI 사전 필터링과 야간 자동 증거 추출로 해결해 드립니다.",
+      "1단계 카톡 무료 상담으로 신뢰를 얻고, 2단계 소액 유료 증거 분석으로 진성 의뢰인만 걸러낸 뒤, 3단계에서 변호사님께 사전 브리핑 시트와 함께 즉시 수임을 연결합니다.",
+      "20시간 분량 녹음 50개 중 정식 속기 공증을 맡길 핵심 파일 딱 3건만 선별해 속기 비용을 90% 절감하고, 통신비밀보호법 역고소 위험 파일까지 사전에 경고합니다.",
+      "사무장님께서 퇴근 전 폴더에 녹음을 넣어두시면 아침에 요약표와 녹취록 초안이 완성되며, 모든 데이터는 한국 내 자체 서버 512GB 메모리에서 판독 후 즉시 파기됩니다.",
+      "사건 수임료는 100% 법률사무소로 귀속되며, IT 공급사는 음성 전사 처리료와 월 정액 서버 유지보수 용역비만 세금계산서로 정산받아 변호사법 리스크가 전혀 없습니다."
+    ];
+
+    let currentSlide = 0;
+    let isPlaying = false;
+    const player = document.getElementById('narration-player');
+
+    function goSlide(idx, autoPlayAfter) {
+      player.pause();
+      currentSlide = idx;
+      for (let i = 0; i < 5; i++) {
+        document.getElementById(`slide-${i}`).classList.toggle('hidden', i !== idx);
+        document.getElementById(`tab-${i}`).className = (i === idx)
+          ? "px-3.5 py-2 rounded-lg text-base font-extrabold gold-grad text-slate-950 shadow"
+          : "px-3.5 py-2 rounded-lg text-base font-bold text-slate-300 hover:text-white";
+      }
+      document.getElementById('subtitle-box').textContent = subtitles[idx];
+      player.src = `slide${idx}.mp3`;
+      if (autoPlayAfter) {
+        player.play().then(() => setPlayUI(true)).catch(() => setPlayUI(false));
+      } else {
+        setPlayUI(false);
+      }
+    }
+
+    function setPlayUI(playing) {
+      isPlaying = playing;
+      document.getElementById('tts-icon').textContent = playing ? '⏹' : '▶';
+      document.getElementById('tts-label').textContent = playing ? '브리핑 일시정지' : '남성 아나운서 브리핑 듣기';
+      const wave = document.getElementById('wave-box');
+      wave.classList.toggle('hidden', !playing);
+      wave.classList.toggle('flex', playing);
+      wave.classList.toggle('playing', playing);
+    }
+
+    function toggleAudio() {
+      if (isPlaying) {
+        player.pause();
+        setPlayUI(false);
+      } else {
+        player.src = `slide${currentSlide}.mp3`;
+        player.play().then(() => setPlayUI(true)).catch(err => {
+          alert("음성 파일(slide0.mp3~slide4.mp3)이 같은 폴더에 있는지 확인해 주세요.");
+        });
+      }
+    }
+
+    player.onended = () => {
+      if (currentSlide < 4) {
+        goSlide(currentSlide + 1, true);
+      } else {
+        setPlayUI(false);
+      }
+    };
+
+    let demoUnlocked = false;
+    function toggleDemoUnlock() {
+      demoUnlocked = !demoUnlocked;
+      document.getElementById('lock-row-1').classList.toggle('blur-unlock', demoUnlocked);
+      document.getElementById('lock-row-2').classList.toggle('blur-unlock', demoUnlocked);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => goSlide(0, false));
+  </script>
+</body>
+</html>
