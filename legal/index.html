@@ -41,13 +41,13 @@
   <!-- 실제 남성 성우 MP3 오디오 플레이어 -->
   <audio id="narration-player" preload="auto"></audio>
 
-  <header class="bg-slate-900/95 border-b border-slate-800 px-6 py-4 sticky top-0 z-50 backdrop-blur-md">
+  <header class="bg-slate-900/95 border-b border-slate-800 px-3 py-2 sticky top-0 z-50 backdrop-blur-md">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
       <div class="flex items-center gap-3">
         <div class="w-11 h-11 rounded-xl gold-grad flex items-center justify-center text-slate-950 font-black text-xl shadow-md">法</div>
         <div>
           <span class="text-xs font-bold tracking-widest text-amber-400 uppercase block">LegalTech Partnership Brief</span>
-          <h1 class="text-xl md:text-2xl font-extrabold text-white">이혼·가사 AI 증거분석 및 수임 자동화 제안</h1>
+          <h1 class="text-sm md:text-lg font-extrabold text-white">이혼·가사 AI 증거분석 및 수임 자동화 제안</h1>
         </div>
       </div>
 
@@ -62,7 +62,7 @@
       <div class="flex items-center gap-3">
         <button onclick="startShow()" id="tts-btn" class="gold-grad text-slate-950 font-extrabold px-6 py-3 rounded-xl text-lg shadow-lg flex items-center gap-3 hover:brightness-110 active:scale-95 transition">
           <span id="tts-icon" class="text-xl">▶</span>
-          <span id="tts-label">전체 슬라이드 자동 브리핑 시작</span>
+          <span id="tts-label"></span>
           <div id="wave-box" class="hidden items-center h-5 ml-1">
             <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
           </div>
@@ -71,12 +71,12 @@
     </div>
   </header>
 
-  <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-8 flex flex-col justify-center">
+  <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-3 flex flex-col justify-center">
     <!-- SLIDE 1 -->
-    <section id="slide-0" class="space-y-8">
+    <section id="slide-0" class="space-y-3">
       <div class="border-l-4 border-amber-400 pl-5">
         <span class="text-amber-400 font-bold text-lg">01. 법률사무소 현장의 고충과 해법</span>
-        <h2 class="text-3xl md:text-5xl font-black text-white mt-1 leading-tight">
+        <h2 class="text-lg md:text-2xl font-black text-white mt-1 leading-tight">
           고비용 키워드 광고와 증거 분류 업무를<br/><span class="text-amber-400">AI 사전 필터링 퍼널</span>로 혁신합니다
         </h2>
       </div>
@@ -103,10 +103,10 @@
     </section>
 
     <!-- SLIDE 2 -->
-    <section id="slide-1" class="hidden space-y-8">
+    <section id="slide-1" class="hidden space-y-3">
       <div class="border-l-4 border-amber-400 pl-5">
         <span class="text-amber-400 font-bold text-lg">02. 핵심 비즈니스 모델</span>
-        <h2 class="text-3xl md:text-5xl font-black text-white mt-1 leading-tight">
+        <h2 class="text-lg md:text-2xl font-black text-white mt-1 leading-tight">
           상담부터 수임까지 자동으로 이어지는 <span class="text-amber-400">3단계 퍼널</span>
         </h2>
       </div>
@@ -134,7 +134,7 @@
       <div class="flex flex-wrap items-end justify-between gap-4 border-l-4 border-amber-400 pl-5">
         <div>
           <span class="text-amber-400 font-bold text-lg">03. 킬러 솔루션 시연</span>
-          <h2 class="text-3xl md:text-4xl font-black text-white mt-1">대량 통화녹음 50개(20시간) → <span class="text-amber-400">핵심 증거 족집게 선별표</span></h2>
+          <h2 class="text-lg md:text-2xl font-black text-white mt-1">대량 통화녹음 50개(20시간) → <span class="text-amber-400">핵심 증거 족집게 선별표</span></h2>
         </div>
         <button onclick="toggleDemoUnlock()" id="unlock-btn" class="gold-grad text-slate-950 font-extrabold px-5 py-3 rounded-xl text-base shadow-lg">
           🔓 소액 결제 후 블러(Blur) 해제 화면 보기
@@ -181,10 +181,10 @@
     </section>
 
     <!-- SLIDE 4 -->
-    <section id="slide-3" class="hidden space-y-8">
+    <section id="slide-3" class="hidden space-y-3">
       <div class="border-l-4 border-amber-400 pl-5">
         <span class="text-amber-400 font-bold text-lg">04. 사무실 업무 효율화 및 철통 보안</span>
-        <h2 class="text-3xl md:text-5xl font-black text-white mt-1 leading-tight">
+        <h2 class="text-lg md:text-2xl font-black text-white mt-1 leading-tight">
           사무장님용 <span class="text-amber-400">야간 드롭박스</span> & <span class="text-emerald-400">512GB RAM 휘발 보안</span>
         </h2>
       </div>
@@ -203,10 +203,10 @@
     </section>
 
     <!-- SLIDE 5 -->
-    <section id="slide-4" class="hidden space-y-8">
+    <section id="slide-4" class="hidden space-y-3">
       <div class="border-l-4 border-amber-400 pl-5">
         <span class="text-amber-400 font-bold text-lg">05. 변호사법 100% 준수 파트너십</span>
-        <h2 class="text-3xl md:text-5xl font-black text-white mt-1 leading-tight">
+        <h2 class="text-lg md:text-2xl font-black text-white mt-1 leading-tight">
           법적 리스크 없는 <span class="text-amber-400">역할 분담 및 수익 정산 모델</span>
         </h2>
       </div>
@@ -254,7 +254,7 @@
     player.load();
     player.play().then(() => {
       document.getElementById('tts-icon').textContent = '🔊';
-      document.getElementById('tts-label').textContent = (idx + 1) + ' / 5 페이지 자동 브리핑 중...';
+      document.getElementById('tts-label').textContent = (idx + 1) + ' / 5';
       const wave = document.getElementById('wave-box');
       if (wave) { wave.classList.remove('hidden'); wave.classList.add('flex', 'playing'); }
     }).catch(e => console.log(e));
