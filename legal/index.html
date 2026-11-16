@@ -60,9 +60,9 @@
       </div>
 
       <div class="flex items-center gap-3">
-        <button onclick="toggleAudio()" id="tts-btn" class="gold-grad text-slate-950 font-extrabold px-6 py-3 rounded-xl text-lg shadow-lg flex items-center gap-3 hover:brightness-110 active:scale-95 transition">
+        <button onclick="startShow()" id="tts-btn" class="gold-grad text-slate-950 font-extrabold px-6 py-3 rounded-xl text-lg shadow-lg flex items-center gap-3 hover:brightness-110 active:scale-95 transition">
           <span id="tts-icon" class="text-xl">▶</span>
-          <span id="tts-label">남성 아나운서 브리핑 듣기</span>
+          <span id="tts-label">전체 슬라이드 자동 브리핑 시작</span>
           <div id="wave-box" class="hidden items-center h-5 ml-1">
             <span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span>
           </div>
@@ -235,74 +235,59 @@
   
 
   <script>
-    const subtitles = [
-      "안녕하십니까, 변호사님 그리고 사무장님. 고비용 검색 광고와 수십 개 녹음 파일을 일일이 듣는 업무 부담을 AI 사전 필터링과 야간 자동 증거 추출로 해결해 드립니다.",
-      "1단계 카톡 무료 상담으로 신뢰를 얻고, 2단계 소액 유료 증거 분석으로 진성 의뢰인만 걸러낸 뒤, 3단계에서 변호사님께 사전 브리핑 시트와 함께 즉시 수임을 연결합니다.",
-      "20시간 분량 녹음 50개 중 정식 속기 공증을 맡길 핵심 파일 딱 3건만 선별해 속기 비용을 90% 절감하고, 통신비밀보호법 역고소 위험 파일까지 사전에 경고합니다.",
-      "사무장님께서 퇴근 전 폴더에 녹음을 넣어두시면 아침에 요약표와 녹취록 초안이 완성되며, 모든 데이터는 한국 내 자체 서버 512GB 메모리에서 판독 후 즉시 파기됩니다.",
-      "사건 수임료는 100% 법률사무소로 귀속되며, IT 공급사는 음성 전사 처리료와 월 정액 서버 유지보수 용역비만 세금계산서로 정산받아 변호사법 리스크가 전혀 없습니다."
-    ];
+  let currentSlide = 0;
+  const player = document.getElementById('narration-player');
 
-    let currentSlide = 0;
-    let isPlaying = false;
-    const player = document.getElementById('narration-player');
-
-    function goSlide(idx, autoPlayAfter) {
-      player.pause();
-      currentSlide = idx;
-      for (let i = 0; i < 5; i++) {
-        document.getElementById(`slide-${i}`).classList.toggle('hidden', i !== idx);
-        document.getElementById(`tab-${i}`).className = (i === idx)
-          ? "px-3.5 py-2 rounded-lg text-base font-extrabold gold-grad text-slate-950 shadow"
-          : "px-3.5 py-2 rounded-lg text-base font-bold text-slate-300 hover:text-white";
-      }
-      document.getElementById('subtitle-box').textContent = subtitles[idx];
-      player.src = `slide${idx}.mp3`;
-      if (autoPlayAfter) {
-        player.play().then(() => setPlayUI(true)).catch(() => setPlayUI(false));
-      } else {
-        setPlayUI(false);
-      }
+  function showSlideUI(idx) {
+    currentSlide = idx;
+    for (let i = 0; i < 5; i++) {
+      document.getElementById('slide-' + i).classList.toggle('hidden', i !== idx);
+      document.getElementById('tab-' + i).className = (i === idx)
+        ? 'px-3 py-1.5 rounded-lg text-sm md:text-base font-extrabold gold-grad text-slate-950 shadow'
+        : 'px-3 py-1.5 rounded-lg text-sm md:text-base font-bold text-slate-300 hover:text-white';
     }
+  }
 
-    function setPlayUI(playing) {
-      isPlaying = playing;
-      document.getElementById('tts-icon').textContent = playing ? '⏹' : '▶';
-      document.getElementById('tts-label').textContent = playing ? '브리핑 일시정지' : '남성 아나운서 브리핑 듣기';
+  function playTrack(idx) {
+    showSlideUI(idx);
+    player.src = 'slide' + idx + '.mp3';
+    player.load();
+    player.play().then(() => {
+      document.getElementById('tts-icon').textContent = '🔊';
+      document.getElementById('tts-label').textContent = (idx + 1) + ' / 5 페이지 자동 브리핑 중...';
       const wave = document.getElementById('wave-box');
-      wave.classList.toggle('hidden', !playing);
-      wave.classList.toggle('flex', playing);
-      wave.classList.toggle('playing', playing);
+      if (wave) { wave.classList.remove('hidden'); wave.classList.add('flex', 'playing'); }
+    }).catch(e => console.log(e));
+  }
+
+  function startShow() {
+    playTrack(0);
+  }
+
+  function goSlide(idx, autoPlay) {
+    playTrack(idx);
+  }
+
+  player.onended = function() {
+    if (currentSlide < 4) {
+      playTrack(currentSlide + 1);
+    } else {
+      document.getElementById('tts-icon').textContent = '▶';
+      document.getElementById('tts-label').textContent = '처음부터 다시 듣기';
+      const wave = document.getElementById('wave-box');
+      if (wave) { wave.classList.add('hidden'); wave.classList.remove('flex', 'playing'); }
     }
+  };
 
-    function toggleAudio() {
-      if (isPlaying) {
-        player.pause();
-        setPlayUI(false);
-      } else {
-        player.src = `slide${currentSlide}.mp3`;
-        player.play().then(() => setPlayUI(true)).catch(err => {
-          alert("음성 파일(slide0.mp3~slide4.mp3)이 같은 폴더에 있는지 확인해 주세요.");
-        });
-      }
-    }
+  let demoUnlocked = false;
+  function toggleDemoUnlock() {
+    demoUnlocked = !demoUnlocked;
+    document.getElementById('lock-row-1').classList.toggle('blur-unlock', demoUnlocked);
+    document.getElementById('lock-row-2').classList.toggle('blur-unlock', demoUnlocked);
+  }
 
-    player.onended = () => {
-      if (currentSlide < 4) {
-        goSlide(currentSlide + 1, true);
-      } else {
-        setPlayUI(false);
-      }
-    };
-
-    let demoUnlocked = false;
-    function toggleDemoUnlock() {
-      demoUnlocked = !demoUnlocked;
-      document.getElementById('lock-row-1').classList.toggle('blur-unlock', demoUnlocked);
-      document.getElementById('lock-row-2').classList.toggle('blur-unlock', demoUnlocked);
-    }
-
-    window.addEventListener('DOMContentLoaded', () => goSlide(0, false));
-  </script>
+  window.addEventListener('DOMContentLoaded', () => showSlideUI(0));
+</script>
 </body>
 </html>
+
