@@ -8,7 +8,7 @@ npm run build
 test -f out/index.html
 
 git fetch -q origin site || true
-export GIT_INDEX_FILE="$(git rev-parse --git-dir)/index.site"
+export GIT_INDEX_FILE="$(git rev-parse --absolute-git-dir)/index.site"
 rm -f "$GIT_INDEX_FILE"
 git --work-tree=out add -A -f .
 tree=$(git write-tree)
