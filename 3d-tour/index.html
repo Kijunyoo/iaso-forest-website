@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>이아소 3D 분양 플랫폼 기획 브리핑</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>body{background:#0f172a;color:#f8fafc;font-family:Pretendard,sans-serif;overflow-x:hidden}</style>
+</head><body class="min-h-screen flex flex-col justify-between">
+<header class="bg-slate-900/95 border-b border-slate-800 px-3 py-2 sticky top-0 z-50">
+<div class="max-w-5xl mx-auto flex flex-col gap-1.5">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center font-black text-white shrink-0">3D</div>
+<h1 class="text-sm md:text-lg font-extrabold text-white truncate">이아소 3D 분양 시뮬레이터 & CRM 기획안</h1>
+</div>
+<button id="audioBtn" onclick="toggleAudio()" class="h-9 px-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-1 shrink-0 shadow">🔊 ▶</button>
+</div>
+<div class="grid grid-cols-5 gap-1 text-center text-xs font-bold">
+<button onclick="goSlide(0)" id="tab0" class="py-1.5 rounded bg-emerald-600 text-white">1.개요</button>
+<button onclick="goSlide(1)" id="tab1" class="py-1.5 rounded bg-slate-800 text-slate-400">2.2D배치</button>
+<button onclick="goSlide(2)" id="tab2" class="py-1.5 rounded bg-slate-800 text-slate-400">3.3D투어</button>
+<button onclick="goSlide(3)" id="tab3" class="py-1.5 rounded bg-slate-800 text-slate-400">4.견적/CRM</button>
+<button onclick="goSlide(4)" id="tab4" class="py-1.5 rounded bg-slate-800 text-slate-400">5.SaaS확장</button>
+</div></div></header>
+<main class="flex-1 max-w-5xl w-full mx-auto p-3 md:p-5">
+<section id="s0" class="space-y-3">
+<h2 class="text-base md:text-xl font-bold text-emerald-400 truncate">1. 5단계 인터랙티브 분양 & CRM 코어 파이프라인</h2>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-2.5">
+<div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700"><div class="text-xs text-emerald-400 font-bold">STEP 1</div><div class="font-bold text-sm mt-0.5">2D 단지 분할도</div><p class="text-xs text-slate-300 mt-1">필지 선택 시 건폐율 기준 건축·정원 영역 자동 분할 및 토지비 로드</p></div>
+<div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700"><div class="text-xs text-emerald-400 font-bold">STEP 2</div><div class="font-bold text-sm mt-0.5">10종 주택 & 정원 배치</div><p class="text-xs text-slate-300 mt-1">평형별 10개 프리셋 주택과 데크·수영장·조경수 드래그 배치</p></div>
+<div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700"><div class="text-xs text-emerald-400 font-bold">STEP 3</div><div class="font-bold text-sm mt-0.5">3D 단지 조감도 렌더링</div><p class="text-xs text-slate-300 mt-1">실시간 360도 입체 조감도 전환 및 시간대별 일조량 시뮬레이션</p></div>
+<div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700"><div class="text-xs text-emerald-400 font-bold">STEP 4</div><div class="font-bold text-sm mt-0.5">1인칭 실내 가상 투어</div><p class="text-xs text-slate-300 mt-1">성인 눈높이(1.6m) 진입, 거실 통창 너머 내 정원과 실제 산세 체감</p></div>
+<div class="bg-emerald-950/60 p-3.5 rounded-xl border border-emerald-500/50"><div class="text-xs text-amber-400 font-bold">STEP 5 (필수 코어)</div><div class="font-bold text-sm mt-0.5">실시간 견적 & 카톡 브리핑</div><p class="text-xs text-slate-200 mt-1">5대 비용 자동 산출 + 자체 CRM 저장 후 가족 공유용 음성 덱 발송</p></div>
+</div>
+<div class="bg-slate-900 p-4 rounded-xl border border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+<div class="p-3 bg-slate-800/50 rounded-lg"><strong class="text-emerald-400 block mb-1">오픈소스 결합 단축 개발</strong>egmalt/house-planner(필지) + floorplan-3d(1인칭 터치 투어) + openPlan3D(정원/PBR) 결합</div>
+<div class="p-3 bg-slate-800/50 rounded-lg"><strong class="text-blue-400 block mb-1">자체 서버 + CRM DB 직결</strong>고객이 카톡 링크를 열어본 횟수, 체류 시간, 가족들과 수정해 본 옵션 이력을 영업팀 CRM에 실시간 기록</div>
+<div class="p-3 bg-slate-800/50 rounded-lg"><strong class="text-amber-400 block mb-1">타 단지 즉시 적용 (SaaS)</strong>이아소 1호 검증 후 도면(SVG)과 단가표(Excel)만 교체해 전국 단지에 3일 내 보급</div>
+</div></section>
+<section id="s1" class="hidden space-y-3">
+<h2 class="text-base md:text-xl font-bold text-emerald-400 truncate">2. [시연] 2D 필지 분할 및 10종 주택·정원 배치 시뮬레이터</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="bg-slate-800 p-3.5 rounded-xl border border-slate-700 space-y-2.5">
+<div class="text-xs font-bold text-slate-300">① 이아소 단지 필지 선택 (건폐율 20% 자동 분할)</div>
+<div class="grid grid-cols-3 gap-2">
+<button onclick="setLot(0)" id="lot0" class="p-2.5 rounded-lg bg-emerald-600 text-white text-xs font-bold">A-01 (150평)<br><span class="text-[11px] font-normal">남향 / 3.0억</span></button>
+<button onclick="setLot(1)" id="lot1" class="p-2.5 rounded-lg bg-slate-700 text-slate-200 text-xs font-bold">B-04 (200평)<br><span class="text-[11px] font-normal">정남향 / 4.2억</span></button>
+<button onclick="setLot(2)" id="lot2" class="p-2.5 rounded-lg bg-slate-700 text-slate-200 text-xs font-bold">C-02 (250평)<br><span class="text-[11px] font-normal">파노라마뷰 / 5.5억</span></button>
+</div>
+<div class="text-xs font-bold text-slate-300 pt-1">② 사전 준비 건축물 프리셋 선택 (10종 중 대표 3종)</div>
+<div class="grid grid-cols-3 gap-2">
+<button onclick="setHouse(0)" id="hs0" class="p-2.5 rounded-lg bg-blue-600 text-white text-xs font-bold">모던 30평형<br><span class="text-[11px] font-normal">건축 2.4억</span></button>
+<button onclick="setHouse(1)" id="hs1" class="p-2.5 rounded-lg bg-slate-700 text-slate-200 text-xs font-bold">중정형 40평형<br><span class="text-[11px] font-normal">건축 3.3억</span></button>
+<button onclick="setHouse(2)" id="hs2" class="p-2.5 rounded-lg bg-slate-700 text-slate-200 text-xs font-bold">하이엔드 50평<br><span class="text-[11px] font-normal">건축 4.5억</span></button>
+</div>
+<div class="text-xs font-bold text-slate-300 pt-1">③ 잔여 부지 정원(조경) 옵션 추가</div>
+<div class="grid grid-cols-3 gap-2 text-xs">
+<button onclick="toggleOpt(0)" id="opt0" class="p-2 rounded-lg bg-emerald-700 text-white font-bold">✓ 원목데크 (+1,500만)</button>
+<button onclick="toggleOpt(1)" id="opt1" class="p-2 rounded-lg bg-slate-700 text-slate-300 font-bold">+ 수영장 (+4,500만)</button>
+<button onclick="toggleOpt(2)" id="opt2" class="p-2 rounded-lg bg-emerald-700 text-white font-bold">✓ 소나무조경 (+2,000만)</button>
+</div></div>
+<div class="bg-slate-900 p-4 rounded-xl border border-slate-700 flex flex-col justify-between">
+<div class="text-xs text-slate-400 flex justify-between"><span>2D 부지 분할 프리뷰</span><span id="lotBadge" class="text-emerald-400 font-bold">A-01 필지 (150평)</span></div>
+<div class="my-3 h-44 bg-emerald-950/50 border-2 border-dashed border-emerald-500/60 rounded-xl relative flex items-center justify-center p-4">
+<div class="absolute top-2 left-2 text-[11px] text-emerald-300">🌿 정원/조경 배치 영역 (잔여 대지)</div>
+<div id="houseBox" class="w-36 h-24 bg-blue-600/80 border-2 border-white rounded-lg flex flex-col items-center justify-center text-xs font-bold shadow-lg">🏠 모던 30평형<span class="text-[10px] font-normal text-blue-100">건축 영역 배치됨</span></div>
+<div id="optBadges" class="absolute bottom-2 right-2 flex gap-1 text-[11px]"><span class="bg-amber-700/80 px-2 py-0.5 rounded">원목데크</span><span class="bg-emerald-700/80 px-2 py-0.5 rounded">소나무조경</span></div>
+</div>
+<button onclick="goSlide(2)" class="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 font-bold text-xs text-white shadow">이 배치 그대로 3D 조감도 & 실내 투어 들어가기 →</button>
+</div></div></section>
+<section id="s2" class="hidden space-y-3">
+<div class="flex items-center justify-between gap-2">
+<h2 class="text-base md:text-xl font-bold text-emerald-400 truncate">3. [시연] 3D 조감도 렌더링 & 1인칭 거실 창밖 투어</h2>
+<div class="flex gap-1.5 shrink-0">
+<button onclick="setCam(0)" class="px-2.5 py-1 rounded bg-emerald-600 text-white text-xs font-bold">항공 조감도 뷰</button>
+<button onclick="setCam(1)" class="px-2.5 py-1 rounded bg-amber-600 text-white text-xs font-bold">👁️ 거실 내부에서 창밖 보기(1.6m)</button>
+</div></div>
+<div id="threeWrap" class="w-full h-72 md:h-80 bg-slate-950 rounded-xl border border-slate-700 relative overflow-hidden">
+<div id="viewLabel" class="absolute top-2.5 left-2.5 bg-slate-900/85 px-3 py-1 rounded-lg text-xs text-emerald-300 border border-slate-700 z-10">드래그하여 360도 회전 | 우측 상단 버튼으로 거실 1인칭 진입</div>
+</div></section>
+<section id="s3" class="hidden space-y-3">
+<h2 class="text-base md:text-xl font-bold text-emerald-400 truncate">4. 5대 비용 실시간 견적서 & 자체 CRM 연동 브리핑 발송</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+<div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
+<div class="font-bold text-sm text-white border-b border-slate-700 pb-1.5">실시간 산출 상세 내역 (투명한 5대 비용)</div>
+<div class="flex justify-between py-1"><span>[A] 토지 매입비 + 기본 토목비</span><strong id="pLand" class="text-emerald-400">3억 2,000만 원</strong></div>
+<div class="flex justify-between py-1"><span>[B] 선택 주택 건축비 (마감재 포함)</span><strong id="pHouse" class="text-blue-400">2억 4,000만 원</strong></div>
+<div class="flex justify-between py-1"><span>[C] 정원/조경 공사비 (데크·수영장·조경)</span><strong id="pGarden" class="text-amber-400">3,500만 원</strong></div>
+<div class="flex justify-between py-1"><span>[D] 필수 인입/부대비 (상하수·전기·설계)</span><strong>2,500만 원</strong></div>
+<div class="flex justify-between py-1 border-b border-slate-700 pb-2"><span>[E] 취득세 및 제세공과금 예상치</span><strong id="pTax">2,230만 원</strong></div>
+<div class="flex justify-between pt-1 text-sm font-black text-white"><span>총 예상 분양·건축 합계</span><span id="pTotal" class="text-emerald-400">6억 4,230만 원</span></div>
+</div>
+<div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-2.5">
+<div class="font-bold text-sm text-amber-400">자체 CRM 서버 저장 & 카톡 브리핑 덱 발송 구조</div>
+<p class="text-slate-300 leading-relaxed">고객이 상담을 마치면 <strong>우리 서버 DB(Briefing_Deck_Table)</strong>에 설계 JSON 스냅샷이 저장되고 고유 URL이 고객 카카오톡으로 즉시 발송됩니다.</p>
+<div class="bg-slate-800 p-3 rounded-lg space-y-1 text-[11px] text-slate-300">
+<div>• <strong>실시간 열람 추적:</strong> 고객이 집에서 가족과 링크를 열어본 즉시 담당 상담사에게 알림 전송</div>
+<div>• <strong>가족 회의용 옵션 변경:</strong> 집에서 수영장/데크 옵션을 켜고 끄며 수정한 견적이 CRM에 Ver.2로 자동 기록</div>
+</div></div></div></section>
+<section id="s4" class="hidden space-y-3">
+<h2 class="text-base md:text-xl font-bold text-emerald-400 truncate">5. 전국 타운하우스 즉시 보급을 위한 멀티테넌트 SaaS 구조</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+<div class="bg-slate-800 p-4 rounded-xl border border-slate-700"><div class="text-emerald-400 font-bold text-sm mb-1">1. 코어 엔진 vs 단지 데이터 100% 분리</div>코드 수정 없이 단지별 설정 파일(Tenant_Config)만 교체하여 이아소 이후 2호, 3호 단지에 즉시 복제 적용합니다.</div>
+<div class="bg-slate-800 p-4 rounded-xl border border-slate-700"><div class="text-blue-400 font-bold text-sm mb-1">2. 신규 단지 3일 온보딩 파이프라인</div>① 단지 SVG 도면 업로드 → ② 필지·단가 엑셀 업로드 → ③ 주택 10종 할당 → ④ 현장 360도 배경 사진 등록만으로 셋업 완료.</div>
+<div class="bg-slate-800 p-4 rounded-xl border border-slate-700"><div class="text-amber-400 font-bold text-sm mb-1">3. 초기 구축비 + 월 구독 수익 모델</div>시행사/분양대행사 대상 초기 세팅비와 홍보관 키오스크·CRM 브리핑 서버 월 라이선스 수익을 동시에 창출합니다.</div>
+</div></section></main>
+<footer class="bg-slate-900 border-t border-slate-800 px-4 py-2.5 sticky bottom-0 z-40">
+<div class="max-w-5xl mx-auto flex items-center justify-between text-xs">
+<div class="truncate"><span class="text-slate-400">실시간 예상 총액:</span> <strong id="barTotal" class="text-emerald-400 text-sm md:text-base ml-1">6억 4,230만 원</strong></div>
+<div class="flex gap-1.5"><button onclick="prevSlide()" class="px-3 py-1.5 rounded bg-slate-800 text-slate-300 font-bold">◀ 이전</button><button onclick="nextSlide()" class="px-3 py-1.5 rounded bg-emerald-600 text-white font-bold">다음 ▶</button></div>
+</div></footer>
+<script>
+let cur=0,playing=false,audio=new Audio(),lotIdx=0,hsIdx=0,opts=[true,false,true];
+const lots=[{n:"A-01 (150평)",p:32000},{n:"B-04 (200평)",p:44000},{n:"C-02 (250평)",p:58000}];
+const houses=[{n:"모던 30평형",p:24000,s:1},{n:"중정형 40평형",p:33000,s:1.25},{n:"하이엔드 50평",p:45000,s:1.5}];
+const optN=["원목데크","수영장","소나무조경"];
+function fmt(v){return v>=10000?Math.floor(v/10000)+"억 "+((v%10000)>0?(v%10000).toLocaleString()+"만 ":"")+"원":v.toLocaleString()+"만 원";}
+function calc(){
+let l=lots[lotIdx].p,h=houses[hsIdx].p,g=(opts[0]?1500:0)+(opts[1]?4500:0)+(opts[2]?2000:0),d=2500,t=Math.round((l+h)*0.04),tot=l+h+g+d+t;
+document.getElementById("pLand").innerText=fmt(l);document.getElementById("pHouse").innerText=fmt(h);
+document.getElementById("pGarden").innerText=fmt(g);document.getElementById("pTax").innerText=fmt(t);
+document.getElementById("pTotal").innerText=fmt(tot);document.getElementById("barTotal").innerText=fmt(tot);
+document.getElementById("lotBadge").innerText=lots[lotIdx].n;
+document.getElementById("houseBox").innerHTML="🏠 "+houses[hsIdx].n;
+document.getElementById("optBadges").innerHTML=opts.map((v,i)=>v?"<span class=\\"bg-emerald-700/80 px-2 py-0.5 rounded\\">"+optN[i]+"</span>":"").join("");
+update3D();}
+function setLot(i){lotIdx=i;[0,1,2].forEach(x=>document.getElementById("lot"+x).className=x===i?"p-2.5 rounded-lg bg-emerald-600 text-white text-xs font-bold":"p-2.5 rounded-lg bg-slate-700 text-slate-200 text-xs font-bold");calc();}
+function setHouse(i){hsIdx=i;[0,1,2].forEach(x=>document.getElementById("hs"+x).className=x===i?"p-2.5 rounded-lg bg-blue-600 text-white text-xs font-bold":"p-2.5 rounded-lg bg-slate-700 text-slate-200 text-xs font-bold");calc();}
+function toggleOpt(i){opts[i]=!opts[i];document.getElementById("opt"+i).className=opts[i]?"p-2 rounded-lg bg-emerald-700 text-white font-bold":"p-2 rounded-lg bg-slate-700 text-slate-300 font-bold";calc();}
+function goSlide(n,keepAudio){cur=n;for(let i=0;i<5;i++){document.getElementById("s"+i).className=i===n?"space-y-3":"hidden";document.getElementById("tab"+i).className=i===n?"py-1.5 rounded bg-emerald-600 text-white":"py-1.5 rounded bg-slate-800 text-slate-400";}if(n===2)setTimeout(init3D,50);if(playing&&!keepAudio)playTrack(n);}
+function nextSlide(){goSlide((cur+1)%5);}function prevSlide(){goSlide((cur+4)%5);}
+function playTrack(n){audio.src="slide"+n+".mp3";audio.play().then(()=>{playing=true;document.getElementById("audioBtn").innerText="🔊 ⏸";}).catch(()=>{});}
+audio.onended=()=>{if(cur<4){goSlide(cur+1,true);playTrack(cur);}else{playing=false;document.getElementById("audioBtn").innerText="🔊 ▶";}};
+function toggleAudio(){if(playing){audio.pause();playing=false;document.getElementById("audioBtn").innerText="🔊 ▶";}else{playTrack(cur);}}
+let scene,cam,renderer,hMesh,pMesh,dMesh,inside=false;
+function init3D(){const w=document.getElementById("threeWrap");if(!renderer){scene=new THREE.Scene();scene.background=new THREE.Color(0x0b1324);cam=new THREE.PerspectiveCamera(55,w.clientWidth/w.clientHeight,0.1,1000);renderer=new THREE.WebGLRenderer({antialias:true});renderer.setSize(w.clientWidth,w.clientHeight);w.appendChild(renderer.domElement);const l1=new THREE.AmbientLight(0xffffff,0.7),l2=new THREE.DirectionalLight(0xfff5e0,0.9);l2.position.set(15,25,15);scene.add(l1,l2);const gnd=new THREE.Mesh(new THREE.PlaneGeometry(30,22),new THREE.MeshLambertMaterial({color:0x14532d}));gnd.rotation.x=-Math.PI/2;scene.add(gnd);hMesh=new THREE.Mesh(new THREE.BoxGeometry(7,3.5,5),new THREE.MeshLambertMaterial({color:0xe2e8f0}));hMesh.position.set(0,1.75,-2);scene.add(hMesh);dMesh=new THREE.Mesh(new THREE.BoxGeometry(7,0.2,3),new THREE.MeshLambertMaterial({color:0x92400e}));dMesh.position.set(0,0.1,2);scene.add(dMesh);pMesh=new THREE.Mesh(new THREE.BoxGeometry(5,0.15,3),new THREE.MeshLambertMaterial({color:0x0284c7}));pMesh.position.set(6,0.1,3);scene.add(pMesh);setCam(0);const anim=()=>{requestAnimationFrame(anim);if(!inside&&hMesh)scene.rotation.y+=0.002;renderer.render(scene,cam);};anim();}update3D();}
+function update3D(){if(!hMesh)return;hMesh.scale.x=houses[hsIdx].s;dMesh.visible=opts[0];pMesh.visible=opts[1];}
+function setCam(mode){if(!cam)return;inside=(mode===1);scene.rotation.y=0;if(inside){cam.position.set(0,1.6,0);cam.lookAt(0,1.5,10);document.getElementById("viewLabel").innerText="👁️ 1인칭 거실 내부 시점 (눈높이 1.6m): 통창 너머로 내 데크·수영장과 이아소 단지가 보입니다";}else{cam.position.set(14,12,16);cam.lookAt(0,1,0);document.getElementById("viewLabel").innerText="항공 조감도 뷰: 회전하며 필지 내 주택과 정원 배치를 입체적으로 확인합니다";}}
+calc();</script></body></html>
