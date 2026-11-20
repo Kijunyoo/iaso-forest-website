@@ -1766,5 +1766,27 @@
       selectSlide(0, false);
     });
   </script>
-<script id="iasoMp3Patch">(function(){var a=new Audio();a.preload="auto";function idx(){if(typeof currentSlide==="number")return currentSlide;if(typeof currentStep==="number")return currentStep;for(var i=0;i<8;i++){var e=document.getElementById("slide-"+i);if(e&&!e.classList.contains("hidden")&&e.offsetParent!==null)return i;}return 0;}if(window.speechSynthesis){var c=window.speechSynthesis.cancel.bind(window.speechSynthesis);window.speechSynthesis.cancel=function(){a.pause();a.currentTime=0;c();};window.speechSynthesis.speak=function(u){c();a.src="slide"+idx()+".mp3";a.onended=function(){if(u&&u.onend)u.onend();};a.onerror=function(){if(u&&u.onerror)u.onerror();};a.play().catch(function(){if(u&&u.onerror)u.onerror();});};}})();</script></body>
+<script id="iasoMp3Patch">(function(){var a=new Audio();a.preload="auto";function idx(){if(typeof currentSlide==="number")return currentSlide;if(typeof currentStep==="number")return currentStep;for(var i=0;i<8;i++){var e=document.getElementById("slide-"+i);if(e&&!e.classList.contains("hidden")&&e.offsetParent!==null)return i;}return 0;}if(window.speechSynthesis){var c=window.speechSynthesis.cancel.bind(window.speechSynthesis);window.speechSynthesis.cancel=function(){a.pause();a.currentTime=0;c();};window.speechSynthesis.speak=function(u){c();a.src="slide"+idx()+".mp3";a.onended=function(){if(u&&u.onend)u.onend();};a.onerror=function(){if(u&&u.onerror)u.onerror();};a.play().catch(function(){if(u&&u.onerror)u.onerror();});};}})();</script><script id="iasoMailPatch">(function(){
+var u="https://formsubmit.co/ajax/kjyoo@aksys.co.kr",f=window.fetch.bind(window),t=0;
+function send(d){
+  t=Date.now();
+  var o={_subject:"[법현x이아소 협의안] 검토 의견 도착",_template:"table",_captcha:"false",제출일시:new Date().toLocaleString("ko-KR")};
+  try{if(d&&typeof d==="object"){Object.keys(d).forEach(function(k){var v=d[k];o[k]=(typeof v==="object")?JSON.stringify(v,null,2):String(v);});}}catch(e){}
+  try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k)o["저장_"+k]=localStorage.getItem(k);}}catch(e){}
+  return f(u,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(o)});
+}
+window.fetch=function(a,b){
+  if(typeof a==="string"&&a.indexOf("beophyeon-feedback")!==-1){
+    var p={};try{if(b&&b.body)p=JSON.parse(b.body);}catch(e){p={raw:b&&b.body};}
+    return send(p);
+  }
+  return f(a,b);
+};
+document.addEventListener("click",function(e){
+  var btn=e.target&&e.target.closest("button");
+  if(btn&&btn.innerText&&btn.innerText.indexOf("의견 작성 완료")!==-1){
+    setTimeout(function(){if(Date.now()-t>1500)send({구분:"완료버튼 직접전송"});},400);
+  }
+},true);
+})();</script></body>
 </html>
