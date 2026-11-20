@@ -1767,26 +1767,114 @@
     });
   </script>
 <script id="iasoMp3Patch">(function(){var a=new Audio();a.preload="auto";function idx(){if(typeof currentSlide==="number")return currentSlide;if(typeof currentStep==="number")return currentStep;for(var i=0;i<8;i++){var e=document.getElementById("slide-"+i);if(e&&!e.classList.contains("hidden")&&e.offsetParent!==null)return i;}return 0;}if(window.speechSynthesis){var c=window.speechSynthesis.cancel.bind(window.speechSynthesis);window.speechSynthesis.cancel=function(){a.pause();a.currentTime=0;c();};window.speechSynthesis.speak=function(u){c();a.src="slide"+idx()+".mp3";a.onended=function(){if(u&&u.onend)u.onend();};a.onerror=function(){if(u&&u.onerror)u.onerror();};a.play().catch(function(){if(u&&u.onerror)u.onerror();});};}})();</script><script id="iasoMailPatch">(function(){
-var u="https://formsubmit.co/ajax/kjyoo@aksys.co.kr",f=window.fetch.bind(window),t=0;
-function send(d){
-  t=Date.now();
-  var o={_subject:"[법현x이아소 협의안] 검토 의견 도착",_template:"table",_captcha:"false",제출일시:new Date().toLocaleString("ko-KR")};
+var u="https://formsubmit.co/ajax/kjyoo@aksys.co.kr",f=window.fetch.bind(window),sending=false;
+
+function getTabs(){
+  var arr=[];
+  document.querySelectorAll("button").forEach(function(b){
+    var tx=(b.innerText||"").trim();
+    if(/^[1-8]\s*\./.test(tx)||/^0[1-8]\b/.test(tx)) arr.push(b);
+  });
+  return arr;
+}
+
+function curIdx(){
+  for(var i=0;i<8;i++){
+    var s=document.getElementById("slide-"+i);
+    if(s&&!s.classList.contains("hidden")&&window.getComputedStyle(s).display!=="none") return i;
+  }
+  if(typeof window.currentSlide==="number") return window.currentSlide;
+  if(typeof window.currentStep==="number") return window.currentStep;
+  if(typeof window.activeSlide==="number") return window.activeSlide;
+  var tabs=getTabs();
+  for(var j=0;j<tabs.length;j++){
+    var cls=tabs[j].className||"";
+    if(/bg-blue|bg-slate-900|bg-indigo|gold-grad|border-blue|text-white/.test(cls)&&!/bg-white|text-slate-600|text-slate-500/.test(cls)) return j;
+  }
+  return 0;
+}
+
+function goNext(){
+  var c=curIdx();
+  if(c>=7) return;
+  if(typeof window.goSlide==="function"){window.goSlide(c+1);return;}
+  if(typeof window.selectSlide==="function"){window.selectSlide(c+1);return;}
+  if(typeof window.switchSlide==="function"){window.switchSlide(c+1);return;}
+  var t=document.getElementById("tab-"+(c+1));
+  if(t){t.click();return;}
+  var tabs=getTabs();
+  if(tabs[c+1]) tabs[c+1].click();
+}
+
+function findSubmitBtn(){
+  var found=null;
+  document.querySelectorAll("button").forEach(function(b){
+    if(b.id==="iasoNextStepBtn") return;
+    var tx=(b.innerText||"").trim();
+    if(tx.indexOf("의견 작성 완료")!==-1||tx.indexOf("일괄 전송")!==-1) found=b;
+  });
+  return found;
+}
+
+function syncFooterUI(){
+  var btn=findSubmitBtn();
+  if(!btn) return;
+  var idx=curIdx();
+  var wrap=document.getElementById("iasoNextWrap");
+  if(!wrap){
+    wrap=document.createElement("div");
+    wrap.id="iasoNextWrap";
+    wrap.style.cssText="width:100%;text-align:center;";
+    wrap.innerHTML='<div style="font-size:12px;color:#64748b;margin-bottom:6px;word-break:keep-all;">💾 입력하신 의견은 자동 저장됩니다 (마지막 8번 페이지에서 일괄 전송)</div><button type="button" id="iasoNextStepBtn" style="width:100%;padding:12px 16px;border-radius:12px;background:#1e293b;color:#ffffff;font-weight:700;font-size:14px;border:none;cursor:pointer;">다음 안건으로 이동 ▶</button>';
+    btn.parentNode.insertBefore(wrap,btn);
+    document.getElementById("iasoNextStepBtn").addEventListener("click",function(e){
+      e.preventDefault();e.stopPropagation();goNext();setTimeout(syncFooterUI,60);
+    });
+  }
+  if(idx<7){
+    btn.style.setProperty("display","none","important");
+    wrap.style.display="block";
+    var nb=document.getElementById("iasoNextStepBtn");
+    if(nb) nb.textContent="자동 저장됨 · "+(idx+2)+"번 안건으로 이동 ▶";
+  }else{
+    wrap.style.display="none";
+    btn.style.removeProperty("display");
+    if(btn.innerText.indexOf("일괄")===-1){
+      btn.innerText="✅ 모든 의견 작성 완료 (일괄 전송)";
+    }
+  }
+}
+
+function sendOnce(d){
+  if(sending) return Promise.resolve({ok:true});
+  sending=true;
+  setTimeout(function(){sending=false;},4000);
+  var o={_subject:"[법현x이아소 협의안] 전체 검토 의견 일괄 도착",_template:"table",_captcha:"false",제출일시:new Date().toLocaleString("ko-KR")};
   try{if(d&&typeof d==="object"){Object.keys(d).forEach(function(k){var v=d[k];o[k]=(typeof v==="object")?JSON.stringify(v,null,2):String(v);});}}catch(e){}
   try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k)o["저장_"+k]=localStorage.getItem(k);}}catch(e){}
   return f(u,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(o)});
 }
+
 window.fetch=function(a,b){
   if(typeof a==="string"&&a.indexOf("beophyeon-feedback")!==-1){
+    if(curIdx()<7) return Promise.resolve(new Response(JSON.stringify({ok:true}),{status:200}));
     var p={};try{if(b&&b.body)p=JSON.parse(b.body);}catch(e){p={raw:b&&b.body};}
-    return send(p);
+    return sendOnce(p);
   }
   return f(a,b);
 };
+
 document.addEventListener("click",function(e){
+  setTimeout(syncFooterUI,50);
   var btn=e.target&&e.target.closest("button");
-  if(btn&&btn.innerText&&btn.innerText.indexOf("의견 작성 완료")!==-1){
-    setTimeout(function(){if(Date.now()-t>1500)send({구분:"완료버튼 직접전송"});},400);
+  if(btn&&btn.id!=="iasoNextStepBtn"&&btn.innerText&&(btn.innerText.indexOf("의견 작성 완료")!==-1||btn.innerText.indexOf("일괄 전송")!==-1)){
+    if(curIdx()<7){e.preventDefault();e.stopPropagation();goNext();return;}
+    setTimeout(function(){sendOnce({구분:"8번 마지막 페이지 최종 일괄 전송"});},300);
   }
 },true);
+
+window.addEventListener("DOMContentLoaded",syncFooterUI);
+setInterval(syncFooterUI,300);
+setTimeout(syncFooterUI,100);
 })();</script></body>
 </html>
