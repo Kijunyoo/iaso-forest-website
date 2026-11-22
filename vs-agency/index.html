@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>[검토자료] 이아소 2차 분양 방식별 객관적 비교 및 리스크 분석</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { background:#0f172a; color:#f8fafc; font-family:Pretendard,sans-serif; overflow-x:hidden; }
+  button, input[type=range] { cursor:pointer; touch-action:manipulation; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+<audio id="bgmPlayer" preload="auto"></audio>
+
+<header class="bg-slate-900/95 border-b border-slate-800 px-3 py-2 sticky top-0 z-50">
+  <div class="max-w-5xl mx-auto flex flex-col gap-1.5">
+    <div class="flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 min-w-0">
+        <div class="w-9 h-9 rounded-lg bg-slate-700 border border-slate-600 flex items-center justify-center font-black text-slate-200 text-xs shrink-0">분석</div>
+        <h1 class="text-sm md:text-lg font-extrabold text-white truncate">이아소 2차 분양 추진 방식별 객관적 검토안</h1>
+      </div>
+      <button type="button" id="audioBtn" class="h-9 px-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-1 shrink-0 shadow">🔊 ▶</button>
+    </div>
+    <div class="grid grid-cols-5 gap-1 text-center text-[11px] md:text-xs font-bold">
+      <button type="button" id="tab0" data-slide="0" class="slide-tab py-1.5 rounded bg-blue-600 text-white">1.보유자산</button>
+      <button type="button" id="tab1" data-slide="1" class="slide-tab py-1.5 rounded bg-slate-800 text-slate-400">2.SWOT비교</button>
+      <button type="button" id="tab2" data-slide="2" class="slide-tab py-1.5 rounded bg-slate-800 text-slate-400">3.수지비교</button>
+      <button type="button" id="tab3" data-slide="3" class="slide-tab py-1.5 rounded bg-slate-800 text-slate-400">4.리스크점검</button>
+      <button type="button" id="tab4" data-slide="4" class="slide-tab py-1.5 rounded bg-slate-800 text-slate-400">5.선택옵션</button>
+    </div>
+  </div>
+</header>
+
+<main class="flex-1 max-w-5xl w-full mx-auto p-3 md:p-5">
+  <section id="s0" class="space-y-3">
+    <div class="flex items-center justify-between gap-2">
+      <h2 class="text-base md:text-xl font-bold text-slate-100 truncate">1. 현재 단지 내 보유 자산 및 가용 인프라 현황 (Fact)</h2>
+      <span class="text-[11px] text-slate-400 shrink-0">제3자 실사 기준</span>
+    </div>
+    <p class="text-xs text-slate-300 leading-relaxed">
+      의사결정에 앞서, 일반 신규 개발지와 달리 금왕리 현장에 이미 확보되어 있는 <strong>6가지 유·무형 기반 자산</strong>을 정리한 현황입니다.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+      <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 space-y-1">
+        <div class="text-blue-400 font-bold">① 1차 분양 및 실입주 단지 존재</div>
+        <p class="text-slate-300 leading-relaxed">인접지에 이미 분양·입주가 완료된 1차 주택 단지가 형성되어 있어 방문객이 실제 주거 환경과 마을 분위기를 현장에서 확인 가능함.</p>
+      </div>
+      <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 space-y-1">
+        <div class="text-blue-400 font-bold">② 상주 시공팀(3인) 및 자체 중장비</div>
+        <p class="text-slate-300 leading-relaxed">건축·토목 30년 경력 팀장(50대 후반, 자체 포크레인 보유)과 50대 초반 고급 기술자 등 3명이 상주하며 토목·건축·정원 시공 가능.</p>
+      </div>
+      <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 space-y-1">
+        <div class="text-blue-400 font-bold">③ 단지 거주 교수급 정원 디자이너</div>
+        <p class="text-slate-300 leading-relaxed">대학 교수급 유명 정원 디자이너가 단지 내 실제 거주 중이며, 전용 웹사이트 제공 등을 통해 수준 높은 정원 설계 협업이 가능함.</p>
+      </div>
+      <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 space-y-1">
+        <div class="text-blue-400 font-bold">④ 수목 유통·식재 관리사 제휴 가능</div>
+        <p class="text-slate-300 leading-relaxed">정원 설계 이후 실제 수목 조달과 식재, 사후 관리까지 연결할 수 있는 전문 수목 판매사와의 제휴 네트워크 활용 가능.</p>
+      </div>
+      <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 space-y-1">
+        <div class="text-blue-400 font-bold">⑤ 분양사무실 내 AI·GPU 서버 기설치</div>
+        <p class="text-slate-300 leading-relaxed">3D 조감도, 정원 시뮬레이션, 고객 DB 운영을 위한 서버·GPU 장비(KJ 자산)가 이미 분양사무실에 설치되어 동작 중임.</p>
+      </div>
+      <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 space-y-1">
+        <div class="text-blue-400 font-bold">⑥ 플랫폼 담당자(KJ) 1차 단지 실거주</div>
+        <p class="text-slate-300 leading-relaxed">시스템 운영을 맡은 KJ가 1차 단지에 실제 거주하고 있어 외부 용역사와 달리 상시 현장 대응 및 장기 이해관계가 일치함.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s1" class="hidden space-y-3">
+    <div class="flex items-center justify-between gap-2">
+      <h2 class="text-base md:text-xl font-bold text-slate-100 truncate">2. 외부 분양대행사 vs 자체 자산 활용 SWOT 비교</h2>
+      <div class="flex gap-1 shrink-0 text-[11px]">
+        <button type="button" data-view="both" class="swot-btn px-2 py-1 rounded bg-blue-600 text-white font-bold">강·약점(S/W)</button>
+        <button type="button" data-view="opp" class="swot-btn px-2 py-1 rounded bg-slate-800 text-slate-300 font-bold">기회·위협(O/T)</button>
+      </div>
+    </div>
+    <div id="swotMain" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+      <div class="bg-slate-800/70 p-4 rounded-xl border border-slate-700 space-y-2.5">
+        <div class="font-bold text-amber-300 text-sm border-b border-slate-700 pb-1.5">방식 A. 외부 전문 분양대행사 위탁</div>
+        <div>
+          <span class="inline-block px-1.5 py-0.5 rounded bg-emerald-900/70 text-emerald-300 font-bold text-[10px] mb-1">강점 (Strength)</span>
+          <ul class="space-y-1 text-slate-300 list-disc pl-4">
+            <li>다수 단지(16개 현장 등) 분양을 통해 검증된 판매 공식 보유</li>
+            <li>기축 관심 고객 풀과 유튜브·전문 상담 인력 즉시 투입 가능</li>
+            <li>소형 필지+이동식 별장 패키지 등 대중적 상품 기획 경험 풍부</li>
+          </ul>
+        </div>
+        <div>
+          <span class="inline-block px-1.5 py-0.5 rounded bg-rose-900/70 text-rose-300 font-bold text-[10px] mb-1">약점 (Weakness)</span>
+          <ul class="space-y-1 text-slate-300 list-disc pl-4">
+            <li>초기 착수금 요구 가능성 및 높은 분양 수수료율(통상 7~10%+) 부담</li>
+            <li>문의 고객 DB가 대행사에 귀속되어 철수 시 시행사에 남지 않음</li>
+            <li>타 신규 사업지로 영업력이 이동할 경우 잔여 필지 장기화 우려</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-slate-800/70 p-4 rounded-xl border border-slate-700 space-y-2.5">
+        <div class="font-bold text-blue-300 text-sm border-b border-slate-700 pb-1.5">방식 B. 이아소 보유 자산 + 3D 플랫폼 운영</div>
+        <div>
+          <span class="inline-block px-1.5 py-0.5 rounded bg-emerald-900/70 text-emerald-300 font-bold text-[10px] mb-1">강점 (Strength)</span>
+          <ul class="space-y-1 text-slate-300 list-disc pl-4">
+            <li>1차 실입주 단지 + 30년 상주 시공·장비팀 + 교수급 정원 디자이너 실재</li>
+            <li>기설치 사무실 서버 기반으로 초기 착수 고정비 없이 3D 투어·견적 가동</li>
+            <li>모든 잠재 고객(Lead) DB가 시행사 자산으로 축적되며 수수료 유출 최소화</li>
+          </ul>
+        </div>
+        <div>
+          <span class="inline-block px-1.5 py-0.5 rounded bg-rose-900/70 text-rose-300 font-bold text-[10px] mb-1">약점 (Weakness) — 객관적 한계</span>
+          <ul class="space-y-1 text-slate-300 list-disc pl-4">
+            <li>전문 대행사처럼 수백 세대를 직접 판매해 본 누적 분양 트랙레코드 부재</li>
+            <li>초기 매체 광고 집행 및 공격적 전화 영업(TM) 전담 조직 규모가 작음</li>
+            <li>신규 3D·AI 브리핑 도구의 실제 계약 전환율에 대한 초기 현장 검증 필요</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="swotOT" class="hidden grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+      <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-1.5">
+        <div class="font-bold text-emerald-400 text-sm">기회 요인 (Opportunity)</div>
+        <p class="text-slate-300">• 서울-양평 고속도로 재개, 원덕·용문 축선 개발 등 광역 교통 호재 부각</p>
+        <p class="text-slate-300">• 단순 빈 땅보다 시공·정원 관리가 함께 해결되는 단지형 세컨하우스 선호 증가</p>
+        <p class="text-slate-300">• 초입 힐링샵·상단 힐링캠프 연계 시 일반 필지 대비 체류 매력도 상승</p>
+      </div>
+      <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-1.5">
+        <div class="font-bold text-amber-400 text-sm">위협 요인 (Threat)</div>
+        <p class="text-slate-300">• 부동산 경기 및 금리 영향으로 세컨하우스 매수 의사결정 기간 장기화</p>
+        <p class="text-slate-300">• 양평·양동 권역 내 유사 가격대 소형 세컨하우스 단지들과의 모객 경쟁</p>
+        <p class="text-slate-300">• 초기 분양 지연 시 선투입된 토목·기반시설 공사비 회수 기간 연장 부담</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s2" class="hidden space-y-3">
+    <h2 class="text-base md:text-xl font-bold text-slate-100 truncate">3. 조건별 시행사 순회수액 및 토목비 손익분기 시뮬레이션</h2>
+    <p class="text-xs text-slate-400">예상 조건을 직접 입력하여 두 방식의 순회수액과 토목비 회수 시점을 중립적으로 점검해 보실 수 있습니다.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+      <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-3">
+        <div>
+          <div class="flex justify-between mb-1"><span>15필지 평균 분양가</span><strong id="lblLotPrice" class="text-blue-300">1억 1,000만 원</strong></div>
+          <input id="rngLotPrice" type="range" min="8000" max="16000" step="500" value="11000" class="w-full accent-blue-500">
+          <div class="flex justify-between text-[10px] text-slate-400"><span>8,000만</span><span>총분양가: <b id="lblGross">16억 5,000만</b></span><span>1.6억</span></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-1"><span>회수 목표 토목·기반공사비</span><strong id="lblCivil" class="text-amber-300">4억 5,000만 원</strong></div>
+          <input id="rngCivil" type="range" min="20000" max="70000" step="5000" value="45000" class="w-full accent-amber-500">
+        </div>
+        <div>
+          <div class="flex justify-between mb-1"><span>외부 대행사 수수료율 가정</span><strong id="lblAgencyRate" class="text-slate-200">8%</strong></div>
+          <input id="rngAgencyRate" type="range" min="5" max="12" step="1" value="8" class="w-full accent-slate-400">
+        </div>
+        <div class="flex items-center justify-between pt-1 border-t border-slate-700">
+          <span>대행사 초기 착수금 (2,000만 원 가정)</span>
+          <label class="flex items-center gap-1.5 cursor-pointer">
+            <input type="checkbox" id="chkUpfront" checked class="accent-blue-500">
+            <span class="text-slate-300">포함</span>
+          </label>
+        </div>
+      </div>
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 flex flex-col justify-between space-y-2.5">
+        <div class="grid grid-cols-2 gap-2.5">
+          <div class="bg-slate-800/80 border border-slate-700 p-3 rounded-lg">
+            <div class="text-[11px] text-slate-300 font-bold">방식 A. 외부 대행사 위탁</div>
+            <div class="text-[11px] text-slate-400 mt-1">수수료·착수금 지출:</div>
+            <div id="outAgencyFee" class="text-base font-extrabold text-amber-300">1억 5,200만 원</div>
+            <div class="text-[11px] text-slate-400 mt-1.5">순회수액: <b id="outAgencyNet" class="text-white">14억 9,800만</b></div>
+            <div class="text-[11px] text-slate-400">토목 회수: <b id="outAgencyBep" class="text-white">4.7필지</b></div>
+          </div>
+          <div class="bg-slate-800/80 border border-blue-500/40 p-3 rounded-lg">
+            <div class="text-[11px] text-blue-300 font-bold">방식 B. 자체 자산·플랫폼(3%)</div>
+            <div class="text-[11px] text-slate-400 mt-1">운영·중개 인센티브:</div>
+            <div id="outIasoFee" class="text-base font-extrabold text-blue-300">4,950만 원</div>
+            <div class="text-[11px] text-slate-400 mt-1.5">순회수액: <b id="outIasoNet" class="text-white">16억 50만</b></div>
+            <div class="text-[11px] text-slate-400">토목 회수: <b id="outIasoBep" class="text-blue-300">4.2필지</b></div>
+          </div>
+        </div>
+        <div class="bg-slate-800/60 p-3 rounded-lg border border-slate-700 text-[11px] text-slate-300 leading-relaxed">
+          <div class="font-bold text-white mb-0.5">판단 포인트 (비용 차이: <span id="outDiff" class="text-blue-300">1억 250만 원</span>)</div>
+          대행사가 자체 운영 대비 <strong>6개월 이상 빠르게 완판</strong>시켜 금융·기회비용을 확실히 줄여줄 수 있다면 방식 A가 합리적이며, 속도가 유사하거나 절감 재원을 조기 분양 혜택(데크·조경 지원)으로 직접 쓰는 것이 유리하다면 방식 B가 적합합니다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s3" class="hidden space-y-3">
+    <h2 class="text-base md:text-xl font-bold text-slate-100 truncate">4. 예상되는 4대 핵심 리스크와 보완 가능 방안</h2>
+    <div class="space-y-2 text-xs">
+      <div class="bg-slate-800/80 rounded-xl border border-slate-700 p-3">
+        <div class="font-bold text-amber-300">리스크 ① 분양 지연 시 토목 공사비 장기 묶임 우려</div>
+        <p class="text-slate-300 mt-1">• <strong>예상 문제:</strong> 외주 토목비를 선투입한 뒤 분양이 늦어지면 자금 부담이 가중됨 (대행사도 미분양을 책임지지 않음).</p>
+        <p class="text-blue-200 mt-0.5">• <strong>해소 가능성:</strong> 상주 3인 시공팀(30년 경력 팀장·자체 포크레인)으로 토목·석축 외주 원가를 낮추고, 사무실 서버의 3D 조감도로 공사 중 선분양·사전청약을 병행해 초기 자금 회수를 앞당기는 접근이 가능함.</p>
+      </div>
+      <div class="bg-slate-800/80 rounded-xl border border-slate-700 p-3">
+        <div class="font-bold text-amber-300">리스크 ② 대행사·영업사원 이탈 시 잠재 고객(Lead) DB 부재</div>
+        <p class="text-slate-300 mt-1">• <strong>예상 문제:</strong> 외부 대행사 대표번호로 문의가 접수되면 계약 종료 후 미계약 관심 고객 DB가 시행사에 남지 않음.</p>
+        <p class="text-blue-200 mt-0.5">• <strong>해소 가능성:</strong> 대행사를 쓰더라도 '접수창구 시행사 통합'을 계약 조건으로 걸거나, 분양사무실 기설치 서버 CRM으로 창구를 일원화하면 모든 상담 DB를 시행사 자산으로 보존 가능함.</p>
+      </div>
+      <div class="bg-slate-800/80 rounded-xl border border-slate-700 p-3">
+        <div class="font-bold text-amber-300">리스크 ③ 초기 마케팅 착수 고정비 지출 부담</div>
+        <p class="text-slate-300 mt-1">• <strong>예상 문제:</strong> 분양 초기 영상·웹·샘플하우스 명목의 고정비 요구 시 현금 흐름에 부담 발생.</p>
+        <p class="text-blue-200 mt-0.5">• <strong>해소 가능성:</strong> 현재 서버 장비(KJ 자산)와 1차 입주 단지, 정원 디자이너 협업 체계가 이미 현장에 준비되어 있어 별도 초기 구축비 없이 시작 가능함.</p>
+      </div>
+      <div class="bg-slate-800/80 rounded-xl border border-slate-700 p-3">
+        <div class="font-bold text-amber-300">리스크 ④ 자체 플랫폼 단독 운영 시 모객력(분양 실적) 부족 가능성</div>
+        <p class="text-slate-300 mt-1">• <strong>예상 문제:</strong> 현장 자산(1차 단지·시공팀·정원 교수·3D 서버)의 설득력은 높으나 초기 외부 유입 모수가 적을 수 있음.</p>
+        <p class="text-blue-200 mt-0.5">• <strong>해소 가능성:</strong> 폐쇄적 독점 방식 대신 <strong>지역 공인중개사·부동산 유튜버들에게 3D 브리핑 링크와 현장 투어를 전면 개방</strong>(계약 성사 건에만 수수료 지급)하면 외부 영업망의 모객력을 함께 활용할 수 있음.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s4" class="hidden space-y-3">
+    <h2 class="text-base md:text-xl font-bold text-slate-100 truncate">5. 시행사 의사결정을 위한 3가지 선택 옵션</h2>
+    <p class="text-xs text-slate-300 leading-relaxed">
+      정해진 답은 없으며, 자금 회수 일정과 리스크 관리 관점에서 가장 합리적이라고 판단하시는 안을 선택하시면 됩니다.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+      <div data-opt="A" class="choice-card bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-2 cursor-pointer">
+        <div class="text-amber-300 font-bold text-sm">제1안. 외부 분양대행사 위탁</div>
+        <p class="text-slate-300 leading-relaxed">수수료 조건을 감수하더라도 기축 고객 풀을 보유한 전문 대행사에 일임하는 방안입니다.</p>
+        <div class="p-2.5 rounded bg-slate-900 text-[11px] text-slate-400">
+          <strong>검토 포인트:</strong> 계약 시 ① 착수금 최소화, ② 분기별 최소 분양 미달 시 해지권, ③ 상담 DB 공동 귀속 특약 반영 권장
+        </div>
+      </div>
+      <div data-opt="B" class="choice-card bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-2 cursor-pointer">
+        <div class="text-blue-300 font-bold text-sm">제2안. 보유 자산 + 개방형 직영</div>
+        <p class="text-slate-300 leading-relaxed">1차 단지·상주 시공팀·정원 교수·사무실 서버를 활용하고 외부 중개망·유튜버에 수수료를 개방하는 방안입니다.</p>
+        <div class="p-2.5 rounded bg-slate-900 text-[11px] text-slate-400">
+          <strong>검토 포인트:</strong> 절감된 대행 수수료 일부를 초기 타깃 광고비 및 1~3호 조기 계약자 정원 혜택으로 배정 권장
+        </div>
+      </div>
+      <div data-opt="C" class="choice-card bg-slate-800/90 p-4 rounded-xl border border-blue-500/60 space-y-2 cursor-pointer">
+        <div class="text-emerald-300 font-bold text-sm">제3안. 기간 한정 검증 (절충안)</div>
+        <p class="text-slate-200 leading-relaxed">추가 초기 비용이 없는 보유 인프라로 60~90일간 먼저 운영해 본 뒤 대행사 투입 여부를 결정하는 방안입니다.</p>
+        <div class="p-2.5 rounded bg-slate-900 text-[11px] text-slate-300">
+          <strong>검토 포인트:</strong> 선행 구축된 3D 도면과 초기 축적 DB는 추후 외부 대행사를 병행하더라도 시행사 협상력을 높이는 자산이 됨
+        </div>
+      </div>
+    </div>
+    <div id="choiceNote" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 text-center">
+      각 카드를 클릭하시면 선택지별 실무 보완 사항을 확인하실 수 있습니다.
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-900 border-t border-slate-800 px-4 py-2.5 sticky bottom-0 z-40">
+  <div class="max-w-5xl mx-auto flex items-center justify-between text-xs">
+    <div class="truncate text-slate-400">객관적 의사결정 지원 검토안 | <span id="footerStatus" class="text-slate-200 font-semibold">1/5 보유 자산 현황</span></div>
+    <div class="flex gap-1.5 shrink-0">
+      <button type="button" id="prevBtn" class="px-3 py-1.5 rounded bg-slate-800 text-slate-300 font-bold">◀ 이전</button>
+      <button type="button" id="nextBtn" class="px-3 py-1.5 rounded bg-blue-600 text-white font-bold">다음 ▶</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var cur = 0, playing = false;
+  var player = document.getElementById("bgmPlayer");
+  var audioBtn = document.getElementById("audioBtn");
+  var titles = ["1/5 보유 자산 현황", "2/5 양안 SWOT 비교", "3/5 조건별 수지 비교", "4/5 리스크 및 보완책", "5/5 3가지 선택 옵션"];
+
+  function fmtMan(v) {
+    var eok = Math.floor(v / 10000), man = Math.round(v % 10000);
+    if (eok > 0 && man > 0) return eok + "억 " + man.toLocaleString() + "만 원";
+    if (eok > 0) return eok + "억 원";
+    return man.toLocaleString() + "만 원";
+  }
+
+  function updateSim() {
+    var lotP = parseInt(document.getElementById("rngLotPrice").value, 10);
+    var civil = parseInt(document.getElementById("rngCivil").value, 10);
+    var agRate = parseInt(document.getElementById("rngAgencyRate").value, 10);
+    var up = document.getElementById("chkUpfront").checked ? 2000 : 0;
+    var gross = lotP * 15;
+    var agFee = Math.round(gross * (agRate / 100)) + up;
+    var iasoFee = Math.round(gross * 0.03);
+    var agNet = gross - agFee;
+    var iasoNet = gross - iasoFee;
+    var diff = agFee - iasoFee;
+    var bepAg = ((civil + up) / (lotP * (1 - agRate / 100))).toFixed(1);
+    var bepIaso = (civil / (lotP * 0.97)).toFixed(1);
+
+    document.getElementById("lblLotPrice").innerText = fmtMan(lotP);
+    document.getElementById("lblGross").innerText = fmtMan(gross);
+    document.getElementById("lblCivil").innerText = fmtMan(civil);
+    document.getElementById("lblAgencyRate").innerText = agRate + "%";
+    document.getElementById("outAgencyFee").innerText = fmtMan(agFee);
+    document.getElementById("outIasoFee").innerText = fmtMan(iasoFee);
+    document.getElementById("outAgencyNet").innerText = fmtMan(agNet);
+    document.getElementById("outIasoNet").innerText = fmtMan(iasoNet);
+    document.getElementById("outAgencyBep").innerText = bepAg + "필지";
+    document.getElementById("outIasoBep").innerText = bepIaso + "필지";
+    document.getElementById("outDiff").innerText = fmtMan(diff);
+  }
+
+  function goSlide(n, keepAudio) {
+    cur = n;
+    for (var i = 0; i < 5; i++) {
+      document.getElementById("s" + i).className = (i === n) ? "space-y-3" : "hidden";
+      document.getElementById("tab" + i).className = (i === n)
+        ? "slide-tab py-1.5 rounded bg-blue-600 text-white"
+        : "slide-tab py-1.5 rounded bg-slate-800 text-slate-400";
+    }
+    document.getElementById("footerStatus").innerText = titles[n];
+    if (playing && !keepAudio) playTrack(n);
+  }
+
+  function playTrack(n) {
+    player.src = "slide" + n + ".mp3?v=2";
+    var p = player.play();
+    if (p !== undefined) {
+      p.then(function() { playing = true; audioBtn.innerText = "🔊 ⏸"; }).catch(function(e) { console.error(e); });
+    }
+  }
+
+  player.onended = function() {
+    if (cur < 4) { goSlide(cur + 1, true); playTrack(cur); }
+    else { playing = false; audioBtn.innerText = "🔊 ▶"; }
+  };
+
+  audioBtn.addEventListener("click", function() {
+    if (playing) { player.pause(); playing = false; audioBtn.innerText = "🔊 ▶"; }
+    else { playTrack(cur); }
+  });
+
+  document.querySelectorAll(".slide-tab").forEach(function(btn) {
+    btn.addEventListener("click", function() { goSlide(parseInt(this.getAttribute("data-slide"), 10)); });
+  });
+
+  document.getElementById("prevBtn").addEventListener("click", function() { goSlide((cur + 4) % 5); });
+  document.getElementById("nextBtn").addEventListener("click", function() { goSlide((cur + 1) % 5); });
+
+  document.querySelectorAll(".swot-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var v = this.getAttribute("data-view");
+      document.querySelectorAll(".swot-btn").forEach(function(b) {
+        b.className = (b.getAttribute("data-view") === v)
+          ? "swot-btn px-2 py-1 rounded bg-blue-600 text-white font-bold"
+          : "swot-btn px-2 py-1 rounded bg-slate-800 text-slate-300 font-bold";
+      });
+      document.getElementById("swotMain").className = (v === "both") ? "grid grid-cols-1 md:grid-cols-2 gap-3 text-xs" : "hidden";
+      document.getElementById("swotOT").className = (v === "opp") ? "grid grid-cols-1 md:grid-cols-2 gap-3 text-xs" : "hidden";
+    });
+  });
+
+  ["rngLotPrice", "rngCivil", "rngAgencyRate", "chkUpfront"].forEach(function(id) {
+    document.getElementById(id).addEventListener("input", updateSim);
+    document.getElementById(id).addEventListener("change", updateSim);
+  });
+
+  var msgs = {
+    A: "제1안 검토 시: 초기 착수금 면제 여부, 기간별 최소 분양 보장, 미계약 상담 DB 공동 귀속 특약을 계약서에 반영하시는 것이 안전합니다.",
+    B: "제2안 검토 시: 초기 모객 속도 보완을 위해 지역 공인중개사·부동산 유튜버 공동 중개 인센티브를 열어두는 것이 효과적입니다.",
+    C: "제3안 검토 시: 추가 현금 지출 없이 60~90일간 보유 인프라로 먼저 운영해 본 뒤, 지표를 보고 대행사 투입 여부를 최종 판단하실 수 있습니다."
+  };
+
+  document.querySelectorAll(".choice-card").forEach(function(card) {
+    card.addEventListener("click", function() {
+      var k = this.getAttribute("data-opt");
+      document.querySelectorAll(".choice-card").forEach(function(c) {
+        c.className = (c.getAttribute("data-opt") === k)
+          ? "choice-card bg-slate-800 p-4 rounded-xl border-2 border-blue-500 space-y-2 cursor-pointer"
+          : "choice-card bg-slate-800/70 p-4 rounded-xl border border-slate-700 space-y-2 cursor-pointer";
+      });
+      document.getElementById("choiceNote").innerText = msgs[k];
+    });
+  });
+
+  updateSim();
+});
+</script>
+</body>
+</html>
