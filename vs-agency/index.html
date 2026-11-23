@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>[비주얼 검토안 V6] 이아소 2차 스마트 분양 모델 및 정밀 수지 시뮬레이터</title>
+<title>[비주얼 검토안 V9] 이아소 2차 스마트 분양 모델 및 정밀 계정별 수지 시뮬레이터</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { background:#0b1120; color:#f8fafc; font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; overflow-x:hidden; word-break:keep-all; }
@@ -23,7 +23,7 @@
     <div class="flex items-center justify-between gap-3">
       <div class="flex items-center gap-2.5 min-w-0">
         <div class="w-9 h-9 rounded-lg bg-emerald-700 border border-emerald-500/50 flex items-center justify-center text-lg shrink-0">🌲</div>
-        <h1 class="text-sm md:text-lg font-extrabold text-white whitespace-nowrap truncate">이아소 2차 분양 모델 &amp; 정밀 수지 비교</h1>
+        <h1 class="text-sm md:text-lg font-extrabold text-white whitespace-nowrap truncate">이아소 2차 분양 모델 &amp; 계정별 수지 비교</h1>
       </div>
       <button type="button" id="audioBtn" class="h-9 px-3.5 rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shrink-0 shadow whitespace-nowrap">🔊 ▶</button>
     </div>
@@ -103,7 +103,7 @@
         <span class="hang-icon">🚀</span>
         <span class="hang-text">2. 기획 중인 '이아소 스마트 마케팅·분양' 작동 구조</span>
       </h2>
-      <span class="text-[11px] bg-emerald-950 text-emerald-300 border border-emerald-600/40 px-3 py-1 rounded-full font-bold whitespace-nowrap shrink-0">4단계 자동화 퍼널</span>
+      <span class="text-[11px] bg-emerald-950 text-emerald-300 border border-emerald-600/40 px-3 py-1 rounded-full font-bold whitespace-nowrap shrink-0">직판 50% + 외부중개 50%(3%)</span>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-3.5 md:gap-4 text-xs items-stretch">
@@ -113,12 +113,12 @@
             <span class="px-2.5 py-0.5 rounded bg-blue-600/30 text-blue-300 font-black text-[11px] whitespace-nowrap">STEP 1 · 모객</span>
             <span class="text-2xl">📢</span>
           </div>
-          <div class="font-extrabold text-sm text-white">다채널 유입 &amp; 개방 중개</div>
+          <div class="font-extrabold text-sm text-white">직판 50% + 중개망 50%</div>
         </div>
         <div class="bg-slate-900 rounded-xl p-3 text-xs text-slate-300 space-y-1.5">
-          <div class="hang-row"><span class="hang-icon">▶️</span><span class="hang-text">유튜브 광역호재 쇼츠</span></div>
-          <div class="hang-row"><span class="hang-icon">📝</span><span class="hang-text">AI 정원·전원 칼럼 주3회</span></div>
-          <div class="hang-row"><span class="hang-icon">🤝</span><span class="hang-text">양평 중개사·유튜버 개방</span></div>
+          <div class="hang-row"><span class="hang-icon">▶️</span><span class="hang-text">유튜브·AI 칼럼 직판(50%)</span></div>
+          <div class="hang-row"><span class="hang-icon">🤝</span><span class="hang-text">외부 중개사 3% 보상(50%)</span></div>
+          <div class="hang-row"><span class="hang-icon">🏘️</span><span class="hang-text">1차 입주민 지인 소개 연계</span></div>
         </div>
       </div>
 
@@ -172,7 +172,7 @@
       <div class="flex items-start gap-3.5 bg-slate-800/60 p-4 rounded-xl h-full">
         <div class="text-3xl shrink-0 mt-0.5">📦</div>
         <div class="space-y-1">
-          <div class="text-slate-400 font-bold text-xs">기존 분양대행사 방식</div>
+          <div class="text-slate-400 font-bold text-xs">기존 분양대행사 방식 (수수료 5~15% · 별도광고비 0)</div>
           <div class="text-white font-extrabold text-sm">유튜브 광고 ➔ 컨테이너 1동 구경 ➔ 전화 독촉</div>
           <div class="text-xs text-rose-300">집에 가서 배우자 반대로 계약 무산 빈번 · 미계약 DB 증발</div>
         </div>
@@ -180,9 +180,9 @@
       <div class="flex items-start gap-3.5 bg-emerald-950/40 border border-emerald-600/40 p-4 rounded-xl h-full">
         <div class="text-3xl shrink-0 mt-0.5">✨</div>
         <div class="space-y-1">
-          <div class="text-emerald-300 font-bold text-xs">이아소 디지털 분양 대행 모델</div>
+          <div class="text-emerald-300 font-bold text-xs">이아소 디지털 분양 모델 (직판 50% + 외부중개 50%)</div>
           <div class="text-white font-extrabold text-sm">정원시안 훅 ➔ 전 필지 3D 거실투어 ➔ 카톡 가족브리핑</div>
-          <div class="text-xs text-emerald-200">투명한 총비용으로 가족 설득 · 모든 고객 DB 시행사 구글시트 적재</div>
+          <div class="text-xs text-emerald-200">절반은 직판으로 수수료 아끼고, 절반은 3% 중개보수로 지역 부동산 총동원</div>
         </div>
       </div>
     </div>
@@ -201,7 +201,7 @@
             <span class="text-2xl shrink-0">🏢</span>
             <span class="font-extrabold text-sm md:text-base text-amber-300 whitespace-nowrap truncate">구조 B. 외부 분양대행사 위탁</span>
           </div>
-          <span class="text-[11px] bg-slate-700 px-2.5 py-1 rounded-md text-slate-200 font-semibold whitespace-nowrap shrink-0">꿈꾸는별장형</span>
+          <span class="text-[11px] bg-slate-700 px-2.5 py-1 rounded-md text-slate-200 font-semibold whitespace-nowrap shrink-0">광고비 수수료 내 포함</span>
         </div>
 
         <div class="space-y-4">
@@ -214,10 +214,10 @@
           </div>
           <div>
             <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="hang-row font-semibold text-slate-200 whitespace-nowrap"><span class="hang-icon">💰</span><span>시행사 비용 절감 (수수료·착수금)</span></span>
-              <span class="text-rose-400 font-bold whitespace-nowrap">불리함 (5~15%+ 유출)</span>
+              <span class="hang-row font-semibold text-slate-200 whitespace-nowrap"><span class="hang-icon">💰</span><span>시행사 비용 절감 (착수금+수수료)</span></span>
+              <span class="text-rose-400 font-bold whitespace-nowrap">불리함 (5~15% 유출)</span>
             </div>
-            <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden"><div class="h-full bg-rose-500 rounded-full" style="width:25%"></div></div>
+            <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden"><div class="h-full bg-rose-500 rounded-full" style="width:28%"></div></div>
           </div>
           <div>
             <div class="flex items-center justify-between gap-2 mb-1.5">
@@ -240,18 +240,18 @@
         <div class="flex items-center justify-between gap-2 border-b border-slate-700 pb-3.5">
           <div class="flex items-center gap-2.5 min-w-0">
             <span class="text-2xl shrink-0">🌲</span>
-            <span class="font-extrabold text-sm md:text-base text-emerald-300 whitespace-nowrap truncate">구조 A. 이아소 보유자산 + 스마트 분양</span>
+            <span class="font-extrabold text-sm md:text-base text-emerald-300 whitespace-nowrap truncate">구조 A. 이아소 스마트 분양 (플랫폼 2%)</span>
           </div>
-          <span class="text-[11px] bg-emerald-900/60 px-2.5 py-1 rounded-md text-emerald-200 font-semibold whitespace-nowrap shrink-0">현장 직영·개방형</span>
+          <span class="text-[11px] bg-emerald-900/60 px-2.5 py-1 rounded-md text-emerald-200 font-semibold whitespace-nowrap shrink-0">직판50% + 중개50%(3%)</span>
         </div>
 
         <div class="space-y-4">
           <div>
             <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="hang-row font-semibold text-slate-200 whitespace-nowrap"><span class="hang-icon">💰</span><span>시행사 비용 절감 (초기 착수금 0원)</span></span>
-              <span class="text-emerald-400 font-bold whitespace-nowrap">매우 우수 (95%)</span>
+              <span class="hang-row font-semibold text-slate-200 whitespace-nowrap"><span class="hang-icon">💰</span><span>시행사 비용 절감 (착수0·실효수수료 3.5%)</span></span>
+              <span class="text-emerald-400 font-bold whitespace-nowrap">우수 (약 2.7배 절감)</span>
             </div>
-            <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden"><div class="h-full bg-emerald-500 rounded-full" style="width:95%"></div></div>
+            <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden"><div class="h-full bg-emerald-500 rounded-full" style="width:90%"></div></div>
           </div>
           <div>
             <div class="flex items-center justify-between gap-2 mb-1.5">
@@ -269,10 +269,10 @@
           </div>
           <div>
             <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="hang-row font-semibold text-slate-200 whitespace-nowrap"><span class="hang-icon">📢</span><span>초기 단독 모객력 (객관적 약점)</span></span>
-              <span class="text-amber-300 font-bold whitespace-nowrap">보완 필요 (중개망 개방 필수)</span>
+              <span class="hang-row font-semibold text-slate-200 whitespace-nowrap"><span class="hang-icon">📢</span><span>초기 모객력 (직판 50% + 3% 중개망 50%)</span></span>
+              <span class="text-blue-300 font-bold whitespace-nowrap">직판·중개 투트랙 (78%)</span>
             </div>
-            <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden"><div class="h-full bg-amber-400 rounded-full" style="width:55%"></div></div>
+            <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden"><div class="h-full bg-blue-400 rounded-full" style="width:78%"></div></div>
           </div>
         </div>
       </div>
@@ -281,33 +281,33 @@
     <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex items-center justify-center text-xs md:text-sm text-slate-200">
       <div class="hang-row">
         <span class="hang-icon">💡</span>
-        <span class="hang-text"><strong>핵심 요약:</strong> 외부 대행사(B)는 <strong>'초기 외부 고객풀'</strong>이 강점이고, 이아소 모델(A)은 <strong>'비용 절감 · 고객 DB 100% 보존 · 현장 시공 신뢰도'</strong>가 강점입니다.</span>
+        <span class="hang-text"><strong>핵심 요약:</strong> 전체 물량의 <strong>50%는 자체 플랫폼 직판(중개보수 0%)</strong>, 나머지 <strong>50%는 외부 공인중개사 3% 인센티브</strong> 전제 시 대행사 대비 약 <strong>7,865만 원</strong>이 절감됩니다.</span>
       </div>
     </div>
   </section>
 
-  <section id="s3" class="hidden w-full space-y-4 md:space-y-5 fade-in">
+  <section id="s3" class="hidden w-full space-y-4 fade-in">
     <div class="flex items-start justify-between gap-3">
       <h2 class="hang-row text-base md:text-xl font-extrabold text-white">
         <span class="hang-icon">📊</span>
-        <span class="hang-text">4. 매출·비용·손익 구조 정밀 시뮬레이터 (A. 이아소 vs B. 대행사)</span>
+        <span class="hang-text">4. 계정별 정밀 수지 시뮬레이터 (A. 직판50%·중개50% vs B. 대행사)</span>
       </h2>
       <span class="text-[11px] bg-blue-950 text-blue-300 border border-blue-600/40 px-3 py-1 rounded-full font-bold whitespace-nowrap shrink-0">평균 100평 × 15필지 기준</span>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 text-xs items-stretch">
-      <div class="lg:col-span-5 flex flex-col justify-between gap-4 h-full">
-        <div class="bg-slate-800/90 p-4 rounded-2xl border border-blue-500/40 flex flex-col justify-between space-y-3">
+      <div class="lg:col-span-5 flex flex-col justify-between gap-3.5 h-full">
+        <div class="bg-slate-800/90 p-3.5 rounded-2xl border border-blue-500/40 flex flex-col justify-between space-y-2.5">
           <div class="flex items-center justify-between gap-2 border-b border-slate-700 pb-2">
             <span class="hang-row font-extrabold text-blue-300 whitespace-nowrap"><span class="hang-icon">📈</span><span>[매출 항목] 단가 &amp; 수량</span></span>
-            <span class="text-xs text-slate-300 whitespace-nowrap">총매출: <strong id="lblTotalRev" class="text-amber-300 text-sm">12억 원</strong></span>
+            <span class="text-xs text-slate-300 whitespace-nowrap">총매출: <strong id="lblTotalRev" class="text-amber-300 text-sm">10억 5,000만 원</strong></span>
           </div>
           <div>
             <div class="flex items-center justify-between gap-2 mb-1">
-              <span class="whitespace-nowrap">1. 평당 분양가 <span class="text-[11px] text-slate-400">(필지당 <b id="lblPerLot">0.8억</b>)</span></span>
-              <strong id="lblPricePy" class="text-blue-300 whitespace-nowrap">80만 원 / 평</strong>
+              <span class="whitespace-nowrap">1. 평당 분양가 <span class="text-[11px] text-slate-400">(필지당 <b id="lblPerLot">0.7억</b>)</span></span>
+              <strong id="lblPricePy" class="text-blue-300 whitespace-nowrap">70만 원 / 평</strong>
             </div>
-            <input id="rngPricePy" type="range" min="50" max="100" step="5" value="80" class="w-full accent-blue-500">
+            <input id="rngPricePy" type="range" min="50" max="100" step="5" value="70" class="w-full accent-blue-500">
             <div class="flex justify-between text-[10px] text-slate-500"><span>50만</span><span>75만</span><span>100만/평</span></div>
           </div>
           <div>
@@ -320,36 +320,43 @@
           </div>
         </div>
 
-        <div class="bg-slate-800/90 p-4 rounded-2xl border border-rose-500/30 flex-1 flex flex-col justify-between space-y-3">
-          <div class="hang-row font-extrabold text-rose-300 border-b border-slate-700 pb-2 whitespace-nowrap">
-            <span class="hang-icon">💸</span><span>[비용 항목] 대행사 · 광고홍보 · 토목비</span>
+        <div class="bg-slate-800/90 p-3.5 rounded-2xl border border-rose-500/30 flex-1 flex flex-col justify-between space-y-2.5">
+          <div class="flex items-center justify-between border-b border-slate-700 pb-1.5">
+            <span class="hang-row font-extrabold text-rose-300 whitespace-nowrap"><span class="hang-icon">💸</span><span>[비용 계정 &amp; 산정 전제]</span></span>
+            <span class="text-[10px] text-slate-300 font-bold whitespace-nowrap">B 별도광고·AI비 0원</span>
           </div>
+
           <div class="grid grid-cols-2 gap-3">
             <div>
               <div class="flex items-center justify-between gap-1 mb-1 text-[11px] whitespace-nowrap">
-                <span>1-1) 대행사 착수금</span><strong id="lblAgUpfront" class="text-rose-300">2,000만</strong>
+                <span>1-1) B 대행사 착수금</span><strong id="lblAgUpfront" class="text-rose-300">2,000만</strong>
               </div>
               <input id="rngAgUpfront" type="range" min="0" max="5000" step="500" value="2000" class="w-full accent-rose-500">
               <div class="flex justify-between text-[10px] text-slate-500"><span>0원</span><span>5,000만</span></div>
             </div>
             <div>
               <div class="flex items-center justify-between gap-1 mb-1 text-[11px] whitespace-nowrap">
-                <span>1-2) 수수료 (5~15%)</span><strong id="lblAgRate" class="text-rose-300">10.0%</strong>
+                <span>1-2) B 수수료 (광고포함)</span><strong id="lblAgRate" class="text-rose-300">10.0%</strong>
               </div>
               <input id="rngAgRate" type="range" min="5" max="15" step="0.5" value="10" class="w-full accent-rose-500">
               <div class="flex justify-between text-[10px] text-slate-500"><span>5%</span><span>10%</span><span>15%</span></div>
             </div>
           </div>
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-1 whitespace-nowrap">
-              <span>2) 광고·홍보비 비율 (매출 대비 %)</span>
-              <strong id="lblAdRate" class="text-amber-300">2.0% (2,400만)</strong>
+
+          <div class="bg-slate-900/95 p-2.5 rounded-xl border border-emerald-500/30 space-y-1 text-[11px]">
+            <div class="flex items-center justify-between text-emerald-300 font-bold whitespace-nowrap">
+              <span>📌 구조 A 고정 전제 (50% 직판 · 50% 중개)</span>
+              <span id="lblBrokerAmt" class="text-white">중개보수 1,575만</span>
             </div>
-            <input id="rngAdRate" type="range" min="0" max="6" step="0.5" value="2" class="w-full accent-amber-400">
+            <div class="text-[10px] text-slate-300 leading-relaxed">
+              • 플랫폼 성공보수 <strong>2.0%</strong> + 타깃광고·AI 운영실비 <strong>960만</strong><br>
+              • 공인중개사 인센티브 <strong>3.0%</strong>는 <strong>분양수량의 50%만 적용</strong> (나머지 50% 직판 0%)
+            </div>
           </div>
+
           <div>
             <div class="flex items-center justify-between gap-2 mb-1 whitespace-nowrap">
-              <span>3) 토목·기반공사비 (고정 투입비)</span>
+              <span>2) 토목·기반공사비 (양측 동일 원가)</span>
               <strong id="lblCivilCost" class="text-amber-300">3억 5,000만 원</strong>
             </div>
             <input id="rngCivilCost" type="range" min="15000" max="60000" step="2500" value="35000" class="w-full accent-amber-500">
@@ -357,89 +364,95 @@
         </div>
       </div>
 
-      <div class="lg:col-span-7 bg-slate-900 p-4 rounded-2xl border border-slate-700 flex flex-col justify-between h-full space-y-3.5">
-        <div class="flex items-center justify-between gap-2 border-b border-slate-800 pb-2.5">
-          <div class="hang-row font-extrabold text-sm text-white whitespace-nowrap">
-            <span class="hang-icon">📊</span><span>4. 손익 구조 막대그래프 (매출 · 비용 · 손익)</span>
-          </div>
-          <span id="profitGapBadge" class="px-3 py-1 rounded-full bg-emerald-950 border border-emerald-500/50 text-emerald-300 font-extrabold text-[11px] whitespace-nowrap shrink-0">A(이아소) +1억 400만 유리</span>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 items-stretch flex-1">
-          <div class="bg-slate-800/60 rounded-xl p-3.5 border border-emerald-500/50 flex flex-col justify-between h-full space-y-2.5">
-            <div class="flex items-center justify-between gap-1.5 flex-nowrap">
-              <span class="font-extrabold text-emerald-300 text-xs whitespace-nowrap truncate">🌲 구조 A. 이아소 (중개 3%)</span>
-              <span id="rateBadgeA" class="px-2 py-0.5 rounded bg-emerald-600 text-white font-black text-[11px] whitespace-nowrap shrink-0">이익률 65.8%</span>
-            </div>
-            <div class="h-32 bg-slate-950/80 rounded-lg p-2.5 flex items-end justify-around gap-2 border border-slate-800">
-              <div class="flex flex-col items-center w-1/3 h-full justify-end">
-                <span id="vRevA" class="text-[11px] text-blue-300 font-bold mb-1 whitespace-nowrap">12.0억</span>
-                <div id="barRevA" class="w-10 bg-blue-500 rounded-t transition-all duration-200" style="height:85%"></div>
-                <span class="text-[11px] text-slate-400 mt-1 whitespace-nowrap">매출</span>
-              </div>
-              <div class="flex flex-col items-center w-1/3 h-full justify-end">
-                <span id="vCostA" class="text-[11px] text-rose-300 font-bold mb-1 whitespace-nowrap">4.1억</span>
-                <div id="barCostA" class="w-10 bg-rose-500/85 rounded-t transition-all duration-200" style="height:32%"></div>
-                <span class="text-[11px] text-slate-400 mt-1 whitespace-nowrap">총비용</span>
-              </div>
-              <div class="flex flex-col items-center w-1/3 h-full justify-end">
-                <span id="vNetA" class="text-[11px] text-emerald-300 font-extrabold mb-1 whitespace-nowrap">7.9억</span>
-                <div id="barNetA" class="w-10 bg-emerald-500 rounded-t transition-all duration-200" style="height:56%"></div>
-                <span class="text-[11px] text-emerald-300 font-bold mt-1 whitespace-nowrap">순손익</span>
-              </div>
-            </div>
-            <div id="detailCostA" class="text-[11px] text-slate-400 whitespace-nowrap truncate"></div>
-          </div>
-
-          <div class="bg-slate-800/60 rounded-xl p-3.5 border border-amber-500/40 flex flex-col justify-between h-full space-y-2.5">
-            <div class="flex items-center justify-between gap-1.5 flex-nowrap">
-              <span class="font-extrabold text-amber-300 text-xs whitespace-nowrap truncate">🏢 구조 B. 분양대행사 위탁</span>
-              <span id="rateBadgeB" class="px-2 py-0.5 rounded bg-amber-600 text-white font-black text-[11px] whitespace-nowrap shrink-0">이익률 57.2%</span>
-            </div>
-            <div class="h-32 bg-slate-950/80 rounded-lg p-2.5 flex items-end justify-around gap-2 border border-slate-800">
-              <div class="flex flex-col items-center w-1/3 h-full justify-end">
-                <span id="vRevB" class="text-[11px] text-blue-300 font-bold mb-1 whitespace-nowrap">12.0억</span>
-                <div id="barRevB" class="w-10 bg-blue-500 rounded-t transition-all duration-200" style="height:85%"></div>
-                <span class="text-[11px] text-slate-400 mt-1 whitespace-nowrap">매출</span>
-              </div>
-              <div class="flex flex-col items-center w-1/3 h-full justify-end">
-                <span id="vCostB" class="text-[11px] text-rose-300 font-bold mb-1 whitespace-nowrap">5.1억</span>
-                <div id="barCostB" class="w-10 bg-rose-500 rounded-t transition-all duration-200" style="height:40%"></div>
-                <span class="text-[11px] text-slate-400 mt-1 whitespace-nowrap">총비용</span>
-              </div>
-              <div class="flex flex-col items-center w-1/3 h-full justify-end">
-                <span id="vNetB" class="text-[11px] text-amber-300 font-extrabold mb-1 whitespace-nowrap">6.9억</span>
-                <div id="barNetB" class="w-10 bg-amber-500 rounded-t transition-all duration-200" style="height:48%"></div>
-                <span class="text-[11px] text-amber-300 font-bold mt-1 whitespace-nowrap">순손익</span>
-              </div>
-            </div>
-            <div id="detailCostB" class="text-[11px] text-slate-400 whitespace-nowrap truncate"></div>
-          </div>
-        </div>
-
-        <div class="bg-slate-950/90 p-3.5 rounded-xl border border-slate-800 space-y-2.5">
+      <div class="lg:col-span-7 bg-slate-900 p-4 rounded-2xl border border-slate-700 flex flex-col justify-between h-full space-y-3">
+        <div class="bg-slate-950/90 p-3 rounded-xl border border-emerald-500/40 space-y-2">
           <div class="flex items-center justify-between gap-2">
-            <span class="hang-row font-extrabold text-xs text-white whitespace-nowrap"><span class="hang-icon">🎯</span><span>5. 총비용 회수 최소 판매수량 (손익분기 BEP)</span></span>
-            <span class="text-[11px] text-slate-400 whitespace-nowrap">전체 15필지 기준</span>
+            <span class="font-extrabold text-xs text-white whitespace-nowrap">🔎 [핵심 계정 비교] 토목비 제외 '순수 분양·마케팅 지출' 격차</span>
+            <span id="mktSaveBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-600 text-white font-black text-[11px] whitespace-nowrap shrink-0">분양비용 7,865만 절감 (2.7배 차이)</span>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-stretch">
-            <div class="bg-slate-900 p-2.5 rounded-lg border border-emerald-500/30 flex flex-col justify-between">
-              <div class="flex items-center justify-between gap-1 text-[11px] mb-1.5 flex-nowrap">
-                <span class="text-emerald-300 font-bold whitespace-nowrap">🌲 A(이아소) 최소수량</span>
-                <strong id="bepTextA" class="text-white whitespace-nowrap">6필지 (5.3개)</strong>
+          <div class="space-y-1.5 text-[11px]">
+            <div>
+              <div class="flex justify-between mb-0.5 whitespace-nowrap">
+                <span class="text-emerald-300 font-bold">🌲 A(이아소): 플랫폼(2%) + 중개(50%물량×3%) + 광고·AI실비(960만)</span>
+                <strong id="mktCostTextA" class="text-emerald-300">4,635만 원 (매출의 4.4%)</strong>
               </div>
-              <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
-                <div id="bepBarA" class="h-full bg-emerald-500 transition-all duration-200" style="width:31%"></div>
+              <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden">
+                <div id="mktBarA" class="h-full bg-emerald-500 rounded-full transition-all duration-200" style="width:35%"></div>
               </div>
             </div>
-            <div class="bg-slate-900 p-2.5 rounded-lg border border-amber-500/30 flex flex-col justify-between">
-              <div class="flex items-center justify-between gap-1 text-[11px] mb-1.5 flex-nowrap">
-                <span class="text-amber-300 font-bold whitespace-nowrap">🏢 B(대행사) 최소수량</span>
-                <strong id="bepTextB" class="text-white whitespace-nowrap">6필지 (5.8개)</strong>
+            <div>
+              <div class="flex justify-between mb-0.5 whitespace-nowrap">
+                <span class="text-rose-300 font-bold">🏢 B(대행사): 초기착수금 + 대행수수료(전량) · [별도 광고·AI비 0원]</span>
+                <strong id="mktCostTextB" class="text-rose-300">1억 2,500만 원 (매출의 11.9%)</strong>
               </div>
-              <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
-                <div id="bepBarB" class="h-full bg-amber-500 transition-all duration-200" style="width:36%"></div>
+              <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden">
+                <div id="mktBarB" class="h-full bg-rose-500 rounded-full transition-all duration-200" style="width:95%"></div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-stretch flex-1">
+          <div class="bg-slate-800/60 rounded-xl p-3 border border-emerald-500/50 flex flex-col justify-between h-full space-y-2">
+            <div class="flex items-center justify-between gap-1.5 flex-nowrap">
+              <span class="font-extrabold text-emerald-300 text-xs whitespace-nowrap truncate">🌲 구조 A. 이아소 (직판50%·중개50%)</span>
+              <span id="rateBadgeA" class="px-2 py-0.5 rounded bg-emerald-600 text-white font-black text-[11px] whitespace-nowrap shrink-0">이익률 62.3%</span>
+            </div>
+            <div class="h-24 bg-slate-950/80 rounded-lg p-2 flex items-end justify-around gap-2 border border-slate-800">
+              <div class="flex flex-col items-center w-1/3 h-full justify-end">
+                <span id="vRevA" class="text-[11px] text-blue-300 font-bold mb-0.5 whitespace-nowrap">10.50억</span>
+                <div id="barRevA" class="w-9 bg-blue-500 rounded-t transition-all duration-200" style="height:85%"></div>
+                <span class="text-[10px] text-slate-400 mt-0.5 whitespace-nowrap">매출</span>
+              </div>
+              <div class="flex flex-col items-center w-1/3 h-full justify-end">
+                <span id="vCostA" class="text-[11px] text-rose-300 font-bold mb-0.5 whitespace-nowrap">3.96억</span>
+                <div id="barCostA" class="w-9 bg-rose-500/85 rounded-t transition-all duration-200" style="height:35%"></div>
+                <span class="text-[10px] text-slate-400 mt-0.5 whitespace-nowrap">총비용</span>
+              </div>
+              <div class="flex flex-col items-center w-1/3 h-full justify-end">
+                <span id="vNetA" class="text-[11px] text-emerald-300 font-extrabold mb-0.5 whitespace-nowrap">6.54억</span>
+                <div id="barNetA" class="w-9 bg-emerald-500 rounded-t transition-all duration-200" style="height:55%"></div>
+                <span class="text-[10px] text-emerald-300 font-bold mt-0.5 whitespace-nowrap">순손익</span>
+              </div>
+            </div>
+            <div id="detailCostA" class="text-[10px] text-slate-300 whitespace-nowrap truncate"></div>
+          </div>
+
+          <div class="bg-slate-800/60 rounded-xl p-3 border border-amber-500/40 flex flex-col justify-between h-full space-y-2">
+            <div class="flex items-center justify-between gap-1.5 flex-nowrap">
+              <span class="font-extrabold text-amber-300 text-xs whitespace-nowrap truncate">🏢 구조 B. 대행사 (별도광고 0원)</span>
+              <span id="rateBadgeB" class="px-2 py-0.5 rounded bg-amber-600 text-white font-black text-[11px] whitespace-nowrap shrink-0">이익률 54.8%</span>
+            </div>
+            <div class="h-24 bg-slate-950/80 rounded-lg p-2 flex items-end justify-around gap-2 border border-slate-800">
+              <div class="flex flex-col items-center w-1/3 h-full justify-end">
+                <span id="vRevB" class="text-[11px] text-blue-300 font-bold mb-0.5 whitespace-nowrap">10.50억</span>
+                <div id="barRevB" class="w-9 bg-blue-500 rounded-t transition-all duration-200" style="height:85%"></div>
+                <span class="text-[10px] text-slate-400 mt-0.5 whitespace-nowrap">매출</span>
+              </div>
+              <div class="flex flex-col items-center w-1/3 h-full justify-end">
+                <span id="vCostB" class="text-[11px] text-rose-300 font-bold mb-0.5 whitespace-nowrap">4.75억</span>
+                <div id="barCostB" class="w-9 bg-rose-500 rounded-t transition-all duration-200" style="height:43%"></div>
+                <span class="text-[10px] text-slate-400 mt-0.5 whitespace-nowrap">총비용</span>
+              </div>
+              <div class="flex flex-col items-center w-1/3 h-full justify-end">
+                <span id="vNetB" class="text-[11px] text-amber-300 font-extrabold mb-0.5 whitespace-nowrap">5.75억</span>
+                <div id="barNetB" class="w-9 bg-amber-500 rounded-t transition-all duration-200" style="height:48%"></div>
+                <span class="text-[10px] text-amber-300 font-bold mt-0.5 whitespace-nowrap">순손익</span>
+              </div>
+            </div>
+            <div id="detailCostB" class="text-[10px] text-slate-300 whitespace-nowrap truncate"></div>
+          </div>
+        </div>
+
+        <div class="bg-slate-950/90 p-2.5 rounded-xl border border-slate-800">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-center text-[11px]">
+            <div class="flex items-center justify-between gap-2 bg-slate-900 px-3 py-2 rounded-lg border border-emerald-500/30 whitespace-nowrap">
+              <span class="text-emerald-300 font-bold">🎯 A 원금회수 최소수량</span>
+              <strong id="bepTextA" class="text-white">최소 6필지 (5.3개)</strong>
+            </div>
+            <div class="flex items-center justify-between gap-2 bg-slate-900 px-3 py-2 rounded-lg border border-amber-500/30 whitespace-nowrap">
+              <span class="text-amber-300 font-bold">🎯 B 원금회수 최소수량</span>
+              <strong id="bepTextB" class="text-white">최소 6필지 (5.9개)</strong>
             </div>
           </div>
         </div>
@@ -494,7 +507,7 @@
         </div>
         <div class="bg-slate-900 p-3 rounded-xl border-l-4 border-blue-500 text-slate-200 hang-row">
           <span class="hang-icon">✅</span>
-          <span class="hang-text"><strong class="text-blue-300">해소:</strong> 독점하지 않고 양평 부동산·유튜버들에게 '3D 브리핑 링크'를 영업 무기로 배포(성사 시만 보수 지급)합니다.</span>
+          <span class="hang-text"><strong class="text-blue-300">해소:</strong> 물량의 50%는 플랫폼 직판으로 소화하고, 나머지 50%는 양평 공인중개사들에게 <strong>성사 시 3% 파격 수수료</strong>를 걸어 지역 영업망을 가동합니다.</span>
         </div>
       </div>
     </div>
@@ -555,12 +568,12 @@
       <div data-opt="B" class="choice-card bg-slate-800/80 p-5 rounded-2xl border border-slate-700 flex flex-col justify-between h-full space-y-4 cursor-pointer text-center">
         <div class="space-y-2.5">
           <div class="text-4xl">🌲</div>
-          <div class="text-blue-300 font-extrabold text-sm md:text-base whitespace-nowrap">제2안. 보유자산 + 개방중개</div>
-          <p class="text-slate-300 leading-relaxed">현장 6대 자산 + 3D 브리핑을 가동하고 지역 중개망·유튜버를 전면 개방하는 방식입니다.</p>
+          <div class="text-blue-300 font-extrabold text-sm md:text-base whitespace-nowrap">제2안. 직판(50%) + 중개(50%)</div>
+          <p class="text-slate-300 leading-relaxed">착수금 0원 · 플랫폼 2% 기반에 절반은 직판, 절반은 외부중개 3% 보상으로 추진합니다.</p>
         </div>
         <div class="bg-slate-900 p-3 rounded-xl text-xs text-slate-300 text-left hang-row">
           <span class="hang-icon">📌</span>
-          <span class="hang-text"><strong>실행 포인트:</strong> 아낀 대행수수료 일부를 초기 광고비·조기계약 정원혜택에 활용</span>
+          <span class="hang-text"><strong>실행 포인트:</strong> 절감된 약 7,865만 원 재원 중 일부를 조기계약 정원혜택에 활용</span>
         </div>
       </div>
 
@@ -586,7 +599,7 @@
 
 <footer class="bg-slate-900 border-t border-slate-800 px-4 py-3 sticky bottom-0 z-40">
   <div class="max-w-6xl mx-auto flex items-center justify-between text-xs">
-    <div class="truncate text-slate-400">비주얼 검토 브리핑 V6 | <span id="footerStatus" class="text-white font-bold">1/6 현장 보유 6대 자산</span></div>
+    <div class="truncate text-slate-400">비주얼 검토 브리핑 V9 | <span id="footerStatus" class="text-white font-bold">1/6 현장 보유 6대 자산</span></div>
     <div class="flex gap-2 shrink-0">
       <button type="button" id="prevBtn" class="px-3.5 py-1.5 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold whitespace-nowrap">◀ 이전</button>
       <button type="button" id="nextBtn" class="px-3.5 py-1.5 rounded-md bg-blue-600 hover:bg-blue-500 text-white font-bold whitespace-nowrap">다음 ▶</button>
@@ -603,17 +616,17 @@ document.addEventListener("DOMContentLoaded", function() {
     "1/6 현장 보유 6대 자산",
     "2/6 기획 중인 스마트 분양 모델",
     "3/6 양안 장단점 성적표",
-    "4/6 매출·비용·손익 정밀 분석",
+    "4/6 계정별 정밀 수지 분석",
     "5/6 리스크 해소 & 미래 부가가치",
     "6/6 3가지 자율 선택 옵션"
   ];
 
   var audioFiles = [
     "v3_slide0.mp3",
-    "v3_slide1.mp3",
-    "v3_slide2.mp3",
-    "v5_slide3.mp3",
-    "v5_slide4.mp3",
+    "v9_slide1.mp3",
+    "v9_slide2.mp3",
+    "v9_slide3.mp3",
+    "v8_slide4.mp3",
     "v3_slide5.mp3"
   ];
 
@@ -628,7 +641,7 @@ document.addEventListener("DOMContentLoaded", function() {
     return (neg ? "-" : "") + s;
   }
 
-  function fmtShortEok(v) { return (v / 10000).toFixed(1) + "억"; }
+  function fmtShortEok(v) { return (v / 10000).toFixed(2) + "억"; }
 
   function renderLotDots(qty) {
     var html = '<div class="flex gap-1 w-full">';
@@ -644,19 +657,27 @@ document.addEventListener("DOMContentLoaded", function() {
     var qty = parseInt(document.getElementById("rngLotQty").value, 10);
     var agUp = parseFloat(document.getElementById("rngAgUpfront").value);
     var agRate = parseFloat(document.getElementById("rngAgRate").value);
-    var adRate = parseFloat(document.getElementById("rngAdRate").value);
     var civil = parseFloat(document.getElementById("rngCivilCost").value);
 
     var perLot = pricePy * 100;
     var rev = perLot * qty;
-    var iasoRate = 3.0;
 
-    var adCost = rev * (adRate / 100);
-    var feeA = rev * (iasoRate / 100);
-    var feeB = rev * (agRate / 100);
+    var platformRateA = 2.0;
+    var brokerShareFixed = 0.50;
+    var brokerUnitRate = 3.0;
+    var brokerEffRateA = brokerShareFixed * brokerUnitRate;
+    var fixedAdOpsA = 960;
 
-    var costA = civil + adCost + feeA;
-    var costB = civil + adCost + agUp + feeB;
+    var feePlatformA = rev * (platformRateA / 100);
+    var feeBrokerA = rev * (brokerEffRateA / 100);
+    var mktCostA = feePlatformA + feeBrokerA + fixedAdOpsA;
+
+    var feeAgencyB = rev * (agRate / 100);
+    var adOpsB = 0;
+    var mktCostB = agUp + feeAgencyB + adOpsB;
+
+    var costA = civil + mktCostA;
+    var costB = civil + mktCostB;
 
     var netA = rev - costA;
     var netB = rev - costB;
@@ -665,21 +686,37 @@ document.addEventListener("DOMContentLoaded", function() {
     var marginB = rev > 0 ? ((netB / rev) * 100).toFixed(1) : "0.0";
 
     document.getElementById("lblPricePy").innerText = pricePy.toLocaleString() + "만 원 / 평";
-    document.getElementById("lblPerLot").innerText = fmtShortEok(perLot);
+    document.getElementById("lblPerLot").innerText = (perLot / 10000).toFixed(1) + "억";
     document.getElementById("lblLotQty").innerText = qty + "필지 (" + (qty * 100).toLocaleString() + "평 · " + Math.round((qty / 15) * 100) + "%)";
     document.getElementById("lblTotalRev").innerText = fmtMan(rev) + " 원";
 
-    document.getElementById("lblAgUpfront").innerText = fmtMan(agUp) + " 원";
+    document.getElementById("lblAgUpfront").innerText = fmtMan(agUp);
     document.getElementById("lblAgRate").innerText = agRate.toFixed(1) + "%";
-    document.getElementById("lblAdRate").innerText = adRate.toFixed(1) + "% (" + fmtMan(adCost) + ")";
+    document.getElementById("lblBrokerAmt").innerText = "중개보수 " + fmtMan(feeBrokerA);
     document.getElementById("lblCivilCost").innerText = fmtMan(civil) + " 원";
 
     renderLotDots(qty);
 
-    var gap = netA - netB;
-    document.getElementById("profitGapBadge").innerText = gap >= 0
-      ? "A(이아소) +" + fmtMan(gap) + " 원 유리"
-      : "B(대행사) +" + fmtMan(-gap) + " 원 유리";
+    var mktDiff = mktCostB - mktCostA;
+    var ratio = mktCostA > 0 ? (mktCostB / mktCostA).toFixed(1) : "1.0";
+    var mktPctA = rev > 0 ? ((mktCostA / rev) * 100).toFixed(1) : "0.0";
+    var mktPctB = rev > 0 ? ((mktCostB / rev) * 100).toFixed(1) : "0.0";
+
+    var mktBadge = document.getElementById("mktSaveBadge");
+    if (mktDiff >= 0) {
+      mktBadge.innerText = "분양비용 " + fmtMan(mktDiff) + " 절감 (" + ratio + "배 차이)";
+      mktBadge.className = "px-2.5 py-0.5 rounded-full bg-emerald-600 text-white font-black text-[11px] whitespace-nowrap shrink-0";
+    } else {
+      mktBadge.innerText = "B가 " + fmtMan(-mktDiff) + " 저렴";
+      mktBadge.className = "px-2.5 py-0.5 rounded-full bg-amber-600 text-white font-black text-[11px] whitespace-nowrap shrink-0";
+    }
+
+    document.getElementById("mktCostTextA").innerText = fmtMan(mktCostA) + " 원 (매출의 " + mktPctA + "%)";
+    document.getElementById("mktCostTextB").innerText = fmtMan(mktCostB) + " 원 (매출의 " + mktPctB + "%)";
+
+    var maxMkt = Math.max(mktCostA, mktCostB, 1000);
+    document.getElementById("mktBarA").style.width = Math.max(6, Math.round((mktCostA / maxMkt) * 96)) + "%";
+    document.getElementById("mktBarB").style.width = Math.max(6, Math.round((mktCostB / maxMkt) * 96)) + "%";
 
     var bA = document.getElementById("rateBadgeA");
     var bB = document.getElementById("rateBadgeB");
@@ -693,7 +730,7 @@ document.addEventListener("DOMContentLoaded", function() {
       : "px-2 py-0.5 rounded bg-rose-600 text-white font-black text-[11px] whitespace-nowrap shrink-0";
 
     var maxVal = Math.max(rev, costA, costB, Math.abs(netA), Math.abs(netB), 10000);
-    function hPct(v) { return Math.max(6, Math.min(92, Math.round((Math.abs(v) / maxVal) * 88))); }
+    function hPct(v) { return Math.max(8, Math.min(90, Math.round((Math.abs(v) / maxVal) * 86))); }
 
     document.getElementById("vRevA").innerText = fmtShortEok(rev);
     document.getElementById("vCostA").innerText = fmtShortEok(costA);
@@ -701,7 +738,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("barRevA").style.height = hPct(rev) + "%";
     document.getElementById("barCostA").style.height = hPct(costA) + "%";
     document.getElementById("barNetA").style.height = hPct(netA) + "%";
-    document.getElementById("barNetA").className = netA >= 0 ? "w-10 bg-emerald-500 rounded-t transition-all duration-200" : "w-10 bg-rose-600 rounded-t transition-all duration-200";
+    document.getElementById("barNetA").className = netA >= 0 ? "w-9 bg-emerald-500 rounded-t transition-all duration-200" : "w-9 bg-rose-600 rounded-t transition-all duration-200";
 
     document.getElementById("vRevB").innerText = fmtShortEok(rev);
     document.getElementById("vCostB").innerText = fmtShortEok(costB);
@@ -709,30 +746,27 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("barRevB").style.height = hPct(rev) + "%";
     document.getElementById("barCostB").style.height = hPct(costB) + "%";
     document.getElementById("barNetB").style.height = hPct(netB) + "%";
-    document.getElementById("barNetB").className = netB >= 0 ? "w-10 bg-amber-500 rounded-t transition-all duration-200" : "w-10 bg-rose-600 rounded-t transition-all duration-200";
+    document.getElementById("barNetB").className = netB >= 0 ? "w-9 bg-amber-500 rounded-t transition-all duration-200" : "w-9 bg-rose-600 rounded-t transition-all duration-200";
 
     document.getElementById("detailCostA").innerText =
-      "토목 " + fmtShortEok(civil) + " · 광고 " + fmtMan(adCost) + " · 중개 " + fmtMan(feeA);
+      "플랫폼2% " + fmtMan(feePlatformA) + " · 중개(50%×3%) " + fmtMan(feeBrokerA) + " · 광고960만";
     document.getElementById("detailCostB").innerText =
-      "토목 " + fmtShortEok(civil) + " · 광고 " + fmtMan(adCost) + " · 착수 " + fmtMan(agUp) + " · 수수료 " + fmtMan(feeB);
+      "착수 " + fmtMan(agUp) + " · 수수료 " + fmtMan(feeAgencyB) + " · 광고·AI 0원";
 
-    var contribA = perLot * (1 - (adRate + iasoRate) / 100);
-    var contribB = perLot * (1 - (adRate + agRate) / 100);
+    var contribA = perLot * (1 - (platformRateA + brokerEffRateA) / 100);
+    var contribB = perLot * (1 - agRate / 100);
 
-    var bepExactA = contribA > 0 ? (civil / contribA) : 99;
+    var bepExactA = contribA > 0 ? ((civil + fixedAdOpsA) / contribA) : 99;
     var bepExactB = contribB > 0 ? ((civil + agUp) / contribB) : 99;
     var bepCeilA = Math.ceil(bepExactA);
     var bepCeilB = Math.ceil(bepExactB);
 
     document.getElementById("bepTextA").innerText = bepCeilA <= 15
-      ? bepCeilA + "필지 (" + bepExactA.toFixed(1) + "개)"
+      ? "최소 " + bepCeilA + "필지 (" + bepExactA.toFixed(1) + "개)"
       : "15필지 초과 (" + bepExactA.toFixed(1) + "개)";
     document.getElementById("bepTextB").innerText = bepCeilB <= 15
-      ? bepCeilB + "필지 (" + bepExactB.toFixed(1) + "개)"
+      ? "최소 " + bepCeilB + "필지 (" + bepExactB.toFixed(1) + "개)"
       : "15필지 초과 (" + bepExactB.toFixed(1) + "개)";
-
-    document.getElementById("bepBarA").style.width = Math.min(100, Math.round((bepExactA / 15) * 100)) + "%";
-    document.getElementById("bepBarB").style.width = Math.min(100, Math.round((bepExactB / 15) * 100)) + "%";
   }
 
   function goSlide(n, keepAudio) {
@@ -743,7 +777,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ? "slide-tab py-1.5 rounded-md bg-blue-600 text-white whitespace-nowrap"
         : "slide-tab py-1.5 rounded-md bg-slate-800 text-slate-400 whitespace-nowrap";
     }
-    if (n === 3) document.getElementById("s3").className = "w-full space-y-4 md:space-y-5 fade-in";
+    if (n === 3) document.getElementById("s3").className = "w-full space-y-4 fade-in";
     if (n === 4) document.getElementById("s4").className = "w-full space-y-5 fade-in";
     document.getElementById("footerStatus").innerText = titles[n];
     if (playing && !keepAudio) playTrack(n);
@@ -774,14 +808,14 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("prevBtn").addEventListener("click", function() { goSlide((cur + 5) % 6); });
   document.getElementById("nextBtn").addEventListener("click", function() { goSlide((cur + 1) % 6); });
 
-  ["rngPricePy", "rngLotQty", "rngAgUpfront", "rngAgRate", "rngAdRate", "rngCivilCost"].forEach(function(id) {
+  ["rngPricePy", "rngLotQty", "rngAgUpfront", "rngAgRate", "rngCivilCost"].forEach(function(id) {
     document.getElementById(id).addEventListener("input", updateSim);
     document.getElementById(id).addEventListener("change", updateSim);
   });
 
   var msgs = {
     A: "🏢 제1안 선택 시: 초기 착수금 면제 여부와 상담 고객 DB 공동 귀속 조항을 계약서에 꼭 넣으시는 것이 유리합니다.",
-    B: "🌲 제2안 선택 시: 양평 지역 공인중개사·부동산 유튜버들에게 3D 브리핑 링크를 열어 공동 영업망을 넓히는 것이 핵심입니다.",
+    B: "🌲 제2안 선택 시: 착수금 0원 · 직판 50% + 외부중개 50%(3% 보상) 투트랙으로 비용 절감과 지역 영업망 가동을 동시에 달성합니다.",
     C: "⏱️ 제3안 선택 시: 현금 지출 0원으로 60~90일간 먼저 시장 지표를 확인한 뒤 외부 대행사 추가 여부를 안전하게 판단하실 수 있습니다."
   };
 
