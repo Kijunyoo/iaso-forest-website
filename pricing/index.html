@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WISELAW | 법률사무소 법현 × IASO 가격 정책 및 수임 전환 협의안</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Pretendard Variable Font -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            navy: {
+              800: '#1C3557',
+              900: '#132640',
+              950: '#0B1728'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* 전역 단어 단위 줄바꿈 강제 및 박스 모델 고정 */
+    * {
+      box-sizing: border-box;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    body {
+      margin: 0;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F3F5F8;
+      color: #0F172A;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* 필수 불릿 규격: . 들여쓰기 + 1, 2, 3줄 좌측 동일 수직선 정렬 */
+    .b-row {
+      display: flex;
+      align-items: flex-start;
+      padding-left: 8px;
+      margin-bottom: 3px;
+      line-height: 1.38;
+      font-size: 12.5px;
+      color: #1e293b;
+    }
+    .b-row:last-child {
+      margin-bottom: 0;
+    }
+    .b-dot {
+      width: 11px;
+      flex-shrink: 0;
+      font-weight: 700;
+      color: #2563eb;
+      user-select: none;
+    }
+    .b-txt {
+      flex: 1;
+      word-break: keep-all;
+    }
+
+    /* 1080p PC 단일 화면 무스크롤 압축 카드·테이블 패딩 */
+    .sum-box {
+      padding: 8px 13px;
+      margin-bottom: 9px;
+    }
+    .deck-card {
+      padding: 10px 13px;
+    }
+    .deck-tbl th {
+      padding: 6.5px 10px;
+      font-size: 12px;
+      letter-spacing: -0.01em;
+    }
+    .deck-tbl td {
+      padding: 6.5px 10px;
+      font-size: 12.5px;
+      line-height: 1.36;
+    }
+
+    /* 클릭 가능 토픽 블록 인터랙션 */
+    [data-topic] {
+      position: relative;
+      cursor: pointer;
+      transition: border-color 0.14s ease, box-shadow 0.14s ease, background-color 0.14s ease;
+    }
+    div[data-topic]:hover {
+      border-color: #64748B;
+      box-shadow: 0 3px 10px -3px rgba(15, 23, 42, 0.14);
+    }
+    tr[data-topic]:hover td {
+      background-color: #F8FAFC;
+    }
+
+    /* 핀 등록 / 확인 체크 하이라이트 */
+    div.topic-pinned {
+      border-color: #DC2626 !important;
+      background-color: #FFFDFD !important;
+    }
+    div.topic-checked {
+      border-color: #059669 !important;
+      background-color: #F2FBF7 !important;
+    }
+    tr.topic-pinned td {
+      background-color: #FEF2F2 !important;
+    }
+    tr.topic-checked td {
+      background-color: #ECFDF5 !important;
+    }
+    .pulse-ring {
+      outline: 2px solid #2563EB !important;
+      outline-offset: 2px;
+    }
+
+    /* 요소 우측 상단 핀 번호 배지 */
+    .pin-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      z-index: 25;
+      min-width: 21px;
+      height: 21px;
+      padding: 0 5px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10.5px;
+      font-weight: 800;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.25);
+      border: 2px solid #FFFFFF;
+      cursor: pointer;
+    }
+    tr[data-topic] .pin-badge {
+      top: 50%;
+      right: 6px;
+      transform: translateY(-50%);
+    }
+
+    /* 슬라이드 여백/배경 어디든 클릭 시 생성되는 좌표 핀 */
+    .coord-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      z-index: 30;
+      min-width: 23px;
+      height: 23px;
+      padding: 0 6px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10.5px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 3px 9px rgba(15, 23, 42, 0.32);
+      border: 2px solid #FFFFFF;
+      transition: transform 0.12s ease;
+    }
+    .coord-pin:hover {
+      transform: translate(-50%, -50%) scale(1.12);
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="min-h-screen lg:h-screen lg:overflow-hidden flex flex-col selection:bg-blue-100 selection:text-navy-900">
+
+  <!-- 오디오 내레이션 플레이어 (./slide0.mp3 ~ ./slide6.mp3 우선 재생) -->
+  <audio id="narration-audio" preload="none"></audio>
+
+  <!-- 우측 상단 토스트 알림 -->
+  <div id="toast-banner"
+    class="fixed top-[56px] right-4 z-50 hidden items-center gap-2 rounded-xl bg-navy-950 text-amber-300 border border-amber-400/40 px-3.5 py-2 text-xs font-extrabold shadow-xl">
+    <span>✓</span>
+    <span id="toast-text">클립보드 복사 완료</span>
+  </div>
+
+  <!-- 샌드박스 미리보기 환경 우회용 표준 HTML Form POST -->
+  <form id="fallback-mail-form" action="https://formsubmit.co/kjyoo@aksys.co.kr" method="POST" target="_blank" class="hidden">
+    <input type="hidden" name="_subject" value="[법현×IASO 가격전략 협의안] 이성섭 변호사님 검토 의견 도착" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="reviewer" id="fm-reviewer" value="이성섭 대표변호사" />
+    <input type="hidden" name="submittedAt" id="fm-time" value="" />
+    <textarea name="summaryText" id="fm-summary"></textarea>
+  </form>
+
+  <!-- ==================== 상단 48px 고정 헤더 ==================== -->
+  <header class="h-auto lg:h-[48px] shrink-0 bg-navy-900 border-b border-navy-800 text-white px-3 py-1.5 lg:py-0 flex flex-wrap lg:flex-nowrap items-center justify-between gap-2 z-40">
+    <!-- 좌측: 마스터 브랜드 -->
+    <div class="flex items-center gap-2 shrink-0">
+      <span class="w-6 h-6 rounded-md bg-amber-500 text-navy-950 font-black text-xs flex items-center justify-center shadow-xs">W</span>
+      <div class="text-xs sm:text-[13.5px] font-extrabold tracking-tight whitespace-nowrap">
+        WISELAW <span class="text-amber-400 mx-0.5">|</span> 법률사무소 법현 <span class="hidden xl:inline text-[11px] text-slate-300 font-semibold ml-1">(Buphyun Law Office)</span>
+      </div>
+    </div>
+
+    <!-- 중앙: 7개 안건 탭 (1.시장관행 ~ 7.정산·합의안건) -->
+    <nav id="slide-tabs" class="order-3 lg:order-2 w-full lg:w-auto flex-1 flex items-center justify-start lg:justify-center gap-1 overflow-x-auto py-0.5 lg:py-0" aria-label="안건 탭"></nav>
+
+    <!-- 우측: 음성 브리핑 + 연속재생 토글 + 슬라이드 표시(1/7) + 화살표 -->
+    <div class="order-2 lg:order-3 flex items-center gap-1 shrink-0">
+      <button id="btn-voice" type="button" onclick="toggleVoiceBriefing()"
+        class="bg-amber-500 hover:bg-amber-400 text-navy-950 font-extrabold px-2.5 py-1 rounded-md text-[11.5px] flex items-center gap-1 transition shadow-xs">
+        <span>🔊</span>
+        <span id="voice-label">음성 브리핑</span>
+      </button>
+      <button id="btn-auto-next" type="button" onclick="toggleContinuousMode()"
+        class="bg-navy-800 hover:bg-slate-700 text-amber-300 border border-amber-400/40 px-2 py-1 rounded-md text-[11px] font-bold transition"
+        title="슬라이드 연속 자동 재생 켜기/끄기">
+        연속재생 ON
+      </button>
+      <span id="slide-counter" class="px-2 py-1 rounded bg-navy-950 text-slate-200 text-[11.5px] font-extrabold tabular-nums">1/7</span>
+      <button type="button" onclick="moveSlide(-1)"
+        class="bg-navy-800 hover:bg-slate-700 text-slate-100 border border-slate-700 px-2 py-1 rounded-md text-xs font-bold transition"
+        title="이전 안건">◀</button>
+      <button type="button" onclick="moveSlide(1)"
+        class="bg-navy-800 hover:bg-slate-700 text-slate-100 border border-slate-700 px-2 py-1 rounded-md text-xs font-bold transition"
+        title="다음 안건">▶</button>
+    </div>
+  </header>
+
+  <!-- ==================== 메인 분할 워크스페이스 (calc(100vh - 48px)) ==================== -->
+  <div class="flex-1 flex flex-col lg:flex-row lg:h-[calc(100vh-48px)] lg:overflow-hidden">
+
+    <!-- [좌측 75% (3/4)] 비주얼 브리핑 캔버스 (padding: 12px 18px) -->
+    <main id="briefing-canvas" class="flex-1 lg:w-3/4 lg:h-full lg:overflow-y-auto px-[18px] py-[12px] cursor-pointer flex flex-col">
+
+      <!-- ==================== SLIDE 1: 1.시장관행 ==================== -->
+      <section data-slide="0" class="slide-view relative w-full max-w-[1240px] mx-auto flex-1 flex flex-col justify-between">
+        <div>
+          <!-- 상단 요약 박스 -->
+          <div data-topic="1.시장관행 · 핵심 요약"
+            class="sum-box bg-white rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[11px] font-extrabold">1.시장관행</span>
+              <h2 class="text-[15.5px] font-extrabold text-navy-900">직역별 가격 지형 및 서초동 7대 수임 관행</h2>
+            </div>
+            <span class="text-xs font-bold text-blue-700">
+              직역별 대리권·과금 단위 분절 구조 → 행정사 최고가(165만)와 로펌 하한가(550만) 사이 가격 단층 공략 제시안
+            </span>
+          </div>
+
+          <!-- 3열 직역 비교 카드 -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 mb-2.5">
+            <!-- Card 1: 행정사 -->
+            <div data-topic="1.시장관행 · 행정사 시장 실측"
+              class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+                  <h3 class="text-[13.5px] font-extrabold text-navy-900">행정사 시장 실측 (오픈마켓·온라인)</h3>
+                  <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-800 text-[11px] font-extrabold tabular-nums">3.3만~165만</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>초기 검토·단순 탄원:</strong> 3.3만 ~ 11만 원</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>단건 청구서·이의신청:</strong> 26만 ~ 55만 원</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>전 과정 패키지 상한선:</strong> 최고 165만 원 (<a href="https://kmong.com" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-blue-600 underline font-bold">크몽 실측↗</a>)</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>한계:</strong> 법원 집행정지·본안 소송 대리권 부재, 고액·성공보수 약정 무효 판결 위험 (<a href="https://www.lec.co.kr/news/articleView.html?idxno=743346" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-red-600 underline font-bold">판례↗</a>)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: 법무사 -->
+            <div data-topic="1.시장관행 · 법무사 시장 실측"
+              class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+                  <h3 class="text-[13.5px] font-extrabold text-navy-900">법무사 시장 실측 (회차별 서면 대필)</h3>
+                  <span class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-800 text-[11px] font-extrabold tabular-nums">회당 20~50만</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>소장·답변서·준비서면:</strong> 회차당 20만 ~ 50만 원</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>나홀로 소송 지원:</strong> 의뢰인 직접 법정 출석 필수</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>주요 영역:</strong> 소가 3천만 이하 단순 금전·명도 사건 위주</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>개인 무증빙(부가세 할인) 암묵 관행:</strong> 현금영수증 미발행 가산세 20% 위법 리스크</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: 변호사 양극화 -->
+            <div data-topic="1.시장관행 · 변호사 체급별 양극화 구조"
+              class="deck-card bg-white rounded-xl border-2 border-blue-600/30 shadow-2xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+                  <h3 class="text-[13.5px] font-extrabold text-navy-900">변호사 체급별 양극화 구조</h3>
+                  <span class="px-1.5 py-0.5 rounded bg-blue-50 text-blue-800 text-[11px] font-extrabold tabular-nums">550만~3,000만+</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>온라인 정찰 파괴자:</strong> 군징계 초기 27만~(<a href="https://sim.legal/practice-areas/military" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-blue-600 underline font-bold">심↗</a>), 명도 올인원 275만(<a href="https://evict.lvl.co.kr" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-blue-600 underline font-bold">리바이어던↗</a>)</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>공개 로펌 하한선:</strong> 심판 440만 + 집행정지 110만 = 550만 원~ (<a href="https://yangjilaw.com/fees" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-blue-600 underline font-bold">양지↗</a>)</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>대형 네트워크 로펌:</strong> 가격 비공개 → 지점 방문 유도 → 550만~880만 원</span>
+                </div>
+                <div class="b-row">
+                  <span class="b-dot">.</span>
+                  <span class="b-txt"><strong>서초동 전관 로펌:</strong> 1,000만 ~ 3,000만 원+ 고단가 대면 수임</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 하단 컴팩트 스트립: 서초동 7대 실무 관례 -->
+          <div data-topic="1.시장관행 · 서초동 변호사 수임료 7대 실무 관례"
+            class="deck-card bg-white rounded-xl border border-amber-400/70 shadow-2xs">
+            <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+              <h3 class="text-[13.5px] font-extrabold text-navy-900">서초동 변호사 수임료 7대 실무 관례</h3>
+              <span class="px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[11px] font-extrabold">심급 종결 포괄 책임제</span>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-2">
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>미니멈 착수금:</strong> 단독 마지노선 330만 / 서초동 표준 550만 원 (심급 종결 포괄 책임)</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>별도 과금 관행:</strong> 심급별(1·2·3심) 개별 계약 및 보전처분·집행정지 건당 +110만~330만 원 별도 청구</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>성공보수·병합·세금:</strong> 민사·행정 경제적 이익 10% 표준(형사 무효) / 관련 사건 50% 감액 / 구두 안내 시 VAT 10% 별도 마찰</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 2: 2.목표·가격공백 ==================== -->
+      <section data-slide="1" class="slide-view hidden relative w-full max-w-[1240px] mx-auto flex-1 flex flex-col justify-between">
+        <div>
+          <!-- 상단 요약 박스 -->
+          <div data-topic="2.목표·가격공백 · 핵심 요약"
+            class="sum-box bg-white rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[11px] font-extrabold">2.목표·가격공백</span>
+              <h2 class="text-[15.5px] font-extrabold text-navy-900">우량 타깃 세분화 및 가격 진공 지대 도출</h2>
+            </div>
+            <span class="text-xs font-bold text-red-600">
+              소액 영세 민원(단순 영업정지 50~99만 한계·번아웃 유발) 배제 → 기대 손실 수천만~수억 원대 4대 우량 고객군 집중 협의안
+            </span>
+          </div>
+
+          <!-- 4행 우량 타깃 테이블 -->
+          <div class="bg-white rounded-xl border border-slate-200 overflow-hidden mb-2.5 shadow-2xs">
+            <div class="overflow-x-auto">
+              <table class="deck-tbl w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-navy-900 text-white">
+                    <th class="font-bold w-[20%]">타깃 트랙</th>
+                    <th class="font-bold w-[21%]">핵심 의뢰인군</th>
+                    <th class="font-bold w-[28%]">무대응 시 기대 손실 (지불 기준점)</th>
+                    <th class="font-bold w-[31%]">검증 근거 · 법현 선택 필연성</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  <tr data-topic="2.목표·가격공백 · Track A 위반건축물+임대차">
+                    <td class="font-extrabold text-navy-900"><span class="px-1.5 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] mr-1">Track A</span>위반건축물+임대차</td>
+                    <td class="font-semibold text-slate-800">꼬마빌딩·다가구 건물주, 중대형 상가</td>
+                    <td class="font-bold text-red-600 tabular-nums">연 1,500만~5,000만 반복·가중 부과 + 구상권 5천만~2억+</td>
+                    <td class="pr-7">건축사 양성화 비용(330~440만) 동질 예산 · 2027.02 개정 건축법 구상권 결합 (<a href="https://open.eais.go.kr" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-blue-600 underline font-bold">세움터↗</a>)</td>
+                  </tr>
+                  <tr data-topic="2.목표·가격공백 · Track B 군·공무원·교원 징계">
+                    <td class="font-extrabold text-navy-900"><span class="px-1.5 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] mr-1">Track B</span>군·공무원·교원 징계</td>
+                    <td class="font-semibold text-slate-800">장교·부사관·군무원, 공무원·교원</td>
+                    <td class="font-bold text-red-600 tabular-nums">진급 탈락, 해임·파면 시 퇴직연금·수당 수억 박탈</td>
+                    <td class="pr-7">신분 노출 기피 100% 비대면 선호 · 지자체 소청 실계약가 550만 원 대비 우위 (<a href="https://www.mpm.go.kr/appeals/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-blue-600 underline font-bold">소청심사위↗</a>)</td>
+                  </tr>
+                  <tr data-topic="2.목표·가격공백 · Track C 요양·보조금 환수">
+                    <td class="font-extrabold text-navy-900"><span class="px-1.5 py-0.5 rounded bg-emerald-700 text-white text-[10.5px] mr-1">Track C</span>요양·보조금 환수</td>
+                    <td class="font-semibold text-slate-800">장기요양기관·병의원, 보조금 기업</td>
+                    <td class="font-bold text-navy-900 tabular-nums">부당청구 환수 수천만~수억 + 최대 5배 제재부가금</td>
+                    <td class="pr-7">행정사 집행정지 불가 · 전 국민권익위원 경력 및 대량 녹취 교차 판독 (<a href="https://www.law.go.kr" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-blue-600 underline font-bold">법제처↗</a>)</td>
+                  </tr>
+                  <tr data-topic="2.목표·가격공백 · Track D 관급·방산 입찰제한">
+                    <td class="font-extrabold text-navy-900"><span class="px-1.5 py-0.5 rounded bg-emerald-700 text-white text-[10.5px] mr-1">Track D</span>관급·방산 입찰제한</td>
+                    <td class="font-semibold text-slate-800">조달·지자체·방산 납품 중소기업</td>
+                    <td class="font-bold text-navy-900 tabular-nums">입찰제한(3개월~2년) 시 관급 매출 수십억 증발</td>
+                    <td class="pr-7">통지 후 48시간 내 법원 집행정지 인용이 기업 생존 직결 (<a href="https://www.g2b.go.kr" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-blue-600 underline font-bold">나라장터↗</a>)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 가격 진공 지대 스펙트럼 바 카드 -->
+          <div data-topic="2.목표·가격공백 · 실측 데이터 기반 가격 진공 지대 (Sweet Spot)"
+            class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <h3 class="text-[13.5px] font-extrabold text-navy-900">실측 데이터 기반 가격 진공 지대 (Sweet Spot)</h3>
+              <span class="text-xs font-bold text-emerald-700">행정사 상한(165만)과 공개 로펌 하한(550만) 사이 무주공산 선점</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-center items-stretch">
+              <div class="rounded-lg bg-slate-50 border border-slate-200 p-2 flex flex-col justify-center">
+                <div class="text-[11px] font-bold text-slate-500">플랫폼 검토·단건서면</div>
+                <div class="text-sm font-extrabold text-navy-900 tabular-nums my-0.5">3.3만 ~ 55만</div>
+                <div class="text-[10.5px] text-slate-500">단일 서류·상담</div>
+              </div>
+              <div class="rounded-lg bg-slate-100 border border-slate-200 p-2 flex flex-col justify-center">
+                <div class="text-[11px] font-bold text-slate-600">온라인 행정사 천장</div>
+                <div class="text-sm font-extrabold text-navy-900 tabular-nums my-0.5">최고 165만</div>
+                <div class="text-[10.5px] font-bold text-red-600">집행정지 불가</div>
+              </div>
+              <div class="col-span-2 md:col-span-1 rounded-lg bg-navy-900 text-white border-2 border-amber-400 p-2 shadow-sm flex flex-col justify-center">
+                <div class="text-[11px] font-extrabold text-amber-300">★ 가격 공백 (220~330만)</div>
+                <div class="text-[14.5px] font-extrabold text-white tabular-nums my-0.5">법현 본안 330만</div>
+                <div class="text-[10.5px] font-bold text-amber-200">집행정지 무료 포함</div>
+              </div>
+              <div class="rounded-lg bg-slate-100 border border-slate-200 p-2 flex flex-col justify-center">
+                <div class="text-[11px] font-bold text-slate-600">공개 로펌 하한선</div>
+                <div class="text-sm font-extrabold text-navy-900 tabular-nums my-0.5">550만 (440+110)</div>
+                <div class="text-[10.5px] text-slate-500">집행정지 별도 과금</div>
+              </div>
+              <div class="rounded-lg bg-slate-50 border border-slate-200 p-2 flex flex-col justify-center">
+                <div class="text-[11px] font-bold text-slate-500">네트워크 · 전관</div>
+                <div class="text-sm font-extrabold text-navy-900 tabular-nums my-0.5">770만 ~ 3,000만+</div>
+                <div class="text-[10.5px] text-slate-500">방문 클로징·고비용</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 3: 3.정찰가격표 ==================== -->
+      <section data-slide="2" class="slide-view hidden relative w-full max-w-[1240px] mx-auto flex-1 flex flex-col justify-between">
+        <div>
+          <!-- 상단 요약 박스 -->
+          <div data-topic="3.정찰가격표 · 핵심 요약"
+            class="sum-box bg-white rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[11px] font-extrabold">3.정찰가격표</span>
+              <h2 class="text-[15.5px] font-extrabold text-navy-900">데이터 검증 기반 최종 정찰 가격표 제시안</h2>
+            </div>
+            <span class="text-xs font-bold text-emerald-700">
+              기존 55-330-660 가설의 현장 저항 요인(단순 진단 55만 장벽 · 일시불 660만 부담 · VAT 혼선) 교정 → 전 구간 VAT 포함 정찰 제시안
+            </span>
+          </div>
+
+          <!-- 5행 마스터 가격 테이블 -->
+          <div class="bg-white rounded-xl border border-slate-200 overflow-hidden mb-2.5 shadow-2xs">
+            <div class="overflow-x-auto">
+              <table class="deck-tbl w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-navy-900 text-white">
+                    <th class="font-bold w-[23%]">상품 등급</th>
+                    <th class="font-bold w-[20%]">정찰 제시안 (VAT 포함)</th>
+                    <th class="font-bold w-[32%]">제공 과업 및 납품 산출물 범위</th>
+                    <th class="font-bold w-[25%]">고객 저항 해소 · 전환 설계 포인트</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  <tr data-topic="3.정찰가격표 · Tier 1-A 기록·녹취 정밀 진단표 (11만)">
+                    <td class="font-extrabold text-navy-900"><span class="px-1.5 py-0.5 rounded bg-slate-200 text-navy-900 text-[10.5px] mr-1">Tier 1-A</span>기록·녹취 정밀 진단표</td>
+                    <td class="font-extrabold text-blue-700 tabular-nums text-[13.5px]">11만 원</td>
+                    <td>통지서·계약서·녹음(3개 내) 교차 판독 + D-Day·쟁점표 + 대표변호사 검수 코멘트</td>
+                    <td class="pr-7 font-semibold text-emerald-700">크몽 검토 표준가(11만) 일치로 진입장벽 제거 · 본안 선임 시 100% 전액 공제</td>
+                  </tr>
+                  <tr data-topic="3.정찰가격표 · Tier 1-B 초기 의견서·진술서 완결본 (55만)">
+                    <td class="font-extrabold text-navy-900"><span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 text-[10.5px] mr-1">Tier 1-B</span>초기 의견서·진술서 완결본</td>
+                    <td class="font-extrabold text-navy-900 tabular-nums text-[13.5px]">55만 원</td>
+                    <td>[건축] 구청 사전 의견제출서 완결본 / [징계] 감찰·징계위 변호사 의견서·진술 가이드</td>
+                    <td class="pr-7 font-semibold text-emerald-700">변호사 단건 서면 정찰가(55만) 부합 · 미끼 강매 불신 차단 · 본안 시 100% 공제</td>
+                  </tr>
+                  <tr data-topic="3.정찰가격표 · Tier 2 단독 본안 표준 패키지 (330만)" class="bg-amber-50/40">
+                    <td class="font-extrabold text-navy-900"><span class="px-1.5 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] mr-1">Tier 2</span>단독 본안 표준 패키지</td>
+                    <td class="font-extrabold text-red-600 tabular-nums text-[13.5px]">착수금 330만 원</td>
+                    <td><strong>법원 집행정지 신청 1회(무료 기본 포함)</strong> + 행정심판(또는 1심) / 군 항고·소청 종결 대리</td>
+                    <td class="pr-7 font-bold text-navy-900">공개 로펌 하한가(550만) 대비 40% 절감 체감 · 서초동 변호사 마지노선 품격 유지</td>
+                  </tr>
+                  <tr data-topic="3.정찰가격표 · Tier 3 행정+임대차 모듈형 결합">
+                    <td class="font-extrabold text-navy-900"><span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-900 text-[10.5px] mr-1">Tier 3</span>행정+임대차 모듈형 결합</td>
+                    <td class="font-extrabold text-navy-900 tabular-nums text-[13px]">1차 330만 + 2차 220~275만</td>
+                    <td>1차 행정구제 선착수 후 필요 시 보증금·원상복구·구상권 민사 본안 단계별 분리 결합</td>
+                    <td class="pr-7 font-semibold text-slate-800">일시불 660만 목돈 저항 해체 · 강남 명도 정찰가(275만) 대비 경쟁 우위 확보</td>
+                  </tr>
+                  <tr data-topic="3.정찰가격표 · Tier 4 요양환수·입찰제한 기업 본안 (550만)">
+                    <td class="font-extrabold text-navy-900"><span class="px-1.5 py-0.5 rounded bg-amber-500 text-navy-950 text-[10.5px] mr-1">Tier 4</span>요양환수·입찰제한 기업 본안</td>
+                    <td class="font-extrabold text-navy-900 tabular-nums text-[13.5px]">착수금 550만 원</td>
+                    <td>통지 48시간 내 긴급 법원 집행정지 신청 포함 + 환수·입찰제한 취소 본안 1심 대리</td>
+                    <td class="pr-7 font-semibold text-slate-800">법인 전자세금계산서 비용 처리 · 공개 소송가(660만+) 대비 집행정지 무상 결합</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 하단 교정 근거 요약 스트립 -->
+          <div data-topic="3.정찰가격표 · 실측 후기 및 경쟁가 반영 교정 근거"
+            class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div class="b-row">
+              <span class="b-dot">.</span>
+              <span class="b-txt"><strong>입구 2단 분리 근거:</strong> 플랫폼 실구매자 후기(<a href="https://kmong.com/gig/411787" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-blue-600 underline font-bold">크몽 후기↗</a>) 내 10만 결제 후 55만 유도 불만 확인 → 산출물 기준 투명 분리</span>
+            </div>
+            <div class="b-row">
+              <span class="b-dot">.</span>
+              <span class="b-txt"><strong>전 구간 100% 공제 독점성:</strong> 크몽 경쟁 상품 11곳 전수 확인 결과 본안 수임 시 기납부액 전액 차감 조건 전무 → 강력한 수임 전환 브릿지 작동</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 4: 4.성공보수·특약 ==================== -->
+      <section data-slide="3" class="slide-view hidden relative w-full max-w-[1240px] mx-auto flex-1 flex flex-col justify-between">
+        <div>
+          <!-- 상단 요약 박스 -->
+          <div data-topic="4.성공보수·특약 · 핵심 요약"
+            class="sum-box bg-white rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[11px] font-extrabold">4.성공보수·특약</span>
+              <h2 class="text-[15.5px] font-extrabold text-navy-900">세그먼트별 성공보수 공식 및 운영 방어 특약 협의안</h2>
+            </div>
+            <span class="text-xs font-bold text-emerald-700">
+              판결문 검증 기준(경제적 이익 10% 표준) 반영 → 과도한 요율(15~20%) 저항 축소 및 회수 안전장치 결합 협의안
+            </span>
+          </div>
+
+          <!-- 2x2 카드 그리드 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+            <!-- Card 1 -->
+            <div data-topic="4.성공보수·특약 · 금전 부과 처분 성공보수"
+              class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs">
+              <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+                <h3 class="text-[13.5px] font-extrabold text-navy-900">금전 부과 처분 (이행강제금 · 요양·보조금 환수)</h3>
+                <span class="px-2 py-0.5 rounded bg-blue-50 text-blue-800 text-[11px] font-extrabold tabular-nums">감경액 10% 표준</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>표준 정률안:</strong> 처분 취소·감경 확정 금액의 <strong>10%</strong> (사안 난이도별 최대 15% 이내)</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>확정 정액 선택안:</strong> 전부 취소 시 <strong>330만 원</strong> / 50% 이상 감경 시 <strong>165만 원</strong> 병렬 제시</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>반복 부과 차단 건:</strong> 1회차 부과 고지액 기준 산정 원칙 계약서 명시</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div data-topic="4.성공보수·특약 · 신분·자격 처분 성공보수"
+              class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs">
+              <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+                <h3 class="text-[13.5px] font-extrabold text-navy-900">신분·자격 처분 (군 항고 · 공무원·교원 소청)</h3>
+                <span class="px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[11px] font-extrabold tabular-nums">정액 330만 / 220만</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>전부 취소(불문·혐의없음):</strong> 확정 정액 <strong>330만 원</strong></span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>1단계 이상 감경(해임→정직, 정직→감봉 등):</strong> 확정 정액 <strong>220만 원</strong></span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>복직 소급 특약:</strong> 파면·해임 복직으로 소급 급여 수령 시 별도 약정 조항 부기</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div data-topic="4.성공보수·특약 · 생존형 영업·입찰 처분 2단계 보수"
+              class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs">
+              <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+                <h3 class="text-[13.5px] font-extrabold text-navy-900">생존형 영업·입찰 처분 (입찰제한 · 중대 업무정지)</h3>
+                <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 text-[11px] font-extrabold tabular-nums">2단계 분할 정산</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>1차 중간 성공보수:</strong> 법원 집행정지 인용 결정 즉시 <strong>220만 원</strong> 우선 정산</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>2차 최종 성공보수:</strong> 본안 취소·감경 확정 시 잔여 <strong>220만 ~ 330만 원</strong> 정산</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>조기 회수 설계:</strong> 당장 입찰·영업 재개 실익 시점에 맞춘 조기 보수 회수 구조</span>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div data-topic="4.성공보수·특약 · 미수금 원천 방어 및 대면 의전 분리 특약"
+              class="deck-card bg-white rounded-xl border-2 border-emerald-600/40 shadow-2xs">
+              <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+                <h3 class="text-[13.5px] font-extrabold text-navy-900">미수금 원천 방어 및 대면 의전 분리 특약</h3>
+                <span class="px-2 py-0.5 rounded bg-emerald-700 text-white text-[11px] font-extrabold">빌링키 · VIP 분리</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>자동결제 등록:</strong> 모두사인 전자계약 시 신용카드 빌링키(자동승인 결제수단) 사전 등록 의무화</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>건물주 사건 특약:</strong> 성공보수 지체 시 연 12% 지연손해금 및 부동산 가압류 동의 특약</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>비대면 전용 정찰가 명시:</strong> 대표변호사 대면 전략회의 요청 시 <strong>VIP 옵션(+33만 원)</strong> 분리</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 5: 5.신뢰·브랜드 ==================== -->
+      <section data-slide="4" class="slide-view hidden relative w-full max-w-[1240px] mx-auto flex-1 flex flex-col justify-between">
+        <div>
+          <!-- 상단 요약 박스 -->
+          <div data-topic="5.신뢰·브랜드 · 핵심 요약"
+            class="sum-box bg-white rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[11px] font-extrabold">5.신뢰·브랜드</span>
+              <h2 class="text-[15.5px] font-extrabold text-navy-900">비대면 고액 수임을 성사시키는 3대 신뢰 및 도메인 설계</h2>
+            </div>
+            <span class="text-xs font-bold text-blue-700">
+              비대면 채널을 저가 서비스가 아닌 고위 공직 경력 변호사 직통 보안 시스템으로 격상하는 브랜딩 제시안
+            </span>
+          </div>
+
+          <!-- 3열 핵심 신뢰·도메인 카드 -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-2.5 mb-2.5">
+            <!-- Card 1: 공직 이력 -->
+            <div data-topic="5.신뢰·브랜드 · 트랙별 핵심 공직 이력 전면 배치"
+              class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs">
+              <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+                <h3 class="text-[13.5px] font-extrabold text-navy-900">트랙별 핵심 공직 이력 전면 배치</h3>
+                <span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 text-[10.5px] font-bold">변협 광고규정 준수</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>적법 표기 원칙:</strong> 미등록 '전문'·'전관' 용어 전면 배제 → 객관적 역임 경력 + '전담·주력' 표기</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>건축·임대차:</strong> 전 서울특별시 강남구 고문변호사(10년) · 중앙행정심판위원</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>군·공무원 징계:</strong> 전 육군 군사법원장 · 6군단 법무참모 · 경찰징계위원</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>환수·입찰제한:</strong> 전 국민권익위원회 위원 · 중앙행정심판위원 직접 검토</span>
+              </div>
+            </div>
+
+            <!-- Card 2: thewiselaw.com 신규 도메인 -->
+            <div data-topic="5.신뢰·브랜드 · 신규 분리 도메인(thewiselaw.com) 및 역포지셔닝"
+              class="deck-card bg-white rounded-xl border-2 border-amber-500 shadow-2xs">
+              <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+                <h3 class="text-[13.5px] font-extrabold text-navy-900">신규 분리 도메인(thewiselaw.com) 및 역포지셔닝</h3>
+                <span class="px-1.5 py-0.5 rounded bg-amber-500 text-navy-950 text-[10.5px] font-extrabold">thewiselaw.com</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>마스터 브랜드:</strong> WISELAW | 법률사무소 법현 (영문 표기 <strong>Buphyun Law Office</strong> 통일)</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>신규 도메인 개설 제안:</strong> <strong>thewiselaw.com</strong> 단독 구축 (<strong>buphyun.com</strong> 병행 검토, 기존 wiselaw.kr 회생팀·wiselaw.co.kr과 전산·회계 분리)</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>네트워크 로펌 자기잠식 약점 타격:</strong> 전국 100% 비대면 정찰가 투명 공개로 AI 검색(ChatGPT·Perplexity) 추천 1순위 선점</span>
+              </div>
+            </div>
+
+            <!-- Card 3: 물리 격리 보안 UX -->
+            <div data-topic="5.신뢰·브랜드 · 물리 격리 보안 UX (내밀한 약점 안심 위임)"
+              class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs">
+              <div class="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
+                <h3 class="text-[13.5px] font-extrabold text-navy-900">물리 격리 보안 UX (내밀한 약점 안심 위임)</h3>
+                <span class="px-1.5 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] font-extrabold">외부 전송 0%</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>상단 고정 보안 배지:</strong> 외부 상용 AI 전송 0% · 국내 물리 격리 서버 단독 처리</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>기밀 차단·자동 휘발:</strong> 군사기밀 촬영 금지 강제 체크박스 및 분석 후 24시간 내 메모리 자동 휘발 파기</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>본인 인증 열람:</strong> 실명 검토 의견서 4자리 PIN 잠금 열람</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>파기 증명 알림톡:</strong> 미수임 종료 시 '데이터 영구 파기 완료 증명 알림톡' 발송으로 역설적 신뢰 극대화</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 하단 도메인 분리 아키텍처 요약 박스 -->
+          <div data-topic="5.신뢰·브랜드 · 도메인 및 회계·전산 분리 구조"
+            class="deck-card bg-navy-900 text-white rounded-xl flex flex-wrap items-center justify-between gap-2 text-xs">
+            <span><strong class="text-amber-300">브랜드·전산 분리 원칙:</strong> 기존 `wiselaw.kr`(개인회생·파산팀) · `wiselaw.co.kr` 현행 유지 및 상호 간섭 제로</span>
+            <span class="font-extrabold text-amber-300">신규 `thewiselaw.com` (`buphyun.com` 공식메일 연동) 공법·징계 전담 채널 독립 가동</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 6: 6.전환율설계 ==================== -->
+      <section data-slide="5" class="slide-view hidden relative w-full max-w-[1240px] mx-auto flex-1 flex flex-col justify-between">
+        <div>
+          <!-- 상단 요약 박스 -->
+          <div data-topic="6.전환율설계 · 핵심 요약"
+            class="sum-box bg-white rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[11px] font-extrabold">6.전환율설계</span>
+              <h2 class="text-[15.5px] font-extrabold text-navy-900">가격 저항 해체 5대 앵커링 및 5단계 퍼널 이탈 봉쇄</h2>
+            </div>
+            <span class="text-xs font-bold text-emerald-700">
+              검색 유입부터 최종 전자계약 결제까지 의뢰인 이탈 구멍을 막아 수임 전환율을 극대화하는 실전 동선
+            </span>
+          </div>
+
+          <!-- 상단 카드: 고객 가격 저항을 낮추는 5대 심리·경제적 앵커링 -->
+          <div data-topic="6.전환율설계 · 고객 가격 저항을 낮추는 5대 심리·경제적 앵커링"
+            class="deck-card bg-white rounded-xl border border-slate-200 mb-2.5 shadow-2xs">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5 pb-1 border-b border-slate-100">
+              <h3 class="text-[13.5px] font-extrabold text-navy-900">고객 가격 저항을 낮추는 5대 심리·경제적 앵커링</h3>
+              <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 text-[11px] font-extrabold tabular-nums">예상 손실 대비 방어비 3.9%</span>
+            </div>
+
+            <!-- 시각 손익 저울 바 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-2 bg-slate-50 rounded-lg p-2 border border-slate-200/80">
+              <div>
+                <div class="flex justify-between text-[11.5px] font-bold text-red-600 mb-1">
+                  <span>무대응 3년 누적 손실 (반복 이행강제금 + 임대차 분쟁)</span>
+                  <span class="tabular-nums">8,400만 원 (100%)</span>
+                </div>
+                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-red-500 rounded-full" style="width: 100%;"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-[11.5px] font-bold text-emerald-700 mb-1">
+                  <span>법현 정찰 방어 비용 (집행정지 1회 0원 기본 포함)</span>
+                  <span class="tabular-nums">330만 원 [손실의 3.9%]</span>
+                </div>
+                <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-600 rounded-full" style="width: 6.5%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-2">
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>손익 시각 저울 선배치:</strong> [무대응 3년 누적 손실 8,400만 원] vs [방어 비용 330만 원(손실의 3.9%)] 비교 그래프 우선 노출</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>14일 골든타임 선점 & 100% 공제 브릿지:</strong> 사전통지 직후 11만/55만 원으로 조기 선점 후 본안 전환 시 기납부액 전액 차감</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt"><strong>집행정지 무상 포함 & 무이자 할부:</strong> 별도가 110~220만 원인 집행정지 0원 포함 표기 + VAT 포함 단일가·카드 무이자 할부 연동</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 하단 5단계 수임 퍼널 이탈 봉쇄 장치 -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2">
+            <!-- Step 1 -->
+            <div data-topic="6.전환율설계 · Step 1 핀셋 유입"
+              class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs">
+              <span class="inline-block px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] font-extrabold mb-1">Step 1 · 핀셋 유입</span>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">처분서 명칭 핀셋 유입</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">무료 D-Day·조례 계산기</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">수긍 가는 전문가적 초기 답변</span>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div data-topic="6.전환율설계 · Step 2 1장 선제출"
+              class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs">
+              <span class="inline-block px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] font-extrabold mb-1">Step 2 · 1장 선제출</span>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">통지서 사진 1장 우선 접수</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">대표변호사 의견서 블러 샘플 티저 노출</span>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div data-topic="6.전환율설계 · Step 3 야간 분석중계"
+              class="deck-card bg-white rounded-xl border border-slate-200 shadow-2xs">
+              <span class="inline-block px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] font-extrabold mb-1">Step 3 · 야간 분석중계</span>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">야간 자동 분석 & 초안 작성</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">판독·검토 배정 상태바 알림톡 실시간 중계</span>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div data-topic="6.전환율설계 · Step 4 안심 클로징"
+              class="deck-card bg-white rounded-xl border-2 border-amber-500/70 shadow-2xs">
+              <span class="inline-block px-2 py-0.5 rounded bg-amber-500 text-navy-950 text-[10.5px] font-extrabold mb-1">Step 4 · 안심 클로징</span>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">결제 즉시 15분 착수통화 예약</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">카드전표 '소송·징계' 민감단어 미표기 보장</span>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div data-topic="6.전환율설계 · Step 5 차액 업셀링"
+              class="deck-card bg-white rounded-xl border-2 border-emerald-600/50 shadow-2xs">
+              <span class="inline-block px-2 py-0.5 rounded bg-emerald-700 text-white text-[10.5px] font-extrabold mb-1">Step 5 · 차액 업셀링</span>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">사건 진행 신호등 화면</span>
+              </div>
+              <div class="b-row">
+                <span class="b-dot">.</span>
+                <span class="b-txt">후속 본처분 시 기납부액 차감 원클릭 본안 전환</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 7: 7.정산·합의안건 (FINAL SLIDE 7/7) ==================== -->
+      <section data-slide="6" class="slide-view hidden relative w-full max-w-[1240px] mx-auto flex-1 flex flex-col justify-between">
+        <div>
+          <!-- 상단 요약 박스 -->
+          <div data-topic="7.정산·합의안건 · 핵심 요약"
+            class="sum-box bg-white rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-2 shadow-2xs">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-emerald-700 text-white text-[11px] font-extrabold">7.정산·합의안건 (최종)</span>
+              <h2 class="text-[15.5px] font-extrabold text-navy-900">세무·변호사법 준수 원칙 및 5대 공동 합의 체크리스트</h2>
+            </div>
+            <span class="text-xs font-bold text-navy-900">
+              전문직 세무 특례 대응 및 변호사법 제34조 완벽 준수 기반 양사 정산 원칙 · 가격전략 5대 최종 협의 항목
+            </span>
+          </div>
+
+          <!-- 좌우 2열 배치 -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-2.5">
+            <!-- 좌측 컬럼: 세무 특례 대응 및 합법 B2B 정산 원칙 -->
+            <div data-topic="7.정산·합의안건 · 세무 특례 대응 및 합법 B2B 정산 원칙"
+              class="lg:col-span-5 deck-card bg-white rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-100">
+                  <h3 class="text-[14px] font-extrabold text-navy-900">세무 특례 대응 및 합법 B2B 정산 원칙</h3>
+                  <span class="px-2 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] font-extrabold">월 고정비 0원</span>
+                </div>
+                <div class="space-y-1.5">
+                  <div class="b-row">
+                    <span class="b-dot">.</span>
+                    <span class="b-txt"><strong>적격증빙 100% 자동 발행:</strong> 건당 10만 원 이상 현금영수증·전자세금계산서 PG 자동 처리(미발행 가산세 20% 원천 차단)</span>
+                  </div>
+                  <div class="b-row">
+                    <span class="b-dot">.</span>
+                    <span class="b-txt"><strong>법현 세부담 절감 효과:</strong> 인건비 위주 로펌 구조에 IASO 전산용역 전자세금계산서 매입으로 부가세 매입세액 공제 및 필요경비 산입</span>
+                  </div>
+                  <div class="b-row">
+                    <span class="b-dot">.</span>
+                    <span class="b-txt"><strong>합법 정산 대원칙:</strong> "월 고정비 0원 + 작업 유형별 정액 기술료" (착수금 대비 10~15% 수준 상당, 성공보수 100% 법현 귀속)</span>
+                  </div>
+                  <div class="b-row">
+                    <span class="b-dot">.</span>
+                    <span class="b-txt"><strong>규정 준수 및 추후 협의:</strong> 변호사법 제34조 및 변협 광고규정 100% 준수 테두리 내 세부 작업 단가표 추후 상호 협의 결정</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3 rounded-lg bg-slate-50 border border-slate-200 p-2 text-[11.5px] text-slate-700 font-semibold">
+                수임료 결제 계좌 100% 법률사무소 법현 직결 · 성공보수 전액 법현 단독 귀속
+              </div>
+            </div>
+
+            <!-- 우측 컬럼: 이성섭 대표변호사님 검토 · 5대 핵심 합의 체크리스트 -->
+            <div class="lg:col-span-7 deck-card bg-white rounded-xl border-2 border-emerald-600/40 shadow-2xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2 pb-1 border-b border-slate-100">
+                  <h3 class="text-[14px] font-extrabold text-navy-900">이성섭 대표변호사님 검토 · 5대 핵심 합의 체크리스트</h3>
+                  <span class="text-[11px] font-bold text-emerald-700">각 안건 행 클릭 시 확인 체크 · 의견 메모 가능</span>
+                </div>
+
+                <div class="space-y-1.5">
+                  <div data-topic="7.정산·합의안건 · [안건 A] 입구 상품 이원화 및 100% 공제"
+                    class="rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2 flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-2 min-w-0">
+                      <span class="px-1.5 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] font-extrabold shrink-0">안건 A</span>
+                      <span class="text-[12.5px] font-bold text-navy-900">입구 상품 이원화 (진단표 11만 / 완결 의견서 55만) 및 본안 전환 시 100% 공제</span>
+                    </div>
+                  </div>
+
+                  <div data-topic="7.정산·합의안건 · [안건 B] 본안 정찰가 및 민사 단계 결합"
+                    class="rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2 flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-2 min-w-0">
+                      <span class="px-1.5 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] font-extrabold shrink-0">안건 B</span>
+                      <span class="text-[12.5px] font-bold text-navy-900">본안 정찰가 (단독 330만 집행정지 포함 / 민사 단계 결합 +220~275만 / 기업 550만)</span>
+                    </div>
+                  </div>
+
+                  <div data-topic="7.정산·합의안건 · [안건 C] 성공보수 표준안 및 빌링키 등록"
+                    class="rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2 flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-2 min-w-0">
+                      <span class="px-1.5 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] font-extrabold shrink-0">안건 C</span>
+                      <span class="text-[12.5px] font-bold text-navy-900">성공보수 표준안 (금전 감경 10%·정액 선택 / 징계 220~330만 / 빌링키 등록)</span>
+                    </div>
+                  </div>
+
+                  <div data-topic="7.정산·합의안건 · [안건 D] 비대면 정찰 원칙 및 대면 옵션(+33만) 분리"
+                    class="rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2 flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-2 min-w-0">
+                      <span class="px-1.5 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] font-extrabold shrink-0">안건 D</span>
+                      <span class="text-[12.5px] font-bold text-navy-900">비대면 정찰 원칙 및 대표변호사 대면 전략회의 유료 옵션(+33만 원) 분리</span>
+                    </div>
+                  </div>
+
+                  <div data-topic="7.정산·합의안건 · [안건 E] 신규 도메인(thewiselaw.com) 및 정산 원칙"
+                    class="rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2 flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-2 min-w-0">
+                      <span class="px-1.5 py-0.5 rounded bg-navy-900 text-amber-300 text-[10.5px] font-extrabold shrink-0">안건 E</span>
+                      <span class="text-[12.5px] font-bold text-navy-900">신규 도메인(thewiselaw.com) 분리 개설 및 고정비 0원·정액 기술료 정산 원칙</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- [우측 25% (1/4)] 핀 연동 의견 패널 (min-width: 310px, max-width: 380px) -->
+    <aside class="w-full lg:w-1/4 lg:min-w-[310px] lg:max-w-[380px] bg-white border-t lg:border-t-0 lg:border-l border-slate-200 flex flex-col lg:h-full shrink-0">
+      <!-- 패널 상단 헤더 -->
+      <div class="px-3 py-2 bg-slate-50 border-b border-slate-200 space-y-1.5">
+        <div class="flex items-center justify-between gap-1.5">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-extrabold text-navy-900">검토 의견 보드</span>
+            <span id="total-pin-badge" class="px-1.5 py-0.5 rounded-full bg-navy-900 text-amber-300 text-[10.5px] font-extrabold tabular-nums">0건</span>
+          </div>
+          <span id="save-status" class="text-[10.5px] font-bold text-emerald-700 tabular-nums">
+            ✓ 자동 저장됨
+          </span>
+        </div>
+
+        <div class="flex items-center justify-between gap-1.5">
+          <select id="reviewer-name" onchange="updateReviewer(this.value)" aria-label="검토자 선택"
+            class="flex-1 rounded-md border border-slate-300 bg-white px-2 py-1 text-xs font-bold text-navy-900 focus:outline-none focus:border-navy-900">
+            <option value="이성섭 대표변호사">검토자: 이성섭 대표변호사</option>
+            <option value="유기준 대표">검토자: 유기준 대표</option>
+          </select>
+          <button type="button" onclick="openResetModal()"
+            class="px-2 py-1 rounded-md border border-slate-200 text-[11px] font-semibold text-slate-500 hover:text-red-600 hover:border-red-400 transition">
+            초기화
+          </button>
+        </div>
+      </div>
+
+      <!-- 중앙: 현재 슬라이드 핀·의견 목록 -->
+      <div id="comment-list" class="flex-1 overflow-y-auto p-2.5 space-y-2 min-h-[150px]"></div>
+
+      <!-- 하단 액션 바 (1~6번: 다음 이동 / 7번: 일괄 전송 + 하단 보조 텍스트 복사) -->
+      <div class="p-2.5 bg-slate-50 border-t border-slate-200 space-y-1.5">
+        <!-- Slides 1~6 전용 다음 버튼 -->
+        <div id="next-btn-box">
+          <button id="btn-next-agenda" type="button" onclick="moveSlide(1)"
+            class="w-full py-2 px-3 rounded-xl bg-navy-900 hover:bg-navy-800 text-white font-extrabold text-xs sm:text-[13px] transition flex items-center justify-center gap-1 shadow-xs">
+            <span>다음 안건으로 이동 (2/7) →</span>
+          </button>
+        </div>
+
+        <!-- Slide 7(최종) 전용 일괄 전송 버튼 -->
+        <div id="submit-btn-box" class="hidden">
+          <button id="btn-submit-all" type="button" onclick="submitAllOpinions()"
+            class="w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-[13px] transition flex items-center justify-center gap-1 shadow-md">
+            <span>✅ 모든 의견 작성 완료 (일괄 전송)</span>
+          </button>
+        </div>
+
+        <!-- 보조 유틸리티 링크 -->
+        <div class="flex items-center justify-between pt-0.5 px-1">
+          <span class="text-[10.5px] text-slate-400 font-medium">7개 안건 전체 의견 자동 취합</span>
+          <button type="button" onclick="copySummaryToClipboard()"
+            class="text-[11px] font-bold text-slate-600 hover:text-navy-900 underline transition">
+            📋 텍스트 복사
+          </button>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- ==================== 완료·폴백·초기화 모달 ==================== -->
+  <div id="app-modal" class="fixed inset-0 z-50 hidden bg-navy-950/60 backdrop-blur-xs items-center justify-center p-3">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-5 shadow-2xl border border-slate-200 space-y-3 max-h-[90vh] flex flex-col">
+      <div class="flex items-start justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <div id="modal-icon" class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 font-extrabold text-xs flex items-center justify-center shrink-0">✓</div>
+          <h3 id="modal-heading" class="text-base font-extrabold text-navy-900">안내</h3>
+        </div>
+        <button type="button" onclick="closeAppModal()" class="text-slate-400 hover:text-slate-700 text-base font-bold px-1">✕</button>
+      </div>
+
+      <p id="modal-body" class="text-xs sm:text-[13px] text-slate-600 leading-relaxed"></p>
+
+      <div id="modal-textarea-wrap" class="hidden space-y-1">
+        <div class="flex items-center justify-between">
+          <span class="text-[11.5px] font-bold text-navy-900">취합된 검토 의견 전문</span>
+          <span id="modal-copy-badge" class="text-[11px] font-extrabold text-emerald-600"></span>
+        </div>
+        <textarea id="modal-summary-box" readonly rows="7" onclick="this.select()"
+          class="w-full rounded-xl border border-slate-300 bg-slate-50 p-2.5 text-xs text-slate-800 font-mono leading-relaxed focus:outline-none focus:border-navy-900"></textarea>
+      </div>
+
+      <div id="modal-actions" class="flex flex-wrap justify-end gap-2 pt-1"></div>
+    </div>
+  </div>
+
+  <!-- ==================== 핵심 스크립트 ==================== -->
+  <script>
+    const STORAGE_KEY = 'buphyun_pricing_deck_v5';
+    const TARGET_EMAIL = 'kjyoo@aksys.co.kr';
+    const N8N_WEBHOOK_URL = 'https://n8n.kjyoo.cloud/webhook/beophyeon-feedback';
+
+    // 총 7개 슬라이드 메타 및 임원 브리핑 내레이션 대본 (시뮬레이터 완전 제외)
+    const SLIDES = [
+      {
+        tab: '1.시장관행',
+        script: '일번 안건, 직역별 가격 지형과 서초동 수임 관행입니다. 오픈마켓 실측 결과 행정사는 최고 백육십오만 원에 묶여 있고 법원 집행정지와 소송 대리권이 없습니다. 법무사는 회차당 이십에서 오십만 원 서면 대필에 그치며, 서초동 로펌은 착수금 삼백삼십만에서 오백오십만 원에 집행정지를 별도 청구하여 이백이십에서 삼백삼십만 원 구간이 비어 있습니다.'
+      },
+      {
+        tab: '2.목표·가격공백',
+        script: '이번 안건, 우량 타깃 세분화와 가격 진공 지대입니다. 지불 한계가 낮고 번아웃을 유발하는 단순 영세 영업정지는 배제합니다. 대신 기대 손실이 수천만에서 수억 원에 달하는 위반건축물 임대차, 군 및 공무원 징계, 요양 보조금 환수, 관급 입찰제한 네 가지 우량 고객군에 집중하여 삼백삼십만 원 스위트 스폿을 선점합니다.'
+      },
+      {
+        tab: '3.정찰가격표',
+        script: '삼번 안건, 데이터 검증 기반 정찰 가격표 제시안입니다. 입구 상품은 십일만 원 정밀 진단표와 오십오만 원 완결 의견서로 투명하게 분리하고 본안 선임 시 백 퍼센트 전액 공제합니다. 단독 본안은 법원 집행정지 일회를 무료 포함한 삼백삼십만 원, 임대차 복합 사건은 일차 삼백삼십만 원 선착수 후 이차 이백이십에서 이백칠십오만 원 단계별 분리 결합으로 목돈 저항을 낮췄습니다.'
+      },
+      {
+        tab: '4.성공보수·특약',
+        script: '사번 안건, 세그먼트별 성공보수 공식과 방어 특약입니다. 금전 부과 처분은 감경 확정액의 십 퍼센트 표준안과 정액 선택안을 병행하고, 징계 소청은 취소 삼백삼십만 원, 감경 이백이십만 원 확정 정액제를 적용합니다. 모두사인 전자계약 시 신용카드 빌링키 등록으로 미수금을 원천 방어하며, 대표변호사 대면 전략회의는 삼십삼만 원 유료 옵션으로 분리합니다.'
+      },
+      {
+        tab: '5.신뢰·브랜드',
+        script: '오번 안건, 삼대 신뢰 장치와 신규 도메인 설계입니다. 강남구 고문변호사 십 년, 중앙행정심판위원, 육군 군사법원장, 국민권익위원 이력을 각 트랙 전면에 적법하게 배치합니다. 기존 회생 도메인과 분리된 더와이즈로닷컴 단독 개설과 법현닷컴 병행 검토를 제안드리며, 국내 물리 격리 서버와 데이터 파기 증명 알림톡으로 비대면 신뢰를 완성합니다.'
+      },
+      {
+        tab: '6.전환율설계',
+        script: '육번 안건, 가격 저항 해체 앵커링과 오단계 퍼널 설계입니다. 삼 년 누적 손실 팔천사백만 원 대비 삼점구 퍼센트 방어비 시각 저울을 가격표 상단에 배치합니다. 무료 디데이 계산기 유입부터 통지서 한 장 우선 제출, 야간 자동 분석 중계, 결제 즉시 십오 분 착수통화 예약과 민감 단어 미표기 전표로 전 구간 이탈을 봉쇄합니다.'
+      },
+      {
+        tab: '7.정산·합의안건',
+        script: '마지막 칠번 안건, 세무 및 변호사법 준수 정산 원칙과 오대 합의 체크리스트입니다. 적격증빙 자동 발행과 이아소 전산용역 세금계산서 매입으로 법률사무소의 부가세 매입공제 절세 효과를 극대화합니다. 월 고정비 영 원에 작업 유형별 정액 기술료 원칙으로 변호사법 제삼십사조를 완벽히 준수하며 성공보수는 법현에 백 퍼센트 귀속됩니다. 우측 다섯 개 합의 안건을 확인하신 뒤 일괄 전송 버튼을 눌러주시면 됩니다.'
+      }
+    ];
+
+    let state = {
+      currentSlide: 0,
+      reviewer: '이성섭 대표변호사',
+      continuousVoice: true,
+      pins: [] // { id, slide, topic, isCoord, xPct, yPct, checked, memo }
+    };
+
+    let voicePlaying = false;
+    let submitting = false;
+    let saveStampTimer = null;
+    let toastHideTimer = null;
+    const audioEl = document.getElementById('narration-audio');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadState();
+      const sel = document.getElementById('reviewer-name');
+      if (sel) sel.value = state.reviewer;
+      updateContinuousBtnUI();
+      bindCanvasPinning();
+      showSlide(state.currentSlide, false);
+    });
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === 'object') {
+          if (typeof parsed.currentSlide === 'number' && parsed.currentSlide >= 0 && parsed.currentSlide < SLIDES.length) {
+            state.currentSlide = parsed.currentSlide;
+          }
+          if (parsed.reviewer) state.reviewer = parsed.reviewer;
+          if (typeof parsed.continuousVoice === 'boolean') state.continuousVoice = parsed.continuousVoice;
+          if (Array.isArray(parsed.pins)) state.pins = parsed.pins;
+        }
+      } catch (err) {
+        // 스토리지 접근 제한 시 메모리 상태 유지
+      }
+    }
+
+    function saveState() {
+      const statusEl = document.getElementById('save-status');
+      if (statusEl) statusEl.textContent = '저장 중...';
+
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (err) {}
+
+      if (saveStampTimer) clearTimeout(saveStampTimer);
+      saveStampTimer = setTimeout(() => {
+        if (!statusEl) return;
+        const now = new Date();
+        const hhmmss = [now.getHours(), now.getMinutes(), now.getSeconds()]
+          .map(v => String(v).padStart(2, '0'))
+          .join(':');
+        statusEl.textContent = `✓ 자동 저장됨 ${hhmmss}`;
+      }, 120);
+    }
+
+    function updateReviewer(name) {
+      state.reviewer = name;
+      saveState();
+    }
+
+    function pinsForSlide(idx) {
+      return state.pins.filter(p => p.slide === idx);
+    }
+
+    // 슬라이드 상단 요약·카드·표 행·여백 어디든 클릭 시 번호 핀 생성
+    function bindCanvasPinning() {
+      const canvas = document.getElementById('briefing-canvas');
+      if (!canvas) return;
+
+      canvas.addEventListener('click', (e) => {
+        // 외부 출처 링크(<a>) 또는 폼 요소 클릭 시 핀 생성 제외
+        if (e.target.closest('a, button, input, select, textarea')) {
+          const badgeBtn = e.target.closest('.pin-badge, .coord-pin');
+          if (badgeBtn) {
+            e.stopPropagation();
+            focusCommentInput(badgeBtn.getAttribute('data-pin-id'));
+          }
+          return;
+        }
+
+        const existingBadge = e.target.closest('.pin-badge, .coord-pin');
+        if (existingBadge) {
+          e.stopPropagation();
+          focusCommentInput(existingBadge.getAttribute('data-pin-id'));
+          return;
+        }
+
+        const activeSlideEl = document.querySelector(`.slide-view[data-slide="${state.currentSlide}"]`);
+        if (!activeSlideEl) return;
+
+        // 1) [data-topic] 지정 요소 클릭
+        const topicEl = e.target.closest('[data-topic]');
+        if (topicEl && activeSlideEl.contains(topicEl)) {
+          const topicName = topicEl.getAttribute('data-topic');
+          let pin = state.pins.find(
+            p => p.slide === state.currentSlide && !p.isCoord && p.topic === topicName
+          );
+
+          if (!pin) {
+            pin = {
+              id: 'p_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+              slide: state.currentSlide,
+              topic: topicName,
+              isCoord: false,
+              xPct: 0,
+              yPct: 0,
+              checked: false,
+              memo: ''
+            };
+            state.pins.push(pin);
+            saveState();
+          }
+
+          renderUI();
+          flashElement(topicEl);
+          focusCommentInput(pin.id);
+          return;
+        }
+
+        // 2) 카드 바깥 슬라이드 상단·여백·배경 어디든 클릭 시 자유 좌표 핀 생성
+        const rect = activeSlideEl.getBoundingClientRect();
+        if (rect.width <= 0 || rect.height <= 0) return;
+
+        const rawX = ((e.clientX - rect.left) / rect.width) * 100;
+        const rawY = ((e.clientY - rect.top) / rect.height) * 100;
+        const xPct = Math.max(1.5, Math.min(98.5, Number(rawX.toFixed(1))));
+        const yPct = Math.max(1.5, Math.min(98.5, Number(rawY.toFixed(1))));
+
+        const coordPin = {
+          id: 'c_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+          slide: state.currentSlide,
+          topic: `${state.currentSlide + 1}번 슬라이드 지정 위치`,
+          isCoord: true,
+          xPct,
+          yPct,
+          checked: false,
+          memo: ''
+        };
+
+        state.pins.push(coordPin);
+        saveState();
+        renderUI();
+        focusCommentInput(coordPin.id);
+      });
+    }
+
+    function flashElement(el) {
+      document.querySelectorAll('.pulse-ring').forEach(n => n.classList.remove('pulse-ring'));
+      el.classList.add('pulse-ring');
+      setTimeout(() => el.classList.remove('pulse-ring'), 900);
+    }
+
+    function resizeTextarea(ta) {
+      if (!ta) return;
+      ta.style.height = 'auto';
+      ta.style.height = Math.max(42, ta.scrollHeight) + 'px';
+    }
+
+    function focusCommentInput(pinId) {
+      const ta = document.getElementById(`memo-${pinId}`);
+      if (ta) {
+        ta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        ta.focus();
+        resizeTextarea(ta);
+      }
+    }
+
+    function highlightPinTarget(pinId) {
+      const pin = state.pins.find(p => p.id === pinId);
+      if (!pin || pin.isCoord) return;
+      const activeSlideEl = document.querySelector(`.slide-view[data-slide="${state.currentSlide}"]`);
+      if (!activeSlideEl) return;
+      const target = Array.from(activeSlideEl.querySelectorAll('[data-topic]'))
+        .find(el => el.getAttribute('data-topic') === pin.topic);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        flashElement(target);
+      }
+    }
+
+    function togglePinCheck(pinId) {
+      const pin = state.pins.find(p => p.id === pinId);
+      if (!pin) return;
+      pin.checked = !pin.checked;
+      saveState();
+      renderUI();
+    }
+
+    function handleMemoInput(pinId, ta) {
+      const pin = state.pins.find(p => p.id === pinId);
+      if (!pin) return;
+      pin.memo = ta.value;
+      resizeTextarea(ta);
+      saveState();
+      renderTabs();
+      updatePinCounter();
+    }
+
+    function deletePin(pinId) {
+      state.pins = state.pins.filter(p => p.id !== pinId);
+      saveState();
+      renderUI();
+    }
+
+    // 슬라이드 전환 (0 ~ 6)
+    function showSlide(idx, preserveVoice = false) {
+      if (idx < 0 || idx >= SLIDES.length) return;
+      if (!preserveVoice && voicePlaying) stopVoice();
+
+      state.currentSlide = idx;
+      saveState();
+
+      document.querySelectorAll('.slide-view').forEach((sec, i) => {
+        sec.classList.toggle('hidden', i !== idx);
+      });
+
+      const canvas = document.getElementById('briefing-canvas');
+      if (canvas) canvas.scrollTop = 0;
+
+      document.getElementById('slide-counter').textContent = `${idx + 1}/${SLIDES.length}`;
+
+      // 우측 패널 하단 버튼: 1~6번은 다음 안건 이동, 7번(idx===6)만 최종 일괄 전송 노출
+      const nextBox = document.getElementById('next-btn-box');
+      const submitBox = document.getElementById('submit-btn-box');
+      if (idx === SLIDES.length - 1) {
+        nextBox.classList.add('hidden');
+        submitBox.classList.remove('hidden');
+      } else {
+        nextBox.classList.remove('hidden');
+        submitBox.classList.add('hidden');
+        const nextBtn = document.getElementById('btn-next-agenda');
+        if (nextBtn) nextBtn.innerHTML = `<span>다음 안건으로 이동 (${idx + 2}/7) →</span>`;
+      }
+
+      renderUI();
+    }
+
+    function moveSlide(delta) {
+      const next = (state.currentSlide + delta + SLIDES.length) % SLIDES.length;
+      showSlide(next, false);
+    }
+
+    function renderUI() {
+      renderTabs();
+      renderSlidePins();
+      renderCommentPanel();
+      updatePinCounter();
+    }
+
+    function renderTabs() {
+      const nav = document.getElementById('slide-tabs');
+      if (!nav) return;
+
+      nav.innerHTML = SLIDES.map((s, idx) => {
+        const isCurrent = idx === state.currentSlide;
+        const count = pinsForSlide(idx).length;
+        const btnStyle = isCurrent
+          ? 'bg-amber-500 text-navy-950 font-extrabold shadow-xs'
+          : 'bg-navy-800 text-slate-200 hover:bg-slate-700 hover:text-white font-semibold border border-slate-700';
+        return `
+          <button type="button" onclick="showSlide(${idx}, false)"
+            class="px-2.5 py-1 rounded-md text-[11.5px] whitespace-nowrap flex items-center gap-1 transition ${btnStyle}">
+            <span>${s.tab}</span>
+            ${count > 0 ? `<span class="inline-flex items-center justify-center min-w-[15px] h-[15px] px-1 rounded-full text-[10px] font-extrabold ${isCurrent ? 'bg-navy-950 text-amber-300' : 'bg-red-500 text-white'}">${count}</span>` : ''}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderSlidePins() {
+      document.querySelectorAll('.pin-badge, .coord-pin').forEach(n => n.remove());
+      document.querySelectorAll('[data-topic]').forEach(el => {
+        el.classList.remove('topic-pinned', 'topic-checked');
+      });
+
+      const activeSlideEl = document.querySelector(`.slide-view[data-slide="${state.currentSlide}"]`);
+      if (!activeSlideEl) return;
+
+      const list = pinsForSlide(state.currentSlide);
+      list.forEach((p, i) => {
+        const num = i + 1;
+        const bgCls = p.checked ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white';
+
+        if (!p.isCoord) {
+          const targetEl = Array.from(activeSlideEl.querySelectorAll('[data-topic]'))
+            .find(el => el.getAttribute('data-topic') === p.topic);
+          if (!targetEl) return;
+
+          targetEl.classList.add(p.checked ? 'topic-checked' : 'topic-pinned');
+
+          const badge = document.createElement('span');
+          badge.setAttribute('data-pin-id', p.id);
+          badge.className = `pin-badge ${bgCls}`;
+          badge.textContent = p.checked ? `${num}✓` : `${num}`;
+
+          if (targetEl.tagName === 'TR') {
+            const lastCell = targetEl.querySelector('td:last-child');
+            if (lastCell) {
+              lastCell.style.position = 'relative';
+              lastCell.appendChild(badge);
+            }
+          } else {
+            targetEl.appendChild(badge);
+          }
+        } else {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('data-pin-id', p.id);
+          dot.style.left = `${p.xPct}%`;
+          dot.style.top = `${p.yPct}%`;
+          dot.className = `coord-pin ${bgCls}`;
+          dot.textContent = p.checked ? `${num}✓` : `${num}`;
+          activeSlideEl.appendChild(dot);
+        }
+      });
+    }
+
+    function renderCommentPanel() {
+      const container = document.getElementById('comment-list');
+      if (!container) return;
+
+      const list = pinsForSlide(state.currentSlide);
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="h-full min-h-[140px] rounded-xl border border-dashed border-slate-300 bg-slate-50/70 p-3.5 flex items-center justify-center text-center">
+            <p class="text-xs text-slate-500 leading-relaxed">
+              좌측 화면의 카드·표 행·여백 어디든 클릭하시면<br />
+              번호표(<strong class="text-navy-900">1, 2...</strong>)와 함께 의견 메모창이 열립니다.<br />
+              <span class="text-[11px] text-slate-400">(별도 메모 없이 [✓ 확인] 체크만 하셔도 됩니다)</span>
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map((p, idx) => {
+        const num = idx + 1;
+        const badgeCls = p.checked ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white';
+        const chkCls = p.checked
+          ? 'bg-emerald-600 text-white border-emerald-600'
+          : 'bg-white text-slate-600 border-slate-300 hover:border-emerald-600 hover:text-emerald-700';
+        const shortTitle = p.topic.replace(/^\d\.[^·]+·\s*/, '');
+
+        return `
+          <div class="rounded-xl border ${p.checked ? 'border-emerald-600/40 bg-emerald-50/30' : 'border-slate-200 bg-slate-50/70'} p-2 space-y-1.5">
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="highlightPinTarget('${p.id}')"
+                class="w-5 h-5 rounded-full ${badgeCls} text-[10.5px] font-extrabold flex items-center justify-center shrink-0">
+                ${num}
+              </button>
+              <span onclick="highlightPinTarget('${p.id}')"
+                class="text-[11.5px] font-bold text-navy-900 truncate flex-1 cursor-pointer" title="${escapeHtml(p.topic)}">
+                ${escapeHtml(shortTitle)}
+              </span>
+              <button type="button" onclick="togglePinCheck('${p.id}')"
+                class="px-1.5 py-0.5 rounded border text-[10.5px] font-bold shrink-0 transition ${chkCls}">
+                ✓ 확인
+              </button>
+              <button type="button" onclick="deletePin('${p.id}')"
+                class="w-5 h-5 rounded text-slate-400 hover:text-red-600 hover:bg-red-50 text-xs font-bold flex items-center justify-center shrink-0"
+                title="삭제">×</button>
+            </div>
+            <textarea id="memo-${p.id}" rows="2"
+              placeholder="의견 메모 (체크만 하셔도 됩니다)"
+              oninput="handleMemoInput('${p.id}', this)"
+              class="w-full rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs text-navy-900 placeholder:text-slate-400 focus:outline-none focus:border-navy-900 overflow-hidden resize-none">${escapeHtml(p.memo || '')}</textarea>
+          </div>
+        `;
+      }).join('');
+
+      list.forEach(p => resizeTextarea(document.getElementById(`memo-${p.id}`)));
+    }
+
+    function updatePinCounter() {
+      const badge = document.getElementById('total-pin-badge');
+      if (badge) badge.textContent = `${state.pins.length}건`;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // ==================== 음성 브리핑 (./slide0.mp3 ~ ./slide6.mp3 + Web Speech 폴백) ====================
+    function updateContinuousBtnUI() {
+      const btn = document.getElementById('btn-auto-next');
+      if (!btn) return;
+      if (state.continuousVoice) {
+        btn.textContent = '연속재생 ON';
+        btn.className = 'bg-navy-800 hover:bg-slate-700 text-amber-300 border border-amber-400/40 px-2 py-1 rounded-md text-[11px] font-bold transition';
+      } else {
+        btn.textContent = '연속재생 OFF';
+        btn.className = 'bg-navy-950 text-slate-400 border border-slate-700 px-2 py-1 rounded-md text-[11px] font-semibold transition';
+      }
+    }
+
+    function toggleContinuousMode() {
+      state.continuousVoice = !state.continuousVoice;
+      updateContinuousBtnUI();
+      saveState();
+    }
+
+    function stopVoice() {
+      voicePlaying = false;
+      audioEl.pause();
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      const lbl = document.getElementById('voice-label');
+      if (lbl) lbl.textContent = '음성 브리핑';
+    }
+
+    function toggleVoiceBriefing() {
+      if (voicePlaying) {
+        stopVoice();
+      } else {
+        voicePlaying = true;
+        const lbl = document.getElementById('voice-label');
+        if (lbl) lbl.textContent = '일시정지';
+        playSlideAudio(state.currentSlide);
+      }
+    }
+
+    function playSlideAudio(idx) {
+      if (!voicePlaying || idx >= SLIDES.length) {
+        stopVoice();
+        return;
+      }
+      showSlide(idx, true);
+      let usedFallback = false;
+
+      const handleEnded = () => {
+        if (!voicePlaying) return;
+        if (state.continuousVoice && idx + 1 < SLIDES.length) {
+          playSlideAudio(idx + 1);
+        } else {
+          stopVoice();
+        }
+      };
+
+      const speakKoreanTTS = () => {
+        if (usedFallback || !voicePlaying) return;
+        usedFallback = true;
+        if (!('speechSynthesis' in window)) {
+          stopVoice();
+          return;
+        }
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(SLIDES[idx].script);
+        utter.lang = 'ko-KR';
+        utter.pitch = 0.85;
+        utter.rate = 0.98;
+        const voices = window.speechSynthesis.getVoices().filter(v => v.lang && v.lang.includes('ko'));
+        const preferred = voices.find(v => /injoon|bongjin|male|남성/i.test(v.name)) || voices[0];
+        if (preferred) utter.voice = preferred;
+        utter.onend = handleEnded;
+        utter.onerror = () => stopVoice();
+        window.speechSynthesis.speak(utter);
+      };
+
+      audioEl.onended = handleEnded;
+      audioEl.onerror = speakKoreanTTS;
+      audioEl.src = `./slide${idx}.mp3`;
+      const playPromise = audioEl.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(speakKoreanTTS);
+      }
+    }
+
+    // ==================== 검토 요약문 생성 · 클립보드 복사 · 일괄 전송 ====================
+    function showToast(message) {
+      const banner = document.getElementById('toast-banner');
+      const txt = document.getElementById('toast-text');
+      if (!banner || !txt) return;
+      txt.textContent = message;
+      banner.classList.remove('hidden');
+      banner.classList.add('flex');
+      if (toastHideTimer) clearTimeout(toastHideTimer);
+      toastHideTimer = setTimeout(() => {
+        banner.classList.add('hidden');
+        banner.classList.remove('flex');
+      }, 2600);
+    }
+
+    function buildSummaryText() {
+      const submittedAt = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+      const lines = [
+        `[WISELAW | 법률사무소 법현 × IASO 가격 정책 및 수임 전환 협의안 검토 의견]`,
+        `- 검토자: ${state.reviewer}`,
+        `- 작성일시: ${submittedAt}`,
+        `- 총 표시 항목: ${state.pins.length}건`,
+        `--------------------------------------------------`
+      ];
+
+      SLIDES.forEach((s, idx) => {
+        const sPins = pinsForSlide(idx);
+        if (sPins.length === 0) return;
+        lines.push(`\n[${s.tab}]`);
+        sPins.forEach((p, i) => {
+          const tag = p.checked ? '[✓확인]' : '[의견]';
+          const coordNote = p.isCoord ? ` (위치 ${p.xPct}%, ${p.yPct}%)` : '';
+          const note = (p.memo && p.memo.trim()) ? p.memo.trim() : '확인 완료';
+          lines.push(`${i + 1}) ${tag} ${p.topic}${coordNote}: ${note}`);
+        });
+      });
+
+      if (state.pins.length === 0) {
+        lines.push(`\n(별도 수정 코멘트 없음 — 전체 가격·전환 제시안 방향 확인)`);
+      }
+
+      return lines.join('\n');
+    }
+
+    async function copyToClipboardSafe(text) {
+      let ok = false;
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          ok = true;
+        } catch (e) {}
+      }
+      if (!ok) {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.top = '0';
+          ta.style.left = '0';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+        } catch (e) {}
+      }
+      return ok;
+    }
+
+    async function copySummaryToClipboard() {
+      const summaryText = buildSummaryText();
+      const copied = await copyToClipboardSafe(summaryText);
+      if (copied) showToast('클립보드에 전체 의견이 복사되었습니다.');
+
+      openAppModal({
+        icon: '📋',
+        iconCls: 'bg-amber-100 text-navy-900',
+        heading: '검토 의견 텍스트 복사 완료',
+        body: '7개 안건의 검토 의견이 아래 형식으로 클립보드에 복사되었습니다.',
+        summaryText,
+        actionsHtml: `
+          <button type="button" onclick="copyFromModalBox()"
+            class="px-3.5 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-navy-950 text-xs font-extrabold">
+            📋 다시 복사
+          </button>
+          <button type="button" onclick="closeAppModal()"
+            class="px-3.5 py-1.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold">
+            닫기
+          </button>
+        `
+      });
+      document.getElementById('modal-copy-badge').textContent = copied ? '✓ 복사됨' : '선택 후 Ctrl+C';
+    }
+
+    async function copyFromModalBox() {
+      const box = document.getElementById('modal-summary-box');
+      if (!box) return;
+      const ok = await copyToClipboardSafe(box.value);
+      document.getElementById('modal-copy-badge').textContent = ok ? '✓ 복사 완료!' : 'Ctrl+C를 눌러주세요';
+      if (ok) showToast('클립보드 복사 완료');
+    }
+
+    function submitFallbackFormNewTab() {
+      const submittedAt = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+      document.getElementById('fm-reviewer').value = state.reviewer;
+      document.getElementById('fm-time').value = submittedAt;
+      document.getElementById('fm-summary').value = buildSummaryText();
+      document.getElementById('fallback-mail-form').submit();
+    }
+
+    async function submitAllOpinions() {
+      if (submitting) return;
+      submitting = true;
+
+      const btn = document.getElementById('btn-submit-all');
+      const originalHtml = btn ? btn.innerHTML : '';
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span>전송 처리 중...</span>';
+      }
+
+      const submittedAt = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+      const summaryText = buildSummaryText();
+
+      const structuredItems = state.pins.map((p, idx) => ({
+        order: idx + 1,
+        slideTab: SLIDES[p.slide] ? SLIDES[p.slide].tab : `${p.slide + 1}`,
+        topic: p.topic,
+        checked: p.checked,
+        memo: p.memo || ''
+      }));
+
+      // 1) 비차단 백업 웹훅 전송 (n8n)
+      fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          deck: 'WISELAW_Buphyun_Pricing_Strategy_7Slides',
+          reviewer: state.reviewer,
+          submittedAt,
+          totalPins: state.pins.length,
+          items: structuredItems,
+          summaryText
+        })
+      }).catch(() => {});
+
+      // 2) FormSubmit JSON 직송 (kjyoo@aksys.co.kr)
+      let delivered = false;
+      try {
+        const res = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: '[법현×IASO 가격전략 협의안] 이성섭 변호사님 검토 의견 도착',
+            _template: 'table',
+            _captcha: 'false',
+            reviewer: state.reviewer,
+            submittedAt,
+            totalItems: `${state.pins.length}건`,
+            summaryText
+          })
+        });
+        const data = await res.json().catch(() => null);
+        if (res.ok && data && (data.success === true || data.success === 'true')) {
+          delivered = true;
+        }
+      } catch (err) {
+        delivered = false;
+      }
+
+      if (delivered) {
+        await copyToClipboardSafe(summaryText);
+        showToast('검토 의견이 메일로 정상 전송되었습니다.');
+        openAppModal({
+          icon: '✓',
+          iconCls: 'bg-emerald-100 text-emerald-700',
+          heading: '검토 의견 일괄 전송 완료',
+          body: '귀한 검토 의견이 유기준 대표(kjyoo@aksys.co.kr)에게 정상 전달되었습니다. 보내주신 의견을 바탕으로 최종 협약 및 실행안을 준비하여 연락드리겠습니다.',
+          summaryText,
+          actionsHtml: `
+            <button type="button" onclick="copyFromModalBox()"
+              class="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-900 text-xs font-bold">
+              📋 내용 복사
+            </button>
+            <button type="button" onclick="closeAppModal()"
+              class="px-4 py-1.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-extrabold">
+              확인
+            </button>
+          `
+        });
+      } else {
+        // 샌드박스 프리뷰(Origin: null) 폴백: 자동 클립보드 복사 + 새 창 정식 POST 버튼 제공
+        const copied = await copyToClipboardSafe(summaryText);
+        if (copied) showToast('클립보드 자동 백업 완료');
+        openAppModal({
+          icon: '✉',
+          iconCls: 'bg-amber-100 text-amber-900',
+          heading: '검토 의견 취합 완료 · 메일 발송 확인',
+          body: '작성하신 전체 의견이 클립보드에 안전하게 복사되었습니다. 아래 [새 창에서 메일 전송 완료하기] 버튼을 누르시면 kjyoo@aksys.co.kr로 즉시 발송됩니다.',
+          summaryText,
+          actionsHtml: `
+            <button type="button" onclick="copyFromModalBox()"
+              class="px-3.5 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-navy-950 text-xs font-extrabold">
+              📋 텍스트 복사
+            </button>
+            <button type="button" onclick="submitFallbackFormNewTab()"
+              class="px-4 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold">
+              새 창에서 메일 전송 완료하기 ↗
+            </button>
+          `
+        });
+        document.getElementById('modal-copy-badge').textContent = copied ? '✓ 자동 복사 완료' : '';
+      }
+
+      submitting = false;
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = originalHtml;
+      }
+    }
+
+    // ==================== 모달 제어 (alert / confirm 대체) ====================
+    function openAppModal({ icon, iconCls, heading, body, summaryText = '', actionsHtml = '' }) {
+      const modal = document.getElementById('app-modal');
+      const iconEl = document.getElementById('modal-icon');
+      iconEl.className = `w-7 h-7 rounded-full font-extrabold text-xs flex items-center justify-center shrink-0 ${iconCls}`;
+      iconEl.textContent = icon;
+      document.getElementById('modal-heading').textContent = heading;
+      document.getElementById('modal-body').textContent = body;
+
+      const wrap = document.getElementById('modal-textarea-wrap');
+      const box = document.getElementById('modal-summary-box');
+      document.getElementById('modal-copy-badge').textContent = '';
+
+      if (summaryText) {
+        wrap.classList.remove('hidden');
+        box.value = summaryText;
+      } else {
+        wrap.classList.add('hidden');
+        box.value = '';
+      }
+
+      document.getElementById('modal-actions').innerHTML = actionsHtml;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeAppModal() {
+      const modal = document.getElementById('app-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function openResetModal() {
+      openAppModal({
+        icon: '!',
+        iconCls: 'bg-red-100 text-red-700',
+        heading: '작성 의견 전체 초기화',
+        body: '1번부터 7번 안건까지 표시된 모든 번호표와 메모를 초기화하시겠습니까?',
+        summaryText: '',
+        actionsHtml: `
+          <button type="button" onclick="closeAppModal()"
+            class="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold">취소</button>
+          <button type="button" onclick="confirmClearAll()"
+            class="px-3.5 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-extrabold">초기화</button>
+        `
+      });
+    }
+
+    function confirmClearAll() {
+      state.pins = [];
+      saveState();
+      renderUI();
+      closeAppModal();
+    }
+  </script>
+<script id="iasoMp3Patch">(function(){var a=new Audio();if(window.speechSynthesis){var c=window.speechSynthesis.cancel.bind(window.speechSynthesis);window.speechSynthesis.cancel=function(){a.pause();a.currentTime=0;c();};window.speechSynthesis.speak=function(u){c();var i=(typeof curSlide==="number")?curSlide:0;a.src="slide"+i+".mp3";a.onended=function(){if(u&&u.onend)u.onend();};a.onerror=function(){if(u&&u.onerror)u.onerror();};a.play().catch(function(){if(u&&u.onerror)u.onerror();});};}})();</script></body>
+</html>
